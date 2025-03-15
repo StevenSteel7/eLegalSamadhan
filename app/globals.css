@@ -2,11 +2,11 @@
 
 @layer components {
   .nav-link {
-    @apply relative font-bold px-3 py-2 text-white hover:text-orange-400 transition-colors;
+    @apply relative font-bold px-3 py-2 text-white hover:text-orange-500 transition-colors;
   }
   
   .nav-link::after {
-    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-orange-400 transition-all duration-300;
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300;
   }
   
   .nav-link:hover::after {
