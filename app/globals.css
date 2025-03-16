@@ -6,10 +6,14 @@
   }
   
   .nav-link::after {
-    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300;
+    @apply /* content-[''] */ absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300;
   }
   
   .nav-link:hover::after {
     @apply w-full;
   }
+}
+
+.dropdown-higlight {
+  @apply hover:text-orange-600 transition-all duration-200;
 }
