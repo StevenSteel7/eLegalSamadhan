@@ -41,13 +41,13 @@ const NavBar = () => {
                       className="absolute left-0 mt-2  w-md hover:bg-gray-100
                               bg-white shadow-xl rounded-md z-50 text-black opacity-0 invisible group-hover:opacity-100 
                                 group-hover:visible duration-300 ease-in-out">
-                  <div className="grid grid-cols-3 gap-4 p-2 ">
+                  <div className="grid grid-cols-3 gap-4 p-2">
                     {/* Legal Registration Column */}
                     <div className="p-4 w-md ">
                       <h3 className="font-bold text-lg mb-2 uppercase">Legal Samadhan for:</h3>
                       <ul className="space-y-2">
                         <li><Link href="/msme-reg" className="dropdown-higlight">MSME Registered Proprietorship</Link></li>
-                        <li><Link href="/private-limited" className="dropdown-higlight">Consumer matters</Link></li>
+                        <li><Link href="/comsumer-matters" className="dropdown-higlight">Consumer matters</Link></li>
                         <li><Link href="/opc" className="dropdown-higlight">Arbitration Matters</Link></li>
                         <li><Link href="/llp" className="dropdown-higlight">RERA Matters</Link></li>
                         <li><Link href="/section-8" className="dropdown-higlight">Trademark Issues</Link></li>

@@ -1,0 +1,485 @@
+import React from "react";
+import {
+  ClipboardList,
+  Clock,
+  DollarSign,
+  FileText,
+  Gavel,
+  Globe,
+  UserCheck,
+  Banknote,
+  BarChart,
+  BookOpen,
+  CreditCard,
+  Currency,
+  FileBarChart,
+  FileCheck,
+  Handshake,
+  IdCard,
+  Leaf,
+  ListOrdered,
+  RefreshCw,
+  ShieldCheck,
+  Frown,
+  TrendingDown,
+  AlertCircle,
+  Mail,
+  Clipboard,
+} from "lucide-react";
+
+const page = () => {
+  return (
+    <div>
+      <div
+        className="relative min-h-[50vh] bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/disputes.jpg')" }}
+      >
+        {/* Semi-transparent overlay to improve text readability */}
+        <div className="absolute inset-0 bg-black opacity-50 ">
+          <section className="relative z-10 flex flex-col justify-center items-center text-white  min-h-[50vh] px-4">
+            <div className="max-w-7xl mx-auto text-center">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
+                E-Legal Samadhan | Justice is Served!
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-200 mb-8 drop-shadow-md">
+                Resolve Consumer Disputes effortlessly with our Expert Legal
+                Assistance!
+              </p>
+             
+            </div>
+          </section>
+        </div>
+      </div>
+
+      {/* Hero */}
+
+        {/* Content Section */}
+        <div className="bg-gray-100 py-12">
+            <div className="max-w-7xl mx-auto px-4">
+                {/* Headline */}
+                <div className="text-center mb-10">
+                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+                        Consumer Complaints | Hassle-Free Legal Assistance
+                    </h1>
+                    <p>
+                    <p className=" text-gray-600 mt-2">
+                        Get provide legal assistance to consumers who have been victims of unfair trade practices, defective goods, or deficient services. We assist in filing consumer complaints, choosing the right advocate, and monitoring the progress of your case in consumer courts across India. Our goal is to provide hassle-free and cost-effective solutions for consumer grievances.
+                    </p>
+                    </p>
+                </div>
+
+
+            <div id='Dispute resolution and form container' className="flex flex-wrap " > 
+                <div  className="max-w-7xl mx-auto p-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                        {/* Form Section */}
+                        <div id="Form Section" className="bg-white p-6 shadow-lg rounded-2xl max-w-2xl w-full">
+                        <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                            Need Help with Public Limited Company Registration?
+                        </h2>
+                        <p className="text-gray-600 mb-4">Fill up the below-mentioned form</p>
+
+                        <form>
+                            <div className="mb-4">
+                            <label className="block text-gray-700 font-medium mb-1">Name *</label>
+                            <input type="text" placeholder="Your Name" className="w-full border rounded px-3 py-2" />
+                            </div>
+
+                            <div className="mb-4">
+                            <label className="block text-gray-700 font-medium mb-1">Email *</label>
+                            <input type="email" placeholder="Your Email Address" className="w-full border rounded px-3 py-2" />
+                            </div>
+
+                            <div className="mb-4">
+                            <label className="block text-gray-700 font-medium mb-1">Mobile *</label>
+                            <input type="text" placeholder="Your Phone Number (Without 0 or +91)" className="w-full border rounded px-3 py-2" />
+                            </div>
+
+                            <div className="mb-4">
+                            <label className="block text-gray-700 font-medium mb-1">State *</label>
+                            <select className="w-full border rounded px-3 py-2">
+                                <option>Select State</option>
+                                <option>Maharashtra</option>
+                                <option>Karnataka</option>
+                                <option>Tamil Nadu</option>
+                                <option>Delhi</option>
+                            </select>
+                            </div>
+
+                            <div className="flex items-start mb-4">
+                            <input type="checkbox" id="terms" className="mr-2" />
+                            <label htmlFor="terms" className="text-gray-600 text-sm">
+                                I have read & agreed to the company's Terms and Conditions, disclaimer, and refund policy.
+                            </label>
+                            </div>
+
+                            <button className="w-full bg-green-600 text-white py-2 rounded text-lg font-semibold hover:bg-green-700">
+                            Request for Call Back
+                            </button>
+                        </form>
+                        </div>
+
+                    {/* Dispute Resolution Process */}
+                        <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-4xl mx-auto">
+                            {/* Card Header */}
+                            <h1 className="text-2xl pb-6 font-bold text-gray-800 text-center mb-4">Our Dispute Resolution Process</h1>
+
+                            {/* Steps Grid */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                    <span className="text-xl mr-3">📝</span>
+                                    <div>
+                                        <h2 className="font-bold text-lg text-blue-900">Free Case Evaluation</h2>
+                                        <p className="text-gray-700 text-sm">Share your issue and get a legal assessment.</p>
+                                    </div>
+                                </div>
+
+                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                    <span className="text-xl mr-3">📄</span>
+                                    <div>
+                                        <h2 className="font-bold text-lg text-blue-900">Documentation & Drafting</h2>
+                                        <p className="text-gray-700 text-sm">Prepare a strong complaint with evidence.</p>
+                                    </div>
+                                </div>
+
+                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                    <span className="text-xl mr-3">⚖</span>
+                                    <div>
+                                        <h2 className="font-bold text-lg text-blue-900">Filing the Complaint</h2>
+                                        <p className="text-gray-700 text-sm">Submit your case to the relevant forum.</p>
+                                    </div>
+                                </div>
+
+                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                    <span className="text-xl mr-3">👨‍⚖️</span>
+                                    <div>
+                                        <h2 className="font-bold text-lg text-blue-900">Legal Representation</h2>
+                                        <p className="text-gray-700 text-sm">Get the best advocate for your case.</p>
+                                    </div>
+                                </div>
+
+                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                    <span className="text-xl mr-3">🔍</span>
+                                    <div>
+                                        <h2 className="font-bold text-lg text-blue-900">Regular Case Monitoring</h2>
+                                        <p className="text-gray-700 text-sm">Track hearings and receive timely updates.</p>
+                                    </div>
+                                </div>
+
+                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                    <span className="text-xl mr-3">✅</span>
+                                    <div>
+                                        <h2 className="font-bold text-lg text-blue-900">Case Resolution</h2>
+                                        <p className="text-gray-700 text-sm">Seek compensation or legal remedies.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div id='Costumer case and Docs req container' className="grid md:grid-cols-2 gap-8 justify-items-center w-full p-4">
+                    
+                {/* Types of Consumer Cases */}
+                <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-4xl mx-auto">
+                    {/* Title Section */}
+                    <div className="flex justify-center pb-4">
+                        <h1 className="text-2xl font-bold text-gray-800 text-center">
+                            Types of Consumer Cases
+                        </h1>
+                    </div>
+
+
+                    {/* Cases Grid */}
+                    <div className="grid md:grid-cols-2 gap-6 text-gray-700">
+                        {/* Defective Goods */}
+                        <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                            <div className="flex items-center mb-2">
+                                <span className="text-2xl mr-3">📦</span>
+                                <h2 className="text-lg font-bold text-blue-900">Defective Goods</h2>
+                            </div>
+                            <p className="text-gray-700 text-sm">Faulty, damaged, or substandard products sold without proper quality assurance.</p>
+                        </div>
+
+                        {/* Deficient Services */}
+                        <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                            <div className="flex items-center mb-2">
+                                <span className="text-2xl mr-3">📄</span>
+                                <h2 className="text-lg font-bold text-blue-900">Deficient Services</h2>
+                            </div>
+                            <p className="text-gray-700 text-sm">Poor service by banks, telecom, hospitality, real estate, or any service provider failing to meet expectations.</p>
+                        </div>
+
+                        {/* Online Fraud */}
+                        <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                            <div className="flex items-center mb-2">
+                                <span className="text-2xl mr-3">💳</span>
+                                <h2 className="text-lg font-bold text-blue-900">Online Fraud</h2>
+                            </div>
+                            <p className="text-gray-700 text-sm">Payment failures, unauthorized transactions, fake e-commerce deals, or digital fraud cases.</p>
+                        </div>
+
+                        {/* Real Estate Issues */}
+                        <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                            <div className="flex items-center mb-2">
+                                <span className="text-2xl mr-3">🏠</span>
+                                <h2 className="text-lg font-bold text-blue-900">Real Estate Issues</h2>
+                            </div>
+                            <p className="text-gray-700 text-sm">Delayed possession, poor construction quality, or misrepresentation of real estate agreements.</p>
+                        </div>
+
+                        {/* Medical Negligence */}
+                        <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                            <div className="flex items-center mb-2">
+                                <span className="text-2xl mr-3">💉</span>
+                                <h2 className="text-lg font-bold text-blue-900">Medical Negligence</h2>
+                            </div>
+                            <p className="text-gray-700 text-sm">Cases involving malpractice, misdiagnosis, overcharging, or substandard medical treatment.</p>
+                        </div>
+
+                        {/* Automobile Complaints */}
+                        <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                            <div className="flex items-center mb-2">
+                                <span className="text-2xl mr-3">🚗</span>
+                                <h2 className="text-lg font-bold text-blue-900">Automobile Complaints</h2>
+                            </div>
+                            <p className="text-gray-700 text-sm">Defective vehicles, unfair service charges, or failure in warranty claims.</p>
+                        </div>
+                    </div>
+                </div>
+
+                    
+                    {/* Documents Required for Filing a Consumer Case */}
+                    <div id="Documents Required" className="p-6 mx-auto bg-slate-50 group rounded-2xl shadow-lg max-w-4xl">
+                        {/* Title Section */}
+                        <div className="p-8 mx-auto rounded-2xl md:col-span-2 sm:col-span-1">
+                                <div className="flex justify-center group cursor-pointer">
+                                    <span className="text-2xl font-bold text-center text-gray-800 mb-4">
+                                        Documents
+                                    </span>
+                                    <span className="text-2xl font-bold text-center text-gray-800 mb-4 px-3 transition-all duration-300 group-hover:text-emerald-500">
+                                        Required
+                                    </span>
+                                </div>
+                            <div className="w-16 h-1 bg-green-500 mx-auto mb-6 group-hover:w-2xs transform duration-200"></div>
+                        </div>
+
+                     
+                        {/* Documents Grid */}
+                        <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6 text-center">
+                            {/* Purchase Receipt/Bill */}
+                            <div className="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                                <div className="w-14 h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-3">
+                                    <FileText className="w-8 h-8 text-yellow-500" />
+                                </div>
+                                <h3 className="text-lg font-semibold text-gray-800">Purchase Receipt/Bill</h3>
+                                <p className="text-gray-600 text-sm">Proof of transaction with the seller.</p>
+                            </div>
+
+                            {/* Warranty Card */}
+                            <div className="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                                <div className="w-14 h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-3">
+                                    <CreditCard className="w-8 h-8 text-yellow-500" />
+                                </div>
+                                <h3 className="text-lg font-semibold text-gray-800">Warranty Card</h3>
+                                <p className="text-gray-600 text-sm">For disputes related to product defects.</p>
+                            </div>
+
+                            {/* Communication Records */}
+                            <div className="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                                <div className="w-14 h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-3">
+                                    <Mail className="w-8 h-8 text-yellow-500" />
+                                </div>
+                                <h3 className="text-lg font-semibold text-gray-800">Communication Records</h3>
+                                <p className="text-gray-600 text-sm">Emails, SMS, or chat records of complaints.</p>
+                            </div>
+
+                            {/* Agreement/Contract Copy */}
+                            <div className="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                                <div className="w-14 h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-3">
+                                    <FileText className="w-8 h-8 text-yellow-500" />
+                                </div>
+                                <h3 className="text-lg font-semibold text-gray-800">Agreement/Contract Copy</h3>
+                                <p className="text-gray-600 text-sm">For disputes in services like real estate or telecom.</p>
+                            </div>
+
+                            {/* Bank Statements */}
+                            <div className="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                                <div className="w-14 h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-3">
+                                    <Banknote className="w-8 h-8 text-yellow-500" />
+                                </div>
+                                <h3 className="text-lg font-semibold text-gray-800">Bank Statements</h3>
+                                <p className="text-gray-600 text-sm">Proof of payment for goods or services.</p>
+                            </div>
+
+                            {/* Affidavit & Complaint Draft */}
+                            <div className="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                                <div className="w-14 h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-3">
+                                    <Clipboard className="w-8 h-8 text-yellow-500" />
+                                </div>
+                                <h3 className="text-lg font-semibold text-gray-800">Affidavit & Complaint Draft</h3>
+                                <p className="text-gray-600 text-sm">A formal legal document stating the grievance.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+                    
+            {/* Why Choose US ... using the odering property*/}
+            <div className="bg-gray-100 py-12">
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="grid md:grid-cols-2 gap-8 justify-items-center">
+                        {/* // its value is of 2 cols */}
+                        <div id="Why Choose US" className="group col-span-2 bg-slate-50 rounded-2xl p-8">
+                            {/* Title Section */}
+                            <div className="p-8 mx-auto rounded-2xl md:col-span-2 sm:col-span-1">
+                                <div className="flex justify-center group cursor-pointer">
+                                    <span className="text-3xl font-bold text-center text-gray-800 mb-4">
+                                        Why Choose
+                                    </span>
+                                    <span className="text-3xl font-bold text-center text-gray-800 mb-4 px-3 transition-all duration-300 group-hover:text-emerald-500">
+                                        US?
+                                    </span>
+                                </div>
+                                <div className="w-16 h-1 bg-green-500 mx-auto mb-6 group-hover:w-xs transform duration-200"></div>
+                            </div>
+
+                            {/* Features Grid - Modified for center-out arrangement */}
+                            <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8 text-center">
+                                {/* Using CSS order to arrange items from center out */}
+                                
+                                {/* Center item - will show last or as the center element */}
+                                <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center order-4 md:col-start-2 md:row-start-2">
+                                    <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4">
+                                        <Globe className="w-10 h-10 text-yellow-500" />
+                                    </div>
+                                    <h3 className="text-lg font-semibold text-gray-800">
+                                        Pan-India Services
+                                    </h3>
+                                    <p className="text-gray-600 mt-2">
+                                        File consumer complaints in district, state, or national
+                                        consumer courts.
+                                    </p>
+                                </div>
+                                
+                                {/* Items arranged around center */}
+                                <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center order-1 md:col-start-1 md:row-start-1">
+                                    <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4">
+                                        <Gavel className="w-10 h-10 text-yellow-500" />
+                                    </div>
+                                    <h3 className="text-lg font-semibold text-gray-800">
+                                        Expert Legal Assistance
+                                    </h3>
+                                    <p className="text-gray-600 mt-2">
+                                        Get professional help in filing your case before the
+                                        consumer court.
+                                    </p>
+                                </div>
+
+                                <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center order-2 md:col-start-2 md:row-start-1">
+                                    <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4">
+                                        <FileText className="w-10 h-10 text-yellow-500" />
+                                    </div>
+                                    <h3 className="text-lg font-semibold text-gray-800">
+                                        Hassle-Free Documentation
+                                    </h3>
+                                    <p className="text-gray-600 mt-2">
+                                        We assist in preparing and submitting all necessary
+                                        documents.
+                                    </p>
+                                </div>
+
+                                <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center order-3 md:col-start-3 md:row-start-1">
+                                    <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4">
+                                        <UserCheck className="w-10 h-10 text-yellow-500" />
+                                    </div>
+                                    <h3 className="text-lg font-semibold text-gray-800">
+                                        Top Advocate Selection
+                                    </h3>
+                                    <p className="text-gray-600 mt-2">
+                                        Choose from a panel of experienced consumer lawyers.
+                                    </p>
+                                </div>
+
+                                <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center order-5 md:col-start-1 md:row-start-2">
+                                    <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4">
+                                        <ClipboardList className="w-10 h-10 text-yellow-500" />
+                                    </div>
+                                    <h3 className="text-lg font-semibold text-gray-800">
+                                        Case Monitoring & Updates
+                                    </h3>
+                                    <p className="text-gray-600 mt-2">
+                                        Stay informed about every stage of your case.
+                                    </p>
+                                </div>
+
+                                <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center order-6 md:col-start-3 md:row-start-2">
+                                    <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4">
+                                        <Clock className="w-10 h-10 text-yellow-500" />
+                                    </div>
+                                    <h3 className="text-lg font-semibold text-gray-800">
+                                        Fast & Effective Resolution
+                                    </h3>
+                                    <p className="text-gray-600 mt-2">
+                                        We ensure timely filing and tracking to speed up the legal
+                                        process.
+                                    </p>
+                                </div>
+                                <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center order-7 md:col-start-2 md:row-start-3">
+                                    <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4">
+                                        <DollarSign className="w-10 h-10 text-yellow-500" />
+                                    </div>
+                                    <h3 className="text-lg font-semibold text-gray-800">
+                                        Compensation & Refunds
+                                    </h3>
+                                    <p className="text-gray-600 mt-2">
+                                        Seek monetary compensation for loss, mental agony, or
+                                        damages.
+                                    </p>
+                                </div>
+
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          
+
+
+
+          {/* Call to Action */}
+          <div className="text-center mt-10">
+            <h2 className="text-2xl font-bold text-gray-800">
+              Get Legal Help Today!
+            </h2>
+            <p className="text-gray-600 mt-2">
+              Register your complaint with E-Legal Samadhan and seek justice.
+            </p>
+            <button className="mt-4 px-6 py-3 bg-green-600 text-white text-lg rounded-lg hover:bg-green-700">
+              File Your Complaint
+            </button>
+          </div>
+       
+        </div>
+
+
+      
+   
+
+
+      
+    </div>
+  );
+};
+
+export default page;

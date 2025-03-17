@@ -17,3 +17,7 @@
 .dropdown-higlight {
   @apply hover:text-orange-600 transition-all duration-200;
 }
+
+.hover-card {
+  @apply w-xs p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center;
+}

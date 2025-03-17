@@ -2,18 +2,25 @@ import { div } from "framer-motion/client";
 import {
   Banknote,
   BarChart,
+  BookOpen,
   ClipboardList,
+  Clock,
   CreditCard,
+  FileBarChart,
+  FileCheck,
   FileText,
+  Handshake,
   IdCard,
+  Leaf,
   ListOrdered,
+  RefreshCw,
   ShieldCheck,
 } from "lucide-react";
 import React from "react";
 
 const Page = () => {
   return (
-    <div>
+  <div>
       <div
         className="relative min-h-[50vh] bg-cover bg-center"
         style={{ backgroundImage: "url('/images/Msme-Registration.jpg')" }}
@@ -49,9 +56,11 @@ const Page = () => {
           </div>
 
           {/* Content Section */}
-          <div className=" grid md:grid-cols-2 gap-8 items-start">
+          <div className=" grid md:grid-cols-2 gap-8  justify-items-center "> 
+            
+            
             {/* Left Side - Form Section */}
-            <div id = 'Form Section' className="bg-white p-6 shadow-lg rounded-2xl">
+            <div id = 'Form Section' className="bg-white p-6 shadow-lg rounded-2xl  ">
               <h2 className="text-xl font-semibold text-gray-800 mb-4">
                 Need Help with Public Limited Company Registration?
               </h2>
@@ -120,9 +129,7 @@ const Page = () => {
               </form>
             </div>
 
-
-            <div id="msme-benefits"
-              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <div id="msme-benefits" className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ">
               {/* Header Section */}
               <div className="flex items-center space-x-3">
                 {/* Icon Container */}
@@ -196,16 +203,21 @@ const Page = () => {
                   </p>
                 </div>
               </div>
-            </div>
-
-            <div
-              id="Documents Required"
-              className="container mx-auto p-8 w-screen bg-slate-50 rounded-2xl"
-            >
+            </div>  
+                                                     {/* // its value is of 2 cols */}
+            <div id="Documents Required" className=" p-8  mx-auto  bg-slate-50 rounded-2xl  md:col-span-2 sm:col-span-1">
               {/* Title Section */}
-              <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
-                Documents Required
-              </h2>
+             
+              <div className="flex justify-center group cursor-pointer ">
+                <span className="text-2xl font-bold text-center text-gray-800 mb-4">
+                    Documents  
+                </span>
+                <span className="text-2xl font-bold text-center text-gray-800 mb-4 px-3 transition-all duration-300  group-hover:text-emerald-500">
+                    Required 
+                </span>
+              </div>
+
+
               <div className="w-16 h-1 bg-green-500 mx-auto mb-6"></div>
 
               {/* Documents Grid */}
@@ -291,10 +303,139 @@ const Page = () => {
                 </div>
               </div>
             </div>
+
           </div>
-        </div>
+
+          <div className="py-2"></div>
+
+          <div className="bg-white p-6 rounded-xl shadow-md">
+            {/* Header */}
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                <FileBarChart className="w-6 h-6 text-yellow-500" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">Compliances Required After Registration</h3>
+            </div>
+
+            {/* Condensed List */}
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-center space-x-2">
+                <FileBarChart className="w-5 h-5 text-yellow-500" />
+                <span><strong>Annual Submission</strong> – Report turnover & investment details on the Udyam portal.</span>
+              </li>
+
+              <li className="flex items-center space-x-2">
+                <FileCheck className="w-5 h-5 text-yellow-500" />
+                <span><strong>Tax Compliance</strong> – Timely filing of Income Tax Returns (ITR) and GST returns.</span>
+              </li>
+
+              <li className="flex items-center space-x-2">
+                <Clock className="w-5 h-5 text-yellow-500" />
+                <span><strong>Delayed Payment Reporting</strong> – File MSME-1 form with MCA to report delayed payments.</span>
+              </li>
+
+              <li className="flex items-center space-x-2">
+                <RefreshCw className="w-5 h-5 text-yellow-500" />
+                <span><strong>Update Business Info</strong> – Modify Udyam registration details for structural changes.</span>
+              </li>
+
+              <li className="flex items-center space-x-2">
+                <BookOpen className="w-5 h-5 text-yellow-500" />
+                <span><strong>Financial Records</strong> – Maintain proper accounting records & financial statements.</span>
+              </li>
+
+              <li className="flex items-center space-x-2">
+                <Leaf className="w-5 h-5 text-yellow-500" />
+                <span><strong>Regulatory Compliance</strong> – Ensure compliance with environmental & labor laws.</span>
+              </li>
+
+              <li className="flex items-center space-x-2">
+                <Handshake className="w-5 h-5 text-yellow-500" />
+                <span><strong>Subsidy & Loans</strong> – Participate in MSME subsidy & loan schemes as per eligibility.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div id='Compliances Required After Registration' className="container mx-auto p-8">
+            
+            {/* Title Section */}
+            <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
+              Compliances Required After Registration
+            </h2>
+            
+            <div className="w-16 h-1 bg-green-500 mx-auto mb-6"></div>
+
+            {/* Compliance Grid */}
+            <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8 text-center">
+              
+              {/* Business Turnover Submission */}
+              <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4">
+                  <FileBarChart className="w-10 h-10 text-yellow-500" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-800">Annual Submission</h3>
+                <p className="text-gray-600 mt-2">Report turnover & investment details on the Udyam portal.</p>
+              </div>
+
+            {/* ITR & GST Filing */}
+            <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+              <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4">
+                <FileCheck className="w-10 h-10 text-yellow-500" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">Tax Compliance</h3>
+              <p className="text-gray-600 mt-2">Timely filing of Income Tax Returns (ITR) and GST returns.</p>
+            </div>
+
+            {/* MSME-1 Form Filing */}
+            <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+              <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4">
+                <Clock className="w-10 h-10 text-yellow-500" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">Delayed Payment Reporting</h3>
+              <p className="text-gray-600 mt-2">File MSME-1 form with MCA to report delayed payments.</p>
+            </div>
+
+            {/* Updating Udyam Details */}
+            <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+              <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4">
+                <RefreshCw className="w-10 h-10 text-yellow-500" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">Update Business Info</h3>
+              <p className="text-gray-600 mt-2">Modify Udyam registration details for structural changes.</p>
+            </div>
+
+            {/* Proper Accounting Records */}
+            <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+              <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4">
+                <BookOpen className="w-10 h-10 text-yellow-500" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">Financial Records</h3>
+              <p className="text-gray-600 mt-2">Maintain proper accounting records & financial statements.</p>
+            </div>
+
+            {/* Environmental & Labor Compliance */}
+            <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+              <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4">
+                <Leaf className="w-10 h-10 text-yellow-500" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">Regulatory Compliance</h3>
+              <p className="text-gray-600 mt-2">Ensure compliance with environmental & labor laws.</p>
+            </div>
+
+            {/* MSME Subsidy & Loan Participation */}
+            <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+              <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4">
+                <Handshake className="w-10 h-10 text-yellow-500" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">Subsidy & Loans</h3>
+              <p className="text-gray-600 mt-2">Participate in MSME subsidy & loan schemes as per eligibility.</p>
+            </div>
+
+            </div>
       </div>
     </div>
+      </div>
+  </div>
   );
 };
 
