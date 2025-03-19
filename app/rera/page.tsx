@@ -25,6 +25,11 @@ import {
   AlertCircle,
   Mail,
   Clipboard,
+  Camera,
+  Hourglass,
+  Building2,
+  ScrollText,
+  CheckCircle,
 } from "lucide-react";
 
 const page = () => {
@@ -39,14 +44,12 @@ const page = () => {
         <div className="absolute inset-0 bg-black opacity-50 ">
             <section className="relative z-10 flex flex-col justify-center items-center text-white  min-h-[50vh] px-4">
             <div className="max-w-7xl mx-auto text-center">
-                <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
-                E-Legal Samadhan | Justice is Served!
+                <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
+                    RERA Matters | Protect Your Rights!
                 </h1>
-                <p className="text-xl md:text-2xl text-gray-200 mb-8 drop-shadow-md">
-                Resolve Consumer Disputes effortlessly with our Expert Legal
-                Assistance!
+                <p className="text-xl md:text-2xl text-gray-700 mt-4 drop-shadow-md">
+                    Secure Your Investment & Hold Builders Accountable with Expert Legal Assistance!
                 </p>
-                
             </div>
             </section>
         </div>
@@ -68,7 +71,7 @@ const page = () => {
 
                 </div>
 
-                <div id='Dispute resolution and form container' className="flex flex-wrap " > 
+                <div id='Docs Req and form container' className="flex flex-wrap " > 
                     <div  className="max-w-7xl mx-auto p-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
@@ -119,213 +122,272 @@ const page = () => {
                             </form>
                             </div>
 
-                        {/* Dispute Resolution Process */}
-                            <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-4xl mx-auto">
-                                {/* Card Header */}
-                                <h1 className="text-2xl pb-6 font-bold text-gray-800 text-center mb-4">Our Dispute Resolution Process</h1>
-
-                                {/* Steps Grid */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                        <span className="text-xl mr-3">📝</span>
-                                        <div>
-                                            <h2 className="font-bold text-lg text-blue-900">Free Case Evaluation</h2>
-                                            <p className="text-gray-700 text-sm">Share your issue and get a legal assessment.</p>
-                                        </div>
+                            {/* Documents Required for Filing a Consumer Case */}
+                            <div id="Documents Required" className="p-4 sm:p-6 mx-auto bg-slate-50 group rounded-2xl shadow-lg max-w-4xl w-full">
+                                {/* Title Section */}
+                                <div className="p-6 sm:p-8 mx-3xl rounded-2xl text-center">
+                                    <div className="flex justify-center group cursor-pointer">
+                                        <span className="text-2xl sm:text-3xl font-bold text-gray-800">Documents</span>
+                                        <span className="text-2xl sm:text-3xl font-bold text-gray-800 px-2 sm:px-3 transition-all duration-300 group-hover:text-emerald-500">
+                                            Required
+                                        </span>
                                     </div>
+                                    <div className="w-12 sm:w-16 h-1 bg-green-500 mx-auto mb-6 group-hover:w-2xs transition-all duration-200"></div>
+                                </div>
 
-                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                        <span className="text-xl mr-3">📄</span>
-                                        <div>
-                                            <h2 className="font-bold text-lg text-blue-900">Documentation & Drafting</h2>
-                                            <p className="text-gray-700 text-sm">Prepare a strong complaint with evidence.</p>
+                                {/* Documents Grid */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 text-center">
+                                    <div className="p-3 sm:p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                                        <div className="w-12 sm:w-14 h-12 sm:h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-2 sm:mb-3">
+                                            <FileText className="w-6 sm:w-8 h-6 sm:h-8 text-yellow-500" />
                                         </div>
+                                        <h3 className="text-base sm:text-lg font-semibold text-gray-800">Builder-Buyer Agreement</h3>
+                                        <p className="text-gray-600 text-xs sm:text-sm">A copy of the signed agreement with the builder.</p>
                                     </div>
-
-                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                        <span className="text-xl mr-3">⚖</span>
-                                        <div>
-                                            <h2 className="font-bold text-lg text-blue-900">Filing the Complaint</h2>
-                                            <p className="text-gray-700 text-sm">Submit your case to the relevant forum.</p>
+                                    <div className="p-3 sm:p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                                        <div className="w-12 sm:w-14 h-12 sm:h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-2 sm:mb-3">
+                                            <Clipboard className="w-6 sm:w-8 h-6 sm:h-8 text-yellow-500" />
                                         </div>
+                                        <h3 className="text-base sm:text-lg font-semibold text-gray-800">Allotment Letter</h3>
+                                        <p className="text-gray-600 text-xs sm:text-sm">Proof of the builder’s commitment to deliver the property.</p>
                                     </div>
-
-                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                        <span className="text-xl mr-3">👨‍⚖️</span>
-                                        <div>
-                                            <h2 className="font-bold text-lg text-blue-900">Legal Representation</h2>
-                                            <p className="text-gray-700 text-sm">Get the best advocate for your case.</p>
+                                    <div className="p-3 sm:p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                                        <div className="w-12 sm:w-14 h-12 sm:h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-2 sm:mb-3">
+                                            <CreditCard className="w-6 sm:w-8 h-6 sm:h-8 text-yellow-500" />
                                         </div>
+                                        <h3 className="text-base sm:text-lg font-semibold text-gray-800">Payment Receipts</h3>
+                                        <p className="text-gray-600 text-xs sm:text-sm">Receipts of payments made to the builder.</p>
                                     </div>
-
-                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                        <span className="text-xl mr-3">🔍</span>
-                                        <div>
-                                            <h2 className="font-bold text-lg text-blue-900">Regular Case Monitoring</h2>
-                                            <p className="text-gray-700 text-sm">Track hearings and receive timely updates.</p>
+                                    <div className="p-3 sm:p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                                        <div className="w-12 sm:w-14 h-12 sm:h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-2 sm:mb-3">
+                                            <Banknote className="w-6 sm:w-8 h-6 sm:h-8 text-yellow-500" />
                                         </div>
+                                        <h3 className="text-base sm:text-lg font-semibold text-gray-800">Loan Approval Documents</h3>
+                                        <p className="text-gray-600 text-xs sm:text-sm">If the property is purchased through a home loan.</p>
                                     </div>
-
-                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                        <span className="text-xl mr-3">✅</span>
-                                        <div>
-                                            <h2 className="font-bold text-lg text-blue-900">Case Resolution</h2>
-                                            <p className="text-gray-700 text-sm">Seek compensation or legal remedies.</p>
+                                    <div className="p-3 sm:p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                                        <div className="w-12 sm:w-14 h-12 sm:h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-2 sm:mb-3">
+                                            <Mail className="w-6 sm:w-8 h-6 sm:h-8 text-yellow-500" />
                                         </div>
+                                        <h3 className="text-base sm:text-lg font-semibold text-gray-800">Possession Delay Notices</h3>
+                                        <p className="text-gray-600 text-xs sm:text-sm">Any communication regarding possession delays.</p>
+                                    </div>
+                                    <div className="p-3 sm:p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                                        <div className="w-12 sm:w-14 h-12 sm:h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-2 sm:mb-3">
+                                            <Camera className="w-6 sm:w-8 h-6 sm:h-8 text-yellow-500" />
+                                        </div>
+                                        <h3 className="text-base sm:text-lg font-semibold text-gray-800">Photos & Videos of Defects</h3>
+                                        <p className="text-gray-600 text-xs sm:text-sm">If the complaint is related to construction quality issues.</p>
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-
-
-
                     </div>
 
                     <div id='Costumer case and Docs req container' className="grid md:grid-cols-2 gap-8 justify-items-center w-full p-4">
                         
-                    {/* Types of Consumer Cases */}
+                    {/* Types of Rera Cases we see */}
                     <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-4xl mx-auto">
                         {/* Title Section */}
                         <div className="flex justify-center pb-4">
                             <h1 className="text-2xl font-bold text-gray-800 text-center">
-                                Types of Consumer Cases
+                                Real Estate Legal Solutions we Offer
                             </h1>
                         </div>
 
-
                         {/* Cases Grid */}
                         <div className="grid md:grid-cols-2 gap-6 text-gray-700">
-                            {/* Defective Goods */}
+                            {/* Delayed Possession */}
                             <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
                                 <div className="flex items-center mb-2">
-                                    <span className="text-2xl mr-3">📦</span>
-                                    <h2 className="text-lg font-bold text-blue-900">Defective Goods</h2>
+                                    <span className="text-2xl mr-3">🏗</span>
+                                    <h2 className="text-lg font-bold text-blue-900">Delayed Possession</h2>
                                 </div>
-                                <p className="text-gray-700 text-sm">Faulty, damaged, or substandard products sold without proper quality assurance.</p>
+                                <p className="text-gray-700 text-sm">When a builder fails to hand over possession within the promised time.</p>
                             </div>
 
-                            {/* Deficient Services */}
+                            {/* Refund & Compensation Claims */}
+                            <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                <div className="flex items-center mb-2">
+                                    <span className="text-2xl mr-3">💰</span>
+                                    <h2 className="text-md font-bold text-blue-900">Refund & Compensation Claims</h2>
+                                </div>
+                                <p className="text-gray-700 text-sm">Buyers can claim a refund along with interest and compensation for delays.</p>
+                            </div>
+
+                            {/* Incomplete or Poor Construction Quality */}
+                            <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                <div className="flex items-center mb-2">
+                                    <span className="text-2xl mr-3">📜</span>
+                                    <h2 className="text-md font-bold text-blue-900">Incomplete or Poor Construction Quality</h2>
+                                </div>
+                                <p className="text-gray-700 text-sm">Cases related to bad construction quality or deviation from promised designs.</p>
+                            </div>
+
+                            {/* Hidden Charges & Extra Costs */}
                             <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
                                 <div className="flex items-center mb-2">
                                     <span className="text-2xl mr-3">📄</span>
-                                    <h2 className="text-lg font-bold text-blue-900">Deficient Services</h2>
+                                    <h2 className="text-lg font-bold text-blue-900">Hidden Charges & Extra Costs</h2>
                                 </div>
-                                <p className="text-gray-700 text-sm">Poor service by banks, telecom, hospitality, real estate, or any service provider failing to meet expectations.</p>
+                                <p className="text-gray-700 text-sm">Unfair extra charges added by the builder not mentioned in the agreement.</p>
                             </div>
 
-                            {/* Online Fraud */}
+                            {/* Cancellation of Projects */}
                             <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
                                 <div className="flex items-center mb-2">
-                                    <span className="text-2xl mr-3">💳</span>
-                                    <h2 className="text-lg font-bold text-blue-900">Online Fraud</h2>
+                                    <span className="text-2xl mr-3">🏘</span>
+                                    <h2 className="text-lg font-bold text-blue-900">Cancellation of Projects</h2>
                                 </div>
-                                <p className="text-gray-700 text-sm">Payment failures, unauthorized transactions, fake e-commerce deals, or digital fraud cases.</p>
+                                <p className="text-gray-700 text-sm">If a builder cancels the project after collecting money from buyers.</p>
                             </div>
 
-                            {/* Real Estate Issues */}
+                            {/* Loan & EMI Disputes */}
                             <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
                                 <div className="flex items-center mb-2">
-                                    <span className="text-2xl mr-3">🏠</span>
-                                    <h2 className="text-lg font-bold text-blue-900">Real Estate Issues</h2>
+                                    <span className="text-2xl mr-3">🏦</span>
+                                    <h2 className="text-lg font-bold text-blue-900">Loan & EMI Disputes</h2>
                                 </div>
-                                <p className="text-gray-700 text-sm">Delayed possession, poor construction quality, or misrepresentation of real estate agreements.</p>
+                                <p className="text-gray-700 text-sm">Issues related to bank approvals and fraudulent loan schemes.</p>
                             </div>
 
-                            {/* Medical Negligence */}
+                            {/* Illegal Real Estate Projects */}
                             <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
                                 <div className="flex items-center mb-2">
-                                    <span className="text-2xl mr-3">💉</span>
-                                    <h2 className="text-lg font-bold text-blue-900">Medical Negligence</h2>
+                                    <span className="text-2xl mr-3">📑</span>
+                                    <h2 className="text-lg font-bold text-blue-900">Illegal Real Estate Projects</h2>
                                 </div>
-                                <p className="text-gray-700 text-sm">Cases involving malpractice, misdiagnosis, overcharging, or substandard medical treatment.</p>
-                            </div>
-
-                            {/* Automobile Complaints */}
-                            <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
-                                <div className="flex items-center mb-2">
-                                    <span className="text-2xl mr-3">🚗</span>
-                                    <h2 className="text-lg font-bold text-blue-900">Automobile Complaints</h2>
-                                </div>
-                                <p className="text-gray-700 text-sm">Defective vehicles, unfair service charges, or failure in warranty claims.</p>
+                                <p className="text-gray-700 text-sm">Complaints against builders selling properties without RERA registration.</p>
                             </div>
                         </div>
                     </div>
+                    {/* Dispute Resolution Process */}
 
-                        
-                        {/* Documents Required for Filing a Consumer Case */}
-                        <div id="Documents Required" className="p-6 mx-auto bg-slate-50 group rounded-2xl shadow-lg max-w-4xl">
+                  
+
+
+                    
+                    <div id="Rera Dispute & Consequences container"  className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-4xl mx-auto">
+
+                    <div id="Rera Dispute container" className="p-4 sm:p-6 mx-auto group rounded-2xl shadow-lg max-w-4xl w-full">
+                  
                             {/* Title Section */}
-                            <div className="p-8 mx-auto rounded-2xl md:col-span-2 sm:col-span-1">
-                                <div className="flex justify-center group cursor-pointer">
-                                    <span className="text-2xl font-bold text-center text-gray-800 mb-4">
-                                        Documents
-                                    </span>
-                                    <span className="text-2xl font-bold text-center text-gray-800 mb-4 px-3 transition-all duration-300 group-hover:text-emerald-500">
-                                        Required
-                                    </span>
-                                </div>
-                            <div className="w-16 h-1 bg-green-500 mx-auto mb-6 group-hover:w-2xs transform duration-200"></div>
-                        </div>
-
-                        
-                        {/* Documents Grid */}
-                        <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6 text-center">
-                            {/* Purchase Receipt/Bill */}
-                            <div className="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
-                                <div className="w-14 h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-3">
-                                    <FileText className="w-8 h-8 text-yellow-500" />
-                                </div>
-                                <h3 className="text-lg font-semibold text-gray-800">Purchase Receipt/Bill</h3>
-                                <p className="text-gray-600 text-sm">Proof of transaction with the seller.</p>
+                            <div className="flex justify-center pb-4">
+                                <h1 className="text-2xl font-bold text-gray-800 text-center">
+                                    RERA Dispute Resolution Process
+                                </h1>
                             </div>
 
-                            {/* Warranty Card */}
-                            <div className="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
-                                <div className="w-14 h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-3">
-                                    <CreditCard className="w-8 h-8 text-yellow-500" />
+                            {/* Cases Grid */}
+                            <div className="grid md:grid-cols-2 gap-6 text-gray-700">
+                                {/* Free Case Evaluation */}
+                                <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                    <div className="flex items-center mb-2">
+                                        <span className="text-2xl mr-3">📋</span>
+                                        <h2 className="text-lg font-bold text-blue-900">Free Case Evaluation</h2>
+                                    </div>
+                                    <p className="text-gray-700 text-sm">Share your issue and get a legal assessment.</p>
                                 </div>
-                                <h3 className="text-lg font-semibold text-gray-800">Warranty Card</h3>
-                                <p className="text-gray-600 text-sm">For disputes related to product defects.</p>
-                            </div>
 
-                            {/* Communication Records */}
-                            <div className="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
-                                <div className="w-14 h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-3">
-                                    <Mail className="w-8 h-8 text-yellow-500" />
+                                {/* Documentation & Drafting */}
+                                <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                    <div className="flex items-center mb-2">
+                                        <span className="text-2xl mr-3">📑</span>
+                                        <h2 className="text-lg font-bold text-blue-900">Documentation & Drafting</h2>
+                                    </div>
+                                    <p className="text-gray-700 text-sm">We help in preparing a strong complaint with necessary evidence.</p>
                                 </div>
-                                <h3 className="text-lg font-semibold text-gray-800">Communication Records</h3>
-                                <p className="text-gray-600 text-sm">Emails, SMS, or chat records of complaints.</p>
-                            </div>
 
-                            {/* Agreement/Contract Copy */}
-                            <div className="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
-                                <div className="w-14 h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-3">
-                                    <FileText className="w-8 h-8 text-yellow-500" />
+                                {/* Filing the Complaint */}
+                                <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                    <div className="flex items-center mb-2">
+                                        <span className="text-2xl mr-3">📄</span>
+                                        <h2 className="text-lg font-bold text-blue-900">Filing the Complaint</h2>
+                                    </div>
+                                    <p className="text-gray-700 text-sm">Your case is filed before the RERA Authority in your state.</p>
                                 </div>
-                                <h3 className="text-lg font-semibold text-gray-800">Agreement/Contract Copy</h3>
-                                <p className="text-gray-600 text-sm">For disputes in services like real estate or telecom.</p>
-                            </div>
 
-                            {/* Bank Statements */}
-                            <div className="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
-                                <div className="w-14 h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-3">
-                                    <Banknote className="w-8 h-8 text-yellow-500" />
+                                {/* Legal Representation */}
+                                <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                    <div className="flex items-center mb-2">
+                                        <span className="text-2xl mr-3">⚖</span>
+                                        <h2 className="text-lg font-bold text-blue-900">Legal Representation</h2>
+                                    </div>
+                                    <p className="text-gray-700 text-sm">Get the best advocate suited to your case.</p>
                                 </div>
-                                <h3 className="text-lg font-semibold text-gray-800">Bank Statements</h3>
-                                <p className="text-gray-600 text-sm">Proof of payment for goods or services.</p>
-                            </div>
 
-                            {/* Affidavit & Complaint Draft */}
-                            <div className="p-4 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
-                                <div className="w-14 h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-3">
-                                    <Clipboard className="w-8 h-8 text-yellow-500" />
+                                {/* Regular Case Monitoring */}
+                                <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                    <div className="flex items-center mb-2">
+                                        <span className="text-2xl mr-3">⏳</span>
+                                        <h2 className="text-lg font-bold text-blue-900">Regular Case Monitoring</h2>
+                                    </div>
+                                    <p className="text-gray-700 text-sm">We keep track of hearings and provide timely updates.</p>
                                 </div>
-                                <h3 className="text-lg font-semibold text-gray-800">Affidavit & Complaint Draft</h3>
-                                <p className="text-gray-600 text-sm">A formal legal document stating the grievance.</p>
+
+                                {/* Case Resolution */}
+                                <div className="p-5 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                    <div className="flex items-center mb-2">
+                                        <span className="text-2xl mr-3">✅</span>
+                                        <h2 className="text-lg font-bold text-blue-900">Case Resolution</h2>
+                                    </div>
+                                    <p className="text-gray-700 text-sm">Seek compensation, refunds, or possession through legal proceedings.</p>
+                                </div>
                             </div>
                         </div>
+                            
+                        {/* Consequences of Not Filing a RERA Complaint */}
+                        <div className="mt-10 p-4 sm:p-6 bg-red-50 rounded-xl shadow-md">
+                        <h2 className="text-lg sm:text-xl font-bold text-red-600 text-center mb-3 sm:mb-4">Consequences of Not Filing a RERA Complaint</h2>
+                        <div className="mt-5 space-y-4">
+                            <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-red-500" />
+                                <p>
+                                    <strong>Loss of Money:</strong> Buyers may lose the amount paid if the builder goes bankrupt.
+                                </p>
+                            </div>
+                            <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-red-500" />
+                                <p>
+                                    <strong>Unfinished Projects:</strong> Delayed possession without any legal remedy.
+                                </p>
+                            </div>
+                            <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-red-500" />
+                                <p>
+                                    <strong>No Compensation:</strong> No interest or refund from the builder for delays.
+                                </p>
+                            </div>
+                            <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-red-500" />
+                                <p>
+                                    <strong>Builder Fraud Continues:</strong> Builders keep exploiting buyers if not held accountable.
+                                </p>
+                            </div>
+                            <div className="flex items-start space-x-3">
+                                <CheckCircle className="w-5 h-5 text-red-500" />
+                                <p>
+                                    <strong>Legal Deadlines Passed:</strong> RERA cases must be filed within specific time limits.
+                                </p>
+                            </div>
                         </div>
+                    </div>
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+                    </div>
+
+                    </div>
 
                     </div>
                 </div>
@@ -340,7 +402,7 @@ const page = () => {
                         <div id="Why Choose US" className="group col-span-2 bg-slate-50 rounded-2xl p-8">
                             {/* Title Section */}
                             <div className="p-8 mx-auto rounded-2xl md:col-span-2 sm:col-span-1">
-                                <div className="flex justify-center group cursor-pointer">
+                                <div className="flex flex-col justify-center group cursor-pointer">
                                     <span className="text-3xl font-bold text-center text-gray-800 mb-4">
                                         Why Choose
                                     </span>

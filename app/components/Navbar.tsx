@@ -13,6 +13,7 @@ const NavBar = () => {
       <nav id="Desktop Navbar" className="bg-blue-900 text-white hidden lg:block xl:block">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-16">
+
             {/* Logo */}
             <div className="flex items-center">
               <svg className="h-8 w-8 mr-2" viewBox="0 0 24 24" fill="currentColor">
@@ -25,36 +26,35 @@ const NavBar = () => {
 
             </div>
 
-
             {/* Navigation Items */}
             <div className="flex space-x-1">
 
-            <div className="relative group" id='Legal Samadhan'>
-                <button className="px-3 py-2 flex items-center nav-link">
-                Legal Samadhan
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-    
-                <div id='Company Registration dropdown ' 
-                      className="absolute left-0 mt-2  w-md hover:bg-gray-100
-                              bg-white shadow-xl rounded-md z-50 text-black opacity-0 invisible group-hover:opacity-100 
-                                group-hover:visible duration-300 ease-in-out">
-                  <div className="grid grid-cols-3 gap-4 p-2">
-                    {/* Legal Registration Column */}
-                    <div className="p-4 w-md ">
-                      <h3 className="font-bold text-lg mb-2 uppercase">Legal Samadhan for:</h3>
-                      <ul className="space-y-2">
-                        <li><Link href="/msme-reg" className="dropdown-higlight">MSME Registered Proprietorship</Link></li>
-                        <li><Link href="/comsumer-matters" className="dropdown-higlight">Consumer matters</Link></li>
-                        <li><Link href="/opc" className="dropdown-higlight">Arbitration Matters</Link></li>
-                        <li><Link href="/llp" className="dropdown-higlight">RERA Matters</Link></li>
-                        <li><Link href="/section-8" className="dropdown-higlight">Trademark Issues</Link></li>
-                      </ul>
+              <div className="relative group" id='Legal Samadhan'>
+                  <button className="px-3 py-2 flex items-center nav-link">
+                  Legal Samadhan
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+      
+                  <div id='Company Registration dropdown ' 
+                        className="absolute left-0 mt-2  w-md hover:bg-gray-100
+                                bg-white shadow-xl rounded-md z-50 text-black opacity-0 invisible group-hover:opacity-100 
+                                  group-hover:visible duration-300 ease-in-out">
+                    <div className="grid grid-cols-3 gap-4 p-2">
+                      {/* Legal Registration Column */}
+                      <div className="p-4 w-md ">
+                        <h3 className="font-bold text-lg mb-2 uppercase">Legal Samadhan for:</h3>
+                        <ul className="space-y-2">
+                          <li><Link href="/msme-reg" className="dropdown-higlight">MSME Registered Proprietorship</Link></li>
+                          <li><Link href="/comsumer-matters" className="dropdown-higlight">Consumer matters</Link></li>
+                          <li><Link href="/arbitration" className="dropdown-higlight">Arbitration Matters</Link></li>
+                          <li><Link href="/rera" className="dropdown-higlight">RERA Matters</Link></li>
+                     
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
               </div>
 
               <div className="relative group" id='Company Registration'>
@@ -99,7 +99,7 @@ const NavBar = () => {
                     <div className="p-4 border-l-2 border-gray-300 hover:bg-gray-100 rounded-md">
                       <h3 className="font-bold text-lg mb-2 uppercase">IP Rights</h3>
                       <ul className="space-y-2">
-                        <li><Link href="/sole-proprietorship" className="dropdown-higlight">Trademark Registration</Link></li>
+                        <li><Link href="/trademark" className="dropdown-higlight">Trademark Registration</Link></li>
                         <li><Link href="/private-limited" className="dropdown-higlight">Trademark objections</Link></li>
                         <li><Link href="/opc" className="dropdown-higlight">Copyright Registration</Link></li>
                         <li><Link href="/llp" className="dropdown-higlight">Copyright Objection</Link></li>
@@ -193,6 +193,7 @@ const NavBar = () => {
 
 
             </div>
+
           </div>
         </div>
       </nav>
