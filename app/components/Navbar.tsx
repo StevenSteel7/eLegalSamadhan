@@ -33,7 +33,6 @@ const NavBar = () => {
                   <button className="px-3 py-2 flex items-center nav-link">
                   Legal Samadhan
                     <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                   </button>
       

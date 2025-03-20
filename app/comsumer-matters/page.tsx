@@ -33,7 +33,7 @@ const page = () => {
       
         <div
         className="relative min-h-[50vh] bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/disputes.jpg')" }}
+        style={{ backgroundImage: "url('/images/consumer.jpg')" }}
         >
         {/* Semi-transparent overlay to improve text readability */}
         <div className="absolute inset-0 bg-black opacity-50 ">
@@ -181,11 +181,12 @@ const page = () => {
 
 
                     </div>
-
-                    <div id='Costumer case and Docs req container' className="grid md:grid-cols-2 gap-8 justify-items-center w-full p-4">
+                    
+                    
+                    <div id='Costumer case and Docs req container' className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full px-4 mt-8">
                         
                     {/* Types of Consumer Cases */}
-                    <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-4xl mx-auto">
+                    <div className="bg-white p-8 rounded-2xl shadow-lg w-full ">
                         {/* Title Section */}
                         <div className="flex justify-center pb-4">
                             <h1 className="text-2xl font-bold text-gray-800 text-center">
@@ -254,7 +255,7 @@ const page = () => {
 
                         
                         {/* Documents Required for Filing a Consumer Case */}
-                        <div id="Documents Required" className="p-6 mx-auto bg-slate-50 group rounded-2xl shadow-lg max-w-4xl">
+                        <div id="Documents Required" className="p-6 mx-auto bg-slate-50 group rounded-2xl shadow-lg max-w-4xl ">
                             {/* Title Section */}
                             <div className="p-8 mx-auto rounded-2xl md:col-span-2 sm:col-span-1">
                                 <div className="flex justify-center group cursor-pointer">
@@ -265,7 +266,7 @@ const page = () => {
                                         Required
                                     </span>
                                 </div>
-                            <div className="w-16 h-1 bg-green-500 mx-auto mb-6 group-hover:w-2xs transform duration-200"></div>
+                            <div className="w-16 h-1 bg-green-500 mx-auto mb-6 md:group-hover:w-2xs transform duration-200"></div>
                         </div>
 
                         
@@ -333,14 +334,14 @@ const page = () => {
             </div>
                         
             {/* Why Choose US ... using the odering property*/}
-            <div className="bg-gray-100 py-12">
+            <div className="bg-gray-100 py-12 ">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-8 justify-items-center">
                         {/* // its value is of 2 cols */}
                         <div id="Why Choose US" className="group col-span-2 bg-slate-50 rounded-2xl p-8">
                             {/* Title Section */}
                             <div className="p-8 mx-auto rounded-2xl md:col-span-2 sm:col-span-1">
-                                <div className="flex justify-center group cursor-pointer">
+                                <div className="flex justify-center group cursor-pointer flex-col">
                                     <span className="text-3xl font-bold text-center text-gray-800 mb-4">
                                         Why Choose
                                     </span>
@@ -348,7 +349,7 @@ const page = () => {
                                         US?
                                     </span>
                                 </div>
-                                <div className="w-16 h-1 bg-green-500 mx-auto mb-6 group-hover:w-xs transform duration-200"></div>
+                                <div className="w-16 h-1 bg-green-500 mx-auto mb-6 md:group-hover:w-xs transform duration-200"></div>
                             </div>
 
                             {/* Features Grid - Modified for center-out arrangement */}
