@@ -1,5 +1,6 @@
-import { Briefcase, Globe, Lock, Scale, ShieldCheck, Star } from 'lucide-react'
+import { Briefcase, DollarSign, Globe, Lightbulb, Lock, Scale, ShieldCheck, Star } from 'lucide-react'
 import React from 'react'
+import Link from 'next/link';
 
 const page = () => {
   return (
@@ -23,15 +24,15 @@ const page = () => {
             </div>
         </div>
 
-
-        <div className="bg-gray-100 py-12">
+        <div id='Why Trademark' className="bg-gray-100 py-12 ">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-8 justify-items-center">
                 {/* Why Choose Trademark Registration Section */}
                 <div id="Why Choose Trademark Registration" className="group col-span-2 bg-slate-50 rounded-2xl p-8">
                     {/* Title Section */}
                     <div className="p-8 mx-auto rounded-2xl md:col-span-2 sm:col-span-1 flex flex-col items-center">
-                    <div className="flex flex-col justify-center group cursor-pointer">
+                    
+                    <div className="flex flex-col md:flex-row justify-center group cursor-pointer">
                         <span className="text-3xl font-bold text-center text-gray-800 mb-4">
                         Why Register a
                         </span>
@@ -39,6 +40,7 @@ const page = () => {
                         Trademark?
                         </span>
                     </div>
+                    
                     <div className="w-16 h-1 bg-green-500 mx-auto mb-6 md:group-hover:w-2xs transform duration-200"></div>
                     </div>
 
@@ -115,8 +117,6 @@ const page = () => {
                 </div>
             </div>
         </div>
-
-
 
         <div id='Docs Required' className="flex flex-wrap bg-gray-100">
             <div className="max-w-7xl mx-auto p-4">
@@ -241,8 +241,6 @@ const page = () => {
                 </div>
             </div>
         </div>
-
-
 
         <div id='Complaiance container' className="flex flex-wrap bg-gray-100 " > 
             <div  className="max-w-7xl mx-auto p-4">
@@ -383,6 +381,122 @@ const page = () => {
 
 
 
+
+        <div className="bg-gray-100 py-12">
+            <div className="max-w-7xl mx-auto px-4">
+                <div className="grid md:grid-cols-2 gap-8 justify-items-center">
+                {/* Why Choose Trademark Registration Section */}
+                <div id="Why Choose Trademark Registration" className="group col-span-2 bg-slate-50 rounded-2xl p-8">
+                    {/* Title Section */}
+                    <div className="p-8 mx-auto rounded-2xl md:col-span-2 sm:col-span-1 flex flex-col items-center">
+                    
+                    <div className="flex flex-col md:flex-row justify-center group cursor-pointer">
+                        <span className="text-3xl font-bold text-center text-gray-800 mb-4">
+                        Own What You Create
+                        </span>
+                        <span className="text-3xl font-bold text-center text-gray-800 mb-4 px-3 transition-all duration-300 group-hover:text-emerald-500">
+                        Create
+                        </span>
+                    </div>
+                    
+                    <div className="w-16 h-1 bg-green-500 mx-auto mb-6 md:group-hover:w-2xs transform duration-200"></div>
+                    </div>
+
+                    Copyright   
+
+                    
+                   
+                </div>
+                </div>
+            </div>
+        </div>
+
+       
+        <div id="Why Patent" className="bg-gray-100 py-12"> 
+            <div className="max-w-7xl mx-auto px-4">
+                <div className="grid md:grid-cols-2 gap-8 justify-items-center">
+
+                {/* Why Choose Patent Registration Section */}
+                <div id="Why Choose Patent Registration" className="group col-span-2 bg-slate-50 rounded-2xl p-8">
+                    
+                    {/* Title Section */}
+                    <div className="p-8 mx-auto rounded-2xl md:col-span-2 sm:col-span-1 flex flex-col items-center">
+                    <div className="flex flex-col md:flex-row justify-center group cursor-pointer">
+                        <span className="text-3xl font-bold text-center text-gray-800 mb-4">
+                        Why Register a
+                        </span>
+                        <span className="text-3xl font-bold text-center text-gray-800 mb-4 px-3 transition-all duration-300 group-hover:text-emerald-500">
+                        Patent?
+                        </span>
+                    </div>
+                    <div className="w-16 h-1 bg-green-500 mx-auto mb-6 md:group-hover:w-2xs transform duration-200"></div>
+                    </div>
+
+                    {/* Benefits Grid */}
+                    <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8 text-center">
+
+                    {/* Exclusive Rights */}
+                    <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center group/exclusive">
+                        <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4 transition-all duration-300 transform group-hover/exclusive:rotate-12 group-hover/exclusive:shadow-lg relative overflow-hidden bg-white">
+                        <Lock className="w-10 h-10 text-yellow-500 transition-transform duration-300 group-hover/exclusive:scale-110" />
+                        </div>
+                        <h3 className="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover/exclusive:text-blue-600">Exclusive Rights</h3>
+                        <p className="text-gray-600 mt-2 transition-colors duration-300 group-hover/exclusive:text-gray-800">Provides exclusive rights to the patent holder to manufacture, use, and sell the invention.</p>
+                    </div>
+
+                    {/* Monetary Gains */}
+                    <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center group/money">
+                        <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4 transition-all duration-300 transform group-hover/money:rotate-12 group-hover/money:shadow-lg relative overflow-hidden bg-white">
+                        <DollarSign className="w-10 h-10 text-yellow-500 transition-transform duration-300 group-hover/money:scale-110" />
+                        </div>
+                        <h3 className="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover/money:text-blue-600">Monetary Gains</h3>
+                        <p className="text-gray-600 mt-2 transition-colors duration-300 group-hover/money:text-gray-800">Patents can be licensed, sold, or used to generate revenue.</p>
+                    </div>
+
+                    {/* Legal Protection */}
+                    <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center group/legal">
+                        <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4 transition-all duration-300 transform group-hover/legal:rotate-12 group-hover/legal:shadow-lg relative overflow-hidden bg-white">
+                        <ShieldCheck className="w-10 h-10 text-yellow-500 transition-transform duration-300 group-hover/legal:scale-110" />
+                        </div>
+                        <h3 className="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover/legal:text-blue-600">Legal Protection</h3>
+                        <p className="text-gray-600 mt-2 transition-colors duration-300 group-hover/legal:text-gray-800">Prevents others from copying or using the invention without permission.</p>
+                    </div>
+
+                    {/* Competitive Advantage */}
+                    <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center group/competition">
+                        <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4 transition-all duration-300 transform group-hover/competition:rotate-12 group-hover/competition:shadow-lg relative overflow-hidden bg-white">
+                        <Scale className="w-10 h-10 text-yellow-500 transition-transform duration-300 group-hover/competition:scale-110" />
+                        </div>
+                        <h3 className="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover/competition:text-blue-600">Competitive Advantage</h3>
+                        <p className="text-gray-600 mt-2 transition-colors duration-300 group-hover/competition:text-gray-800">Strengthens market position by restricting competitors from using similar technology.</p>
+                    </div>
+
+                    {/* Enhances Business Value */}
+                    <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center group/business">
+                        <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4 transition-all duration-300 transform group-hover/business:rotate-12 group-hover/business:shadow-lg relative overflow-hidden bg-white">
+                        <Briefcase className="w-10 h-10 text-yellow-500 transition-transform duration-300 group-hover/business:scale-110" />
+                        </div>
+                        <h3 className="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover/business:text-blue-600">Enhances Business Value</h3>
+                        <p className="text-gray-600 mt-2 transition-colors duration-300 group-hover/business:text-gray-800">Increases the valuation of a company by adding intellectual property assets.</p>
+                    </div>
+
+                    {/* Encourages Innovation */}
+                    <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center group/innovation">
+                        <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4 transition-all duration-300 transform group-hover/innovation:rotate-12 group-hover/innovation:shadow-lg relative overflow-hidden bg-white">
+                        <Lightbulb className="w-10 h-10 text-yellow-500 transition-transform duration-300 group-hover/innovation:scale-110" />
+                        </div>
+                        <h3 className="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover/innovation:text-blue-600">Encourages Innovation</h3>
+                        <p className="text-gray-600 mt-2 transition-colors duration-300 group-hover/innovation:text-gray-800">Promotes research and development by providing incentives for inventors.</p>
+                    </div>
+
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+        
 
     </div>
   )
