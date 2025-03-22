@@ -373,18 +373,6 @@ const page = () => {
                     </div>
                     
 
-
-
-
-
-
-
-
-
-
-
-
-                    
                     </div>
 
                     </div>
@@ -402,7 +390,7 @@ const page = () => {
                         <div id="Why Choose US" className="group col-span-2 bg-slate-50 rounded-2xl p-8">
                             {/* Title Section */}
                             <div className="p-8 mx-auto rounded-2xl md:col-span-2 sm:col-span-1">
-                                <div className="flex flex-col justify-center group cursor-pointer">
+                                <div className="flex flex-col sm:flex-row justify-center group cursor-pointer">
                                     <span className="text-3xl font-bold text-center text-gray-800 mb-4">
                                         Why Choose
                                     </span>
@@ -410,7 +398,7 @@ const page = () => {
                                         US?
                                     </span>
                                 </div>
-                                <div className="w-16 h-1 bg-green-500 mx-auto mb-6 group-hover:w-xs transform duration-200"></div>
+                                <div className="w-16 h-1 bg-green-500 mx-auto mb-6 md:group-hover:w-xs transform duration-200"></div>
                             </div>
 
                             {/* Features Grid - Modified for center-out arrangement */}
