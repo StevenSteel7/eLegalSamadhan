@@ -2,10 +2,21 @@
 // NavBar.jsx
 import React, { use, useState } from 'react';
 import Link from 'next/link';
-import { ChevronRight, Menu, MessageSquare, Scale, X } from 'lucide-react';
+import { ChevronDown, ChevronRight, Menu, MessageSquare, Scale, X } from 'lucide-react';
 
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+  
+  // Toggle submenu visibility
+  const toggleSubmenu = (menuName :any ) => {
+    if (activeSubmenu === menuName) {
+      setActiveSubmenu(null);
+    } else {
+      setActiveSubmenu(menuName);
+    }
+  };
+
 
   return (
     <div> 
@@ -197,48 +208,243 @@ const NavBar = () => {
         </div>
       </nav>
 
-      {/* Mobile Navbar */}
       <div id="Mobile Navbar" className="bg-blue-900 text-white py-3 md:block lg:hidden xl:hidden">
-      <div className="container mx-auto px-4">
-        {/* Top bar with logo and menu button */}
-        <div className="flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <Scale className="h-6 w-6 text-orange-500" />
-            <span className="text-xl font-bold">LegalEdge</span>
+        <div className="container mx-auto px-4">
+          {/* Top bar with logo and menu button */}
+          <div className="flex justify-between items-center">
+            <div className="flex items-center space-x-2">
+              <svg className="h-6 w-6 mr-2 text-orange-500" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+              </svg>
+              <Link href="/">
+                <span className="font-bold text-xl text-orange-500">E-</span>
+                <span className="font-bold text-xl text-emerald-400">Samadhan</span>
+              </Link>
+            </div>
+            <button 
+              className="text-white p-1 relative" 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <Menu className={`h-6 w-6 absolute transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'opacity-0 rotate-90' : 'opacity-100 rotate-0'}`} />
+              <X className={`h-6 w-6 transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'opacity-100 rotate-0' : 'opacity-0 rotate-90'}`} />
+            </button>
           </div>
-          <button 
-            className="text-white p-1 relative" 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          
+          {/* Mobile dropdown menu with animation */}
+          <div 
+            className={`overflow-hidden transition-all duration-300 ease-in-out ${
+              mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+            }`}
           >
-            <Menu className={`h-6 w-6 absolute transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'opacity-0 rotate-90' : 'opacity-100 rotate-0'}`} />
-            <X className={`h-6 w-6 transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'opacity-100 rotate-0' : 'opacity-0 rotate-90'}`} />
-          </button>
-        </div>
-        
-        {/* Mobile dropdown menu with animation */}
-        <div 
-          className={`overflow-hidden transition-all duration-300 ease-in-out ${
-            mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-          }`}
-        >
-          <div className="mt-3 space-y-3 pb-3">
-            {['StartEdge', 'ProtectEdge', 'ManageEdge', 'GrowEdge', 'More', 'Contact Us'].map((item) => (
-              <div key={item} className="border-b border-blue-800 pb-2">
-                <button className="flex items-center justify-between w-full py-1">
-                  <span>{item}</span>
-                  <ChevronRight style={{ width: '16px', height: '16px' }} />
+            <div className="mt-3 space-y-1 pb-3">
+              {/* Legal Samadhan */}
+              <div className="border-b border-blue-800 pb-2">
+                <button 
+                  className="flex items-center justify-between w-full py-2"
+                  onClick={() => toggleSubmenu('legalSamadhan')}
+                >
+                  <span>Legal Samadhan</span>
+                  {activeSubmenu === 'legalSamadhan' ? 
+                    <ChevronDown className="w-5 h-5" /> : 
+                    <ChevronRight className="w-5 h-5" />
+                  }
+                </button>
+                {activeSubmenu === 'legalSamadhan' && (
+                  <div className="ml-4 mt-2 space-y-2 text-sm">
+                    <Link href="/msme-reg" className="block py-1 pl-2 border-l-2 border-orange-500">
+                      MSME Registered Proprietorship
+                    </Link>
+                    <Link href="/comsumer-matters" className="block py-1 pl-2 border-l-2 border-orange-500">
+                      Consumer matters
+                    </Link>
+                    <Link href="/arbitration" className="block py-1 pl-2 border-l-2 border-orange-500">
+                      Arbitration Matters
+                    </Link>
+                    <Link href="/rera" className="block py-1 pl-2 border-l-2 border-orange-500">
+                      RERA Matters
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              {/* Registration & Rights */}
+              <div className="border-b border-blue-800 pb-2">
+                <button 
+                  className="flex items-center justify-between w-full py-2"
+                  onClick={() => toggleSubmenu('registration')}
+                >
+                  <span>Registration & Rights</span>
+                  {activeSubmenu === 'registration' ? 
+                    <ChevronDown className="w-5 h-5" /> : 
+                    <ChevronRight className="w-5 h-5" />
+                  }
+                </button>
+                {activeSubmenu === 'registration' && (
+                  <div className="ml-4 mt-2 space-y-3 text-sm">
+                    {/* Company Registration submenu */}
+                    <div>
+                      <button 
+                        className="flex items-center justify-between w-full py-1"
+                        onClick={() => toggleSubmenu('companyReg')}
+                      >
+                        <span className="font-semibold">COMPANY REGISTRATION</span>
+                        {activeSubmenu === 'companyReg' ? 
+                          <ChevronDown className="w-4 h-4" /> : 
+                          <ChevronRight className="w-4 h-4" />
+                        }
+                      </button>
+                      {activeSubmenu === 'companyReg' && (
+                        <div className="ml-2 mt-1 space-y-1">
+                          <Link href="/sole-proprietorship" className="block py-1 pl-2 border-l-2 border-orange-500">
+                            One Person Company
+                          </Link>
+                          <Link href="/private-limited" className="block py-1 pl-2 border-l-2 border-orange-500">
+                            Pvt. Ltd. Company
+                          </Link>
+                          <Link href="/opc" className="block py-1 pl-2 border-l-2 border-orange-500">
+                            Public Ltd. Company
+                          </Link>
+                          <Link href="/llp" className="block py-1 pl-2 border-l-2 border-orange-500">
+                            LLP Registration
+                          </Link>
+                          <Link href="/section-8" className="block py-1 pl-2 border-l-2 border-orange-500">
+                            Nidhi Company Registration
+                          </Link>
+                          <Link href="/section-8" className="block py-1 pl-2 border-l-2 border-orange-500">
+                            Section 8 Company (NGO)
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Business Registrations submenu */}
+                    <div>
+                      <button 
+                        className="flex items-center justify-between w-full py-1"
+                        onClick={() => toggleSubmenu('businessReg')}
+                      >
+                        <span className="font-semibold">BUSINESS REGISTRATIONS & COMPLIANCES</span>
+                        {activeSubmenu === 'businessReg' ? 
+                          <ChevronDown className="w-4 h-4" /> : 
+                          <ChevronRight className="w-4 h-4" />
+                        }
+                      </button>
+                      {activeSubmenu === 'businessReg' && (
+                        <div className="ml-2 mt-1 space-y-1">
+                          <Link href="/business-agreements" className="block py-1 pl-2 border-l-2 border-orange-500">
+                            Partnership Registration
+                          </Link>
+                          <Link href="/nda" className="block py-1 pl-2 border-l-2 border-orange-500">
+                            Startup (India)
+                          </Link>
+                          <Link href="/founders-notice" className="block py-1 pl-2 border-l-2 border-orange-500">
+                            MSME Registration
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* IP Rights submenu */}
+                    <div>
+                      <button 
+                        className="flex items-center justify-between w-full py-1"
+                        onClick={() => toggleSubmenu('ipRights')}
+                      >
+                        <span className="font-semibold">IP RIGHTS</span>
+                        {activeSubmenu === 'ipRights' ? 
+                          <ChevronDown className="w-4 h-4" /> : 
+                          <ChevronRight className="w-4 h-4" />
+                        }
+                      </button>
+                      {activeSubmenu === 'ipRights' && (
+                        <div className="ml-2 mt-1 space-y-1">
+                          <Link href="/trademark" className="block py-1 pl-2 border-l-2 border-orange-500">
+                            Trademark Registration
+                          </Link>
+                          <Link href="/private-limited" className="block py-1 pl-2 border-l-2 border-orange-500">
+                            Trademark objections
+                          </Link>
+                          <Link href="/opc" className="block py-1 pl-2 border-l-2 border-orange-500">
+                            Copyright Registration
+                          </Link>
+                          <Link href="/llp" className="block py-1 pl-2 border-l-2 border-orange-500">
+                            Copyright Objection
+                          </Link>
+                          <Link href="/section-8" className="block py-1 pl-2 border-l-2 border-orange-500">
+                            Patent Registration
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Licenses */}
+              <div className="border-b border-blue-800 pb-2">
+                <button 
+                  className="flex items-center justify-between w-full py-2"
+                  onClick={() => toggleSubmenu('licenses')}
+                >
+                  <span>Licenses</span>
+                  {activeSubmenu === 'licenses' ? 
+                    <ChevronDown className="w-5 h-5" /> : 
+                    <ChevronRight className="w-5 h-5" />
+                  }
+                </button>
+                {activeSubmenu === 'licenses' && (
+                  <div className="ml-4 mt-2 space-y-2 text-sm">
+                    <Link href="/sole-proprietorship" className="block py-1 pl-2 border-l-2 border-orange-500">
+                      FSSAI Registration
+                    </Link>
+                    <Link href="/private-limited" className="block py-1 pl-2 border-l-2 border-orange-500">
+                      ISO Registration
+                    </Link>
+                    <Link href="/opc" className="block py-1 pl-2 border-l-2 border-orange-500">
+                      Trust Registration
+                    </Link>
+                    <Link href="/llp" className="block py-1 pl-2 border-l-2 border-orange-500">
+                      Public Trust Registration
+                    </Link>
+                    <Link href="/section-8" className="block py-1 pl-2 border-l-2 border-orange-500">
+                      Society Registration
+                    </Link>
+                    <Link href="/section-8" className="block py-1 pl-2 border-l-2 border-orange-500">
+                      Import Export Code
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              {/* More */}
+              <div className="border-b border-blue-800 pb-2">
+                <button 
+                  className="flex items-center justify-between w-full py-2"
+                  onClick={() => toggleSubmenu('more')}
+                >
+                  <span>More</span>
+                  {activeSubmenu === 'more' ? 
+                    <ChevronDown className="w-5 h-5" /> : 
+                    <ChevronRight className="w-5 h-5" />
+                  }
+                </button>
+                {activeSubmenu === 'more' && (
+                  <div className="ml-4 mt-2 space-y-2 text-sm">
+                    <p>More dropdown content goes here</p>
+                  </div>
+                )}
+              </div>
+
+              {/* Share Feedback */}
+              <div className="pt-2">  
+                <button className="flex items-center gap-2 w-full py-2">
+                  <MessageSquare className="w-5 h-5 text-green-500" />
+                  <div className="font-bold">Share Feedback</div>
                 </button>
               </div>
-            ))}
-            <div className="pt-2">  
-              <button className="flex items-center gap-2 w-full py-2">
-                <MessageSquare className="w-5 h-5 text-orange-500" />
-                <div className="font-bold">Share Feedback</div>
-              </button>
             </div>
           </div>
         </div>
-      </div>
       </div>
 
     </div>
