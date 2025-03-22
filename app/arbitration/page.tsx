@@ -52,12 +52,12 @@ const page = () => {
                 {/* Why Choose US ... using the odering property*/}
                 <div className="bg-gray-100 py-12">
                 <div className="max-w-7xl mx-auto px-4">
-                    <div className="grid md:grid-cols-2 gap-8 justify-items-center">
+                    <div className="grid md:grid-cols-2 gap-8 justify-items-center  ">
                         {/* Why Choose Us Section */}
                         <div id="Why Choose Us" className="group col-span-2 bg-slate-50 rounded-2xl p-8">
                             {/* Title Section */}
                             <div className="p-8 mx-auto rounded-2xl md:col-span-2 sm:col-span-1">
-                                <div className="flex  justify-center group cursor-pointer">
+                                <div className="flex flex-col md:flex-row justify-center group cursor-pointer">
                                     <span className="text-3xl font-bold text-center text-gray-800 mb-4">
                                         Why Choose
                                     </span>
