@@ -169,7 +169,6 @@ const NavBar = () => {
                         <li><Link href="/licenses/fssai" className="dropdown-higlight">FSSAI Registration</Link></li>
                         <li><Link href="/licenses/iso" className="dropdown-higlight">ISO Registration</Link></li>
                         <li><Link href="/licenses/trust" className="dropdown-higlight">Trust Registration</Link></li>
-                        <li><Link href="/licenses/public-trust" className="dropdown-higlight">Public Trust Registration</Link></li>
                         <li><Link href="/licenses/society" className="dropdown-higlight">Society Registration</Link></li>
                         <li><Link href="/licenses/import-export" className="dropdown-higlight">Import Export Code</Link></li>
                       </ul>
