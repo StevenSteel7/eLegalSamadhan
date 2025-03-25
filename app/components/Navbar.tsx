@@ -21,7 +21,7 @@ const NavBar = () => {
   return (
     <div> 
       {/* Desktop Navbar */}                                     {/* hidden on all screens accept lg and xl */}
-      <nav id="Desktop Navbar" className="bg-blue-900 text-white hidden lg:block xl:block">
+      <nav id="Desktop Navbar" className="bg-blue-900 text-white hidden lg:block xl:block z-[500] absolute w-screen">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-16">
 
@@ -32,7 +32,7 @@ const NavBar = () => {
               </svg>
               <Link href="/" >
               <span className="font-bold text-xl text-orange-500">E-</span>
-              <span className="font-bold text-xl text-emerald-400">Samadhan</span>
+              <span className="font-bold text-xl text-emerald-400">Legal Samadhan</span>
               </Link>
 
             </div>
@@ -84,13 +84,12 @@ const NavBar = () => {
                     <div className="p-4 rounded-md hover:bg-gray-100">
                       <h3 className="font-bold text-lg mb-2 uppercase">Company REGISTRATION</h3>
                       <ul className="space-y-2">
-                        <li><Link href="/sole-proprietorship" className="dropdown-higlight">One Person Company</Link></li>
-                        <li><Link href="/private-limited" className="dropdown-higlight">Pvt. Ltd. Company</Link></li>
-                        <li><Link href="/opc" className="dropdown-higlight">Public Ltd. Company</Link></li>
-                        <li><Link href="/llp" className="dropdown-higlight">LLP Registration</Link></li>
-                        <li><Link href="/section-8" className="dropdown-higlight">Nidhi Company Registration</Link></li>
-                        <li><Link href="/section-8" className="dropdown-higlight">Section 8 Company (NGO)</Link></li>
-                        <li><Link href="/section-8" className="dropdown-higlight">Nidhi Company Registration</Link></li>
+                        <li><Link href="/company-reg/one-person" className="dropdown-higlight">One Person Company</Link></li>
+                        <li><Link href="/company-reg/pvt-ltd" className="dropdown-higlight">Pvt. Ltd. Company</Link></li>
+                        <li><Link href="/company-reg/pub-ltd" className="dropdown-higlight">Public Ltd. Company</Link></li>
+                        <li><Link href="/company-reg/llp-reg" className="dropdown-higlight">LLP Registration</Link></li>
+                        <li><Link href="/company-reg/nidhi-reg" className="dropdown-higlight">Nidhi Company Registration</Link></li>
+                        <li><Link href="/company-reg/sec-8" className="dropdown-higlight">Section 8 Company (NGO)</Link></li>
                       </ul>
                     </div>
                     
@@ -167,12 +166,12 @@ const NavBar = () => {
                     <div className="p-4">
                       <h3 className="font-bold text-lg mb-2 uppercase">Licenses</h3>
                       <ul className="space-y-2">
-                        <li><Link href="/sole-proprietorship" className="dropdown-higlight">FSSAI Registration</Link></li>
-                        <li><Link href="/private-limited" className="dropdown-higlight">ISO Registration</Link></li>
-                        <li><Link href="/opc" className="dropdown-higlight">Trust Registration</Link></li>
-                        <li><Link href="/llp" className="dropdown-higlight">Public Trust Registration</Link></li>
-                        <li><Link href="/section-8" className="dropdown-higlight">Society Registration</Link></li>
-                        <li><Link href="/section-8" className="dropdown-higlight">Import Export Code</Link></li>
+                        <li><Link href="/licenses/fssai" className="dropdown-higlight">FSSAI Registration</Link></li>
+                        <li><Link href="/licenses/iso" className="dropdown-higlight">ISO Registration</Link></li>
+                        <li><Link href="/licenses/trust" className="dropdown-higlight">Trust Registration</Link></li>
+                        <li><Link href="/licenses/public-trust" className="dropdown-higlight">Public Trust Registration</Link></li>
+                        <li><Link href="/licenses/society" className="dropdown-higlight">Society Registration</Link></li>
+                        <li><Link href="/licenses/import-export" className="dropdown-higlight">Import Export Code</Link></li>
                       </ul>
                     </div>
                   </div>

@@ -62,7 +62,7 @@ const Page = () => {
             {/* Left Side - Form Section */}
             <div id = 'Form Section' className="bg-white p-6 shadow-lg rounded-2xl  ">
               <h2 className="text-xl font-semibold text-gray-800 mb-4">
-                Need Help with Public Limited Company Registration?
+                Need Help with MSME Company Registration?
               </h2>
               <p className="text-gray-600 mb-4">
                 Fill up the below-mentioned form
@@ -357,7 +357,7 @@ const Page = () => {
           </div>
 
           <div id='Compliances Required After Registration' className="container mx-auto p-8">
-            
+        
             {/* Title Section */}
             <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
               Compliances Required After Registration
@@ -432,7 +432,7 @@ const Page = () => {
             </div>
 
             </div>
-      </div>
+          </div>
     </div>
       </div>
   </div>
