@@ -6,17 +6,35 @@ import { ChevronDown, ChevronRight, Menu, MessageSquare, Scale, X } from 'lucide
 
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const [activeMenus, setActiveMenus] = useState<string[]>([]);
   
-  // Toggle submenu visibility
-  const toggleSubmenu = (menuName :any ) => {
-    if (activeSubmenu === menuName) {
-      setActiveSubmenu(null);
-    } else {
-      setActiveSubmenu(menuName);
-    }
+  const toggleSubmenu = (menuName: string) => {
+    setActiveMenus(prev => {
+      if (prev.includes(menuName)) {
+        return prev.filter(item => item !== menuName);
+      } else {
+        return [...prev, menuName];
+      }
+    });
   };
 
+  const isMenuActive = (menuName: string) => {
+    return activeMenus.includes(menuName);
+  };
+
+  const getSubmenuHeight = (menuName: string) => {
+    // Approximate heights for different menus - adjust these values as needed
+    const heights: { [key: string]: string } = {
+      legalSamadhan: 'max-h-[200px]',
+      registration: 'max-h-[800px]', // Larger height for nested menus
+      companyReg: 'max-h-[300px]',
+      businessReg: 'max-h-[200px]',
+      ipRights: 'max-h-[250px]',
+      licenses: 'max-h-[250px]',
+      more: 'max-h-[200px]'
+    };
+    return heights[menuName] || 'max-h-[200px]';
+  };
 
   return (
     <div> 
@@ -56,7 +74,6 @@ const NavBar = () => {
                       <div className="p-4 w-md ">
                         <h3 className="font-bold text-lg mb-2 uppercase">Legal Samadhan for:</h3>
                         <ul className="space-y-2">
-                          <li><Link href="/msme-reg" className="dropdown-higlight">MSME Registered Proprietorship</Link></li>
                           <li><Link href="/comsumer-matters" className="dropdown-higlight">Consumer matters</Link></li>
                           <li><Link href="/arbitration" className="dropdown-higlight">Arbitration Matters</Link></li>
                           <li><Link href="/rera" className="dropdown-higlight">RERA Matters</Link></li>
@@ -97,9 +114,8 @@ const NavBar = () => {
                     <div className="p-4 border-l-2 border-gray-300 hover:bg-gray-100 rounded-md">
                       <h3 className="font-bold text-lg mb-4 uppercase">BUSINESS REGISTRATIONS & COMPLIANCES</h3>
                       <ul className="space-y-2">
-                        <li><Link href="/business-agreements" className="dropdown-higlight">Partnership Registration</Link></li>
-                        <li><Link href="/nda" className="dropdown-higlight">Startup (India)</Link></li>
-                        <li><Link href="/founders-notice" className="dropdown-higlight">MSME Registration</Link></li>
+                        <li><Link href="/startup" className="dropdown-higlight">Startup (India)</Link></li>
+                        <li><Link href="/msme-reg" className="dropdown-higlight">MSME Registeration</Link></li>
                       </ul>
                     </div>
                     
@@ -109,10 +125,8 @@ const NavBar = () => {
                       <h3 className="font-bold text-lg mb-2 uppercase">IP Rights</h3>
                       <ul className="space-y-2">
                         <li><Link href="/trademark" className="dropdown-higlight">Trademark Registration</Link></li>
-                        <li><Link href="/private-limited" className="dropdown-higlight">Trademark objections</Link></li>
-                        <li><Link href="/opc" className="dropdown-higlight">Copyright Registration</Link></li>
-                        <li><Link href="/llp" className="dropdown-higlight">Copyright Objection</Link></li>
-                        <li><Link href="/section-8" className="dropdown-higlight">Patent Registration</Link></li>
+                        <li><Link href="/trademark" className="dropdown-higlight">Copyright Registration</Link></li>
+                        <li><Link href="/trademark" className="dropdown-higlight">Patent Registration</Link></li>
                       </ul>
                     </div>
           
@@ -206,7 +220,8 @@ const NavBar = () => {
         </div>
       </nav>
 
-      <div id="Mobile Navbar" className="bg-blue-900 text-white py-3 md:block lg:hidden xl:hidden">
+      {/* Mobile Navbar */}
+      <div id="Mobile Navbar" className="bg-blue-900 text-white py-3 md:block lg:hidden xl:hidden absolute w-full z-20">
         <div className="container mx-auto px-4">
           {/* Top bar with logo and menu button */}
           <div className="flex justify-between items-center">
@@ -230,8 +245,8 @@ const NavBar = () => {
           
           {/* Mobile dropdown menu with animation */}
           <div 
-            className={`overflow-hidden transition-all duration-300 ease-in-out ${
-              mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+            className={`overflow-hidden transition-all duration-500 ease-in-out ${
+              mobileMenuOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
             }`}
           >
             <div className="mt-3 space-y-1 pb-3">
@@ -242,16 +257,16 @@ const NavBar = () => {
                   onClick={() => toggleSubmenu('legalSamadhan')}
                 >
                   <span>Legal Samadhan</span>
-                  {activeSubmenu === 'legalSamadhan' ? 
-                    <ChevronDown className="w-5 h-5" /> : 
-                    <ChevronRight className="w-5 h-5" />
-                  }
+                  <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${
+                    isMenuActive('legalSamadhan') ? 'rotate-90' : ''
+                  }`} />
                 </button>
-                {activeSubmenu === 'legalSamadhan' && (
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  isMenuActive('legalSamadhan') 
+                    ? `${getSubmenuHeight('legalSamadhan')} opacity-100` 
+                    : 'max-h-0 opacity-0'
+                }`}>
                   <div className="ml-4 mt-2 space-y-2 text-sm">
-                    <Link href="/msme-reg" className="block py-1 pl-2 border-l-2 border-orange-500">
-                      MSME Registered Proprietorship
-                    </Link>
                     <Link href="/comsumer-matters" className="block py-1 pl-2 border-l-2 border-orange-500">
                       Consumer matters
                     </Link>
@@ -262,7 +277,7 @@ const NavBar = () => {
                       RERA Matters
                     </Link>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* Registration & Rights */}
@@ -272,110 +287,122 @@ const NavBar = () => {
                   onClick={() => toggleSubmenu('registration')}
                 >
                   <span>Registration & Rights</span>
-                  {activeSubmenu === 'registration' ? 
-                    <ChevronDown className="w-5 h-5" /> : 
-                    <ChevronRight className="w-5 h-5" />
-                  }
+                  <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${
+                    isMenuActive('registration') ? 'rotate-90' : ''
+                  }`} />
                 </button>
-                {activeSubmenu === 'registration' && (
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  isMenuActive('registration') 
+                    ? `${getSubmenuHeight('registration')} opacity-100` 
+                    : 'max-h-0 opacity-0'
+                }`}>
                   <div className="ml-4 mt-2 space-y-3 text-sm">
                     {/* Company Registration submenu */}
                     <div>
                       <button 
                         className="flex items-center justify-between w-full py-1"
-                        onClick={() => toggleSubmenu('companyReg')}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleSubmenu('companyReg');
+                        }}
                       >
                         <span className="font-semibold">COMPANY REGISTRATION</span>
-                        {activeSubmenu === 'companyReg' ? 
-                          <ChevronDown className="w-4 h-4" /> : 
-                          <ChevronRight className="w-4 h-4" />
-                        }
+                        <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${
+                          isMenuActive('companyReg') ? 'rotate-90' : ''
+                        }`} />
                       </button>
-                      {activeSubmenu === 'companyReg' && (
+                      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        isMenuActive('companyReg') 
+                          ? `${getSubmenuHeight('companyReg')} opacity-100` 
+                          : 'max-h-0 opacity-0'
+                      }`}>
                         <div className="ml-2 mt-1 space-y-1">
-                          <Link href="/sole-proprietorship" className="block py-1 pl-2 border-l-2 border-orange-500">
+                          <Link href="/company-reg/one-person" className="block py-1 pl-2 border-l-2 border-orange-500">
                             One Person Company
                           </Link>
-                          <Link href="/private-limited" className="block py-1 pl-2 border-l-2 border-orange-500">
+                          <Link href="/company-reg/pvt-ltd" className="block py-1 pl-2 border-l-2 border-orange-500">
                             Pvt. Ltd. Company
                           </Link>
-                          <Link href="/opc" className="block py-1 pl-2 border-l-2 border-orange-500">
+                          <Link href="/company-reg/pub-ltd" className="block py-1 pl-2 border-l-2 border-orange-500">
                             Public Ltd. Company
                           </Link>
-                          <Link href="/llp" className="block py-1 pl-2 border-l-2 border-orange-500">
+                          <Link href="/company-reg/llp-reg" className="block py-1 pl-2 border-l-2 border-orange-500">
                             LLP Registration
                           </Link>
-                          <Link href="/section-8" className="block py-1 pl-2 border-l-2 border-orange-500">
+                          <Link href="/company-reg/nidhi-reg" className="block py-1 pl-2 border-l-2 border-orange-500">
                             Nidhi Company Registration
                           </Link>
-                          <Link href="/section-8" className="block py-1 pl-2 border-l-2 border-orange-500">
+                          <Link href="/company-reg/sec-8" className="block py-1 pl-2 border-l-2 border-orange-500">
                             Section 8 Company (NGO)
                           </Link>
                         </div>
-                      )}
+                      </div>
                     </div>
 
                     {/* Business Registrations submenu */}
                     <div>
                       <button 
                         className="flex items-center justify-between w-full py-1"
-                        onClick={() => toggleSubmenu('businessReg')}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleSubmenu('businessReg');
+                        }}
                       >
                         <span className="font-semibold">BUSINESS REGISTRATIONS & COMPLIANCES</span>
-                        {activeSubmenu === 'businessReg' ? 
-                          <ChevronDown className="w-4 h-4" /> : 
-                          <ChevronRight className="w-4 h-4" />
-                        }
+                        <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${
+                          isMenuActive('businessReg') ? 'rotate-90' : ''
+                        }`} />
                       </button>
-                      {activeSubmenu === 'businessReg' && (
+                      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        isMenuActive('businessReg') 
+                          ? `${getSubmenuHeight('businessReg')} opacity-100` 
+                          : 'max-h-0 opacity-0'
+                      }`}>
                         <div className="ml-2 mt-1 space-y-1">
-                          <Link href="/business-agreements" className="block py-1 pl-2 border-l-2 border-orange-500">
-                            Partnership Registration
-                          </Link>
                           <Link href="/nda" className="block py-1 pl-2 border-l-2 border-orange-500">
                             Startup (India)
                           </Link>
-                          <Link href="/founders-notice" className="block py-1 pl-2 border-l-2 border-orange-500">
-                            MSME Registration
+                          <Link href="/msme-reg" className="block py-1 pl-2 border-l-2 border-orange-500">
+                            MSME Registered Proprietorship
                           </Link>
                         </div>
-                      )}
+                      </div>
                     </div>
 
                     {/* IP Rights submenu */}
                     <div>
                       <button 
                         className="flex items-center justify-between w-full py-1"
-                        onClick={() => toggleSubmenu('ipRights')}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleSubmenu('ipRights');
+                        }}
                       >
                         <span className="font-semibold">IP RIGHTS</span>
-                        {activeSubmenu === 'ipRights' ? 
-                          <ChevronDown className="w-4 h-4" /> : 
-                          <ChevronRight className="w-4 h-4" />
-                        }
+                        <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${
+                          isMenuActive('ipRights') ? 'rotate-90' : ''
+                        }`} />
                       </button>
-                      {activeSubmenu === 'ipRights' && (
+                      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        isMenuActive('ipRights') 
+                          ? `${getSubmenuHeight('ipRights')} opacity-100` 
+                          : 'max-h-0 opacity-0'
+                      }`}>
                         <div className="ml-2 mt-1 space-y-1">
                           <Link href="/trademark" className="block py-1 pl-2 border-l-2 border-orange-500">
                             Trademark Registration
                           </Link>
-                          <Link href="/private-limited" className="block py-1 pl-2 border-l-2 border-orange-500">
-                            Trademark objections
-                          </Link>
-                          <Link href="/opc" className="block py-1 pl-2 border-l-2 border-orange-500">
+                          <Link href="/trademark" className="block py-1 pl-2 border-l-2 border-orange-500">
                             Copyright Registration
                           </Link>
-                          <Link href="/llp" className="block py-1 pl-2 border-l-2 border-orange-500">
-                            Copyright Objection
-                          </Link>
-                          <Link href="/section-8" className="block py-1 pl-2 border-l-2 border-orange-500">
+                          <Link href="/trademark" className="block py-1 pl-2 border-l-2 border-orange-500">
                             Patent Registration
                           </Link>
                         </div>
-                      )}
+                      </div>
                     </div>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* Licenses */}
@@ -385,33 +412,33 @@ const NavBar = () => {
                   onClick={() => toggleSubmenu('licenses')}
                 >
                   <span>Licenses</span>
-                  {activeSubmenu === 'licenses' ? 
-                    <ChevronDown className="w-5 h-5" /> : 
-                    <ChevronRight className="w-5 h-5" />
-                  }
+                  <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${
+                    isMenuActive('licenses') ? 'rotate-90' : ''
+                  }`} />
                 </button>
-                {activeSubmenu === 'licenses' && (
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  isMenuActive('licenses') 
+                    ? `${getSubmenuHeight('licenses')} opacity-100` 
+                    : 'max-h-0 opacity-0'
+                }`}>
                   <div className="ml-4 mt-2 space-y-2 text-sm">
-                    <Link href="/sole-proprietorship" className="block py-1 pl-2 border-l-2 border-orange-500">
+                    <Link href="/licenses/fssai" className="block py-1 pl-2 border-l-2 border-orange-500">
                       FSSAI Registration
                     </Link>
-                    <Link href="/private-limited" className="block py-1 pl-2 border-l-2 border-orange-500">
+                    <Link href="/licenses/iso" className="block py-1 pl-2 border-l-2 border-orange-500">
                       ISO Registration
                     </Link>
-                    <Link href="/opc" className="block py-1 pl-2 border-l-2 border-orange-500">
+                    <Link href="/licenses/trust" className="block py-1 pl-2 border-l-2 border-orange-500">
                       Trust Registration
                     </Link>
-                    <Link href="/llp" className="block py-1 pl-2 border-l-2 border-orange-500">
-                      Public Trust Registration
-                    </Link>
-                    <Link href="/section-8" className="block py-1 pl-2 border-l-2 border-orange-500">
+                    <Link href="/licenses/society" className="block py-1 pl-2 border-l-2 border-orange-500">
                       Society Registration
                     </Link>
-                    <Link href="/section-8" className="block py-1 pl-2 border-l-2 border-orange-500">
+                    <Link href="/licenses/import-export" className="block py-1 pl-2 border-l-2 border-orange-500">
                       Import Export Code
                     </Link>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* More */}
@@ -421,16 +448,19 @@ const NavBar = () => {
                   onClick={() => toggleSubmenu('more')}
                 >
                   <span>More</span>
-                  {activeSubmenu === 'more' ? 
-                    <ChevronDown className="w-5 h-5" /> : 
-                    <ChevronRight className="w-5 h-5" />
-                  }
+                  <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${
+                    isMenuActive('more') ? 'rotate-90' : ''
+                  }`} />
                 </button>
-                {activeSubmenu === 'more' && (
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  isMenuActive('more') 
+                    ? `${getSubmenuHeight('more')} opacity-100` 
+                    : 'max-h-0 opacity-0'
+                }`}>
                   <div className="ml-4 mt-2 space-y-2 text-sm">
                     <p>More dropdown content goes here</p>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* Share Feedback */}

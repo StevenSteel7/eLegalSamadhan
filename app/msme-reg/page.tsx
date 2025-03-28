@@ -308,53 +308,7 @@ const Page = () => {
 
           <div className="py-2"></div>
 
-          <div className="bg-white p-6 rounded-xl shadow-md">
-            {/* Header */}
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
-                <FileBarChart className="w-6 h-6 text-yellow-500" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-800">Compliances Required After Registration</h3>
-            </div>
-
-            {/* Condensed List */}
-            <ul className="space-y-2 text-gray-700">
-              <li className="flex items-center space-x-2">
-                <FileBarChart className="w-5 h-5 text-yellow-500" />
-                <span><strong>Annual Submission</strong> – Report turnover & investment details on the Udyam portal.</span>
-              </li>
-
-              <li className="flex items-center space-x-2">
-                <FileCheck className="w-5 h-5 text-yellow-500" />
-                <span><strong>Tax Compliance</strong> – Timely filing of Income Tax Returns (ITR) and GST returns.</span>
-              </li>
-
-              <li className="flex items-center space-x-2">
-                <Clock className="w-5 h-5 text-yellow-500" />
-                <span><strong>Delayed Payment Reporting</strong> – File MSME-1 form with MCA to report delayed payments.</span>
-              </li>
-
-              <li className="flex items-center space-x-2">
-                <RefreshCw className="w-5 h-5 text-yellow-500" />
-                <span><strong>Update Business Info</strong> – Modify Udyam registration details for structural changes.</span>
-              </li>
-
-              <li className="flex items-center space-x-2">
-                <BookOpen className="w-5 h-5 text-yellow-500" />
-                <span><strong>Financial Records</strong> – Maintain proper accounting records & financial statements.</span>
-              </li>
-
-              <li className="flex items-center space-x-2">
-                <Leaf className="w-5 h-5 text-yellow-500" />
-                <span><strong>Regulatory Compliance</strong> – Ensure compliance with environmental & labor laws.</span>
-              </li>
-
-              <li className="flex items-center space-x-2">
-                <Handshake className="w-5 h-5 text-yellow-500" />
-                <span><strong>Subsidy & Loans</strong> – Participate in MSME subsidy & loan schemes as per eligibility.</span>
-              </li>
-            </ul>
-          </div>
+       
 
           <div id='Compliances Required After Registration' className="container mx-auto p-8">
         
@@ -422,8 +376,8 @@ const Page = () => {
               <p className="text-gray-600 mt-2">Ensure compliance with environmental & labor laws.</p>
             </div>
 
-            {/* MSME Subsidy & Loan Participation */}
-            <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+            {/* MSME Subsidy & Loan Participation - Positioned to start from middle column */}
+            <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition-shadow duration-300 flex flex-col items-center sm:col-start-2 md:col-start-2">
               <div className="w-16 h-16 border-2 border-blue-300 rounded-full flex items-center justify-center mb-4">
                 <Handshake className="w-10 h-10 text-yellow-500" />
               </div>

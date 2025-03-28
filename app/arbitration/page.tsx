@@ -154,232 +154,232 @@ const page = () => {
                 
             
                 
-                <div id='Content container' className="flex flex-wrap " > 
-                    <div  className="max-w-7xl mx-auto p-4">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div id='Content container' className="flex flex-wrap " > 
+                        <div  className="max-w-7xl mx-auto p-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                            {/* Form Section */}
-                            <div id="Form Section" className="bg-white p-6 shadow-lg rounded-2xl max-w-2xl w-full">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                                Need Help with Our Arbitration Services?
-                            </h2>
-                            <p className="text-gray-600 mb-4">Fill up the below-mentioned form</p>
+                                {/* Form Section */}
+                                <div id="Form Section" className="bg-white p-6 shadow-lg rounded-2xl max-w-2xl w-full">
+                                <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                                    Need Help with Our Arbitration Services?
+                                </h2>
+                                <p className="text-gray-600 mb-4">Fill up the below-mentioned form</p>
 
-                            <form>
-                                <div className="mb-4">
-                                <label className="block text-gray-700 font-medium mb-1">Name *</label>
-                                <input type="text" placeholder="Your Name" className="w-full border rounded px-3 py-2" />
+                                <form>
+                                    <div className="mb-4">
+                                    <label className="block text-gray-700 font-medium mb-1">Name *</label>
+                                    <input type="text" placeholder="Your Name" className="w-full border rounded px-3 py-2" />
+                                    </div>
+
+                                    <div className="mb-4">
+                                    <label className="block text-gray-700 font-medium mb-1">Email *</label>
+                                    <input type="email" placeholder="Your Email Address" className="w-full border rounded px-3 py-2" />
+                                    </div>
+
+                                    <div className="mb-4">
+                                    <label className="block text-gray-700 font-medium mb-1">Mobile *</label>
+                                    <input type="text" placeholder="Your Phone Number (Without 0 or +91)" className="w-full border rounded px-3 py-2" />
+                                    </div>
+
+                                    <div className="mb-4">
+                                    <label className="block text-gray-700 font-medium mb-1">State *</label>
+                                    <select className="w-full border rounded px-3 py-2">
+                                        <option>Select State</option>
+                                        <option>Maharashtra</option>
+                                        <option>Karnataka</option>
+                                        <option>Tamil Nadu</option>
+                                        <option>Delhi</option>
+                                    </select>
+                                    </div>
+
+                                    <div className="flex items-start mb-4">
+                                    <input type="checkbox" id="terms" className="mr-2" />
+                                    <label htmlFor="terms" className="text-gray-600 text-sm">
+                                        I have read & agreed to the company's Terms and Conditions, disclaimer, and refund policy.
+                                    </label>
+                                    </div>
+
+                                    <button className="w-full bg-green-600 text-white py-2 rounded text-lg font-semibold hover:bg-green-700">
+                                    Request for Call Back
+                                    </button>
+                                </form>
                                 </div>
 
-                                <div className="mb-4">
-                                <label className="block text-gray-700 font-medium mb-1">Email *</label>
-                                <input type="email" placeholder="Your Email Address" className="w-full border rounded px-3 py-2" />
-                                </div>
+                            {/* Dispute Resolution Process */}
+                            <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-4xl mx-auto">
+                                {/* Card Header */}
+                                <h1 className="text-2xl pb-6 font-bold text-gray-800 text-center mb-4">Our Dispute Resolution Process</h1>
 
-                                <div className="mb-4">
-                                <label className="block text-gray-700 font-medium mb-1">Mobile *</label>
-                                <input type="text" placeholder="Your Phone Number (Without 0 or +91)" className="w-full border rounded px-3 py-2" />
-                                </div>
+                                {/* Steps Grid */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                        <span className="text-xl mr-3">📝</span>
+                                        <div>
+                                            <h2 className="font-bold text-lg text-blue-900">Free Case Evaluation</h2>
+                                            <p className="text-gray-700 text-sm">Share your issue and get a legal assessment.</p>
+                                        </div>
+                                    </div>
 
-                                <div className="mb-4">
-                                <label className="block text-gray-700 font-medium mb-1">State *</label>
-                                <select className="w-full border rounded px-3 py-2">
-                                    <option>Select State</option>
-                                    <option>Maharashtra</option>
-                                    <option>Karnataka</option>
-                                    <option>Tamil Nadu</option>
-                                    <option>Delhi</option>
-                                </select>
-                                </div>
+                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                        <span className="text-xl mr-3">📄</span>
+                                        <div>
+                                            <h2 className="font-bold text-lg text-blue-900">Documentation & Drafting</h2>
+                                            <p className="text-gray-700 text-sm">Prepare a strong complaint with evidence.</p>
+                                        </div>
+                                    </div>
 
-                                <div className="flex items-start mb-4">
-                                <input type="checkbox" id="terms" className="mr-2" />
-                                <label htmlFor="terms" className="text-gray-600 text-sm">
-                                    I have read & agreed to the company's Terms and Conditions, disclaimer, and refund policy.
-                                </label>
-                                </div>
+                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                        <span className="text-xl mr-3">⚖</span>
+                                        <div>
+                                            <h2 className="font-bold text-lg text-blue-900">Filing the Complaint</h2>
+                                            <p className="text-gray-700 text-sm">Submit your case to the relevant forum.</p>
+                                        </div>
+                                    </div>
 
-                                <button className="w-full bg-green-600 text-white py-2 rounded text-lg font-semibold hover:bg-green-700">
-                                Request for Call Back
-                                </button>
-                            </form>
+                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                        <span className="text-xl mr-3">👨‍⚖️</span>
+                                        <div>
+                                            <h2 className="font-bold text-lg text-blue-900">Legal Representation</h2>
+                                            <p className="text-gray-700 text-sm">Get the best advocate for your case.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                        <span className="text-xl mr-3">🔍</span>
+                                        <div>
+                                            <h2 className="font-bold text-lg text-blue-900">Regular Case Monitoring</h2>
+                                            <p className="text-gray-700 text-sm">Track hearings and receive timely updates.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                        <span className="text-xl mr-3">✅</span>
+                                        <div>
+                                            <h2 className="font-bold text-lg text-blue-900">Case Resolution</h2>
+                                            <p className="text-gray-700 text-sm">Seek compensation or legal remedies.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                        {/* Dispute Resolution Process */}
-                        <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-4xl mx-auto">
-                            {/* Card Header */}
-                            <h1 className="text-2xl pb-6 font-bold text-gray-800 text-center mb-4">Our Dispute Resolution Process</h1>
-
-                            {/* Steps Grid */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                    <span className="text-xl mr-3">📝</span>
-                                    <div>
-                                        <h2 className="font-bold text-lg text-blue-900">Free Case Evaluation</h2>
-                                        <p className="text-gray-700 text-sm">Share your issue and get a legal assessment.</p>
-                                    </div>
-                                </div>
-
-                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                    <span className="text-xl mr-3">📄</span>
-                                    <div>
-                                        <h2 className="font-bold text-lg text-blue-900">Documentation & Drafting</h2>
-                                        <p className="text-gray-700 text-sm">Prepare a strong complaint with evidence.</p>
-                                    </div>
-                                </div>
-
-                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                    <span className="text-xl mr-3">⚖</span>
-                                    <div>
-                                        <h2 className="font-bold text-lg text-blue-900">Filing the Complaint</h2>
-                                        <p className="text-gray-700 text-sm">Submit your case to the relevant forum.</p>
-                                    </div>
-                                </div>
-
-                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                    <span className="text-xl mr-3">👨‍⚖️</span>
-                                    <div>
-                                        <h2 className="font-bold text-lg text-blue-900">Legal Representation</h2>
-                                        <p className="text-gray-700 text-sm">Get the best advocate for your case.</p>
-                                    </div>
-                                </div>
-
-                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                    <span className="text-xl mr-3">🔍</span>
-                                    <div>
-                                        <h2 className="font-bold text-lg text-blue-900">Regular Case Monitoring</h2>
-                                        <p className="text-gray-700 text-sm">Track hearings and receive timely updates.</p>
-                                    </div>
-                                </div>
-
-                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                    <span className="text-xl mr-3">✅</span>
-                                    <div>
-                                        <h2 className="font-bold text-lg text-blue-900">Case Resolution</h2>
-                                        <p className="text-gray-700 text-sm">Seek compensation or legal remedies.</p>
-                                    </div>
-                                </div>
                             </div>
+
+
+
                         </div>
 
-                        </div>
-
-
-
-                    </div>
-
-                    <div id='Costumer case and Docs req container' className="grid md:grid-cols-2 gap-8 justify-items-center w-full p-4">
-                    
-                        {/* Dispute Types Grid */}
-                        <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-4xl mx-auto">
-                            {/* Card Header */}
-                            <h1 className="text-2xl pb-6 font-bold text-gray-800 text-center mb-4">
-                                Types of Disputes Handled by E-Legal Samadhan Arbitration
-                            </h1>
-
+                        <div id='Costumer case and Docs req container' className="grid md:grid-cols-2 gap-8 justify-items-center w-full p-4">
                         
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                    <span className="text-xl mr-3">⚖</span>
-                                    <div>
-                                        <h2 className="font-bold text-lg text-blue-900">Business & Commercial Disputes</h2>
-                                        <p className="text-gray-700 text-sm">Contract breaches, partnership disputes, and non-payment issues.</p>
-                                    </div>
-                                </div>
+                            {/* Dispute Types Grid */}
+                            <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-4xl mx-auto">
+                                {/* Card Header */}
+                                <h1 className="text-2xl pb-6 font-bold text-gray-800 text-center mb-4">
+                                    Types of Disputes Handled by E-Legal Samadhan Arbitration
+                                </h1>
 
-                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                    <span className="text-xl mr-3">🏗</span>
-                                    <div>
-                                        <h2 className="font-bold text-lg text-blue-900">Construction & Real Estate Disputes</h2>
-                                        <p className="text-gray-700 text-sm">Delayed possession, builder-buyer conflicts, and contractor claims.</p>
-                                    </div>
-                                </div>
-
-                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                    <span className="text-xl mr-3">💰</span>
-                                    <div>
-                                        <h2 className="font-bold text-lg text-blue-900">Financial & Investment Disputes</h2>
-                                        <p className="text-gray-700 text-sm">Shareholder disputes, banking issues, and financial fraud.</p>
-                                    </div>
-                                </div>
-
-                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                    <span className="text-xl mr-3">💼</span>
-                                    <div>
-                                        <h2 className="font-bold text-lg text-blue-900">Employment & Labor Disputes</h2>
-                                        <p className="text-gray-700 text-sm">Wrongful termination, employee grievances, and contractual employment issues.</p>
-                                    </div>
-                                </div>
-
-                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                    <span className="text-xl mr-3">🏭</span>
-                                    <div>
-                                        <h2 className="font-bold text-lg text-blue-900">Manufacturing & Supply Chain Disputes</h2>
-                                        <p className="text-gray-700 text-sm">Defective products, delivery failures, and supplier conflicts.</p>
-                                    </div>
-                                </div>
-
-                                <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
-                                    <span className="text-xl mr-3">📑</span>
-                                    <div>
-                                        <h2 className="font-bold text-lg text-blue-900">Intellectual Property (IP) & Trademark Disputes</h2>
-                                        <p className="text-gray-700 text-sm">Copyright, trademark, and patent-related conflicts.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    
-                        {/* Cost Comparasion Table */}
-                        <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-2xl hover:shadow-lg transition-all duration-300">
-                            <h2 className="text-2xl font-bold text-center mb-4">Cost Comparison: Arbitration vs. Litigation</h2>
-                            <p className="text-center mb-6">Arbitration is <span className="font-bold">cheaper and more effective</span> than traditional court litigation. Here's why:</p>
                             
-                            <div className="overflow-x-auto">
-                                <table className="w-full border-collapse">
-                                <thead>
-                                    <tr className="bg-gray-100">
-                                    <th className="border border-gray-300 p-3 text-left">Factor</th>
-                                    <th className="border border-gray-300 p-3 text-left">Arbitration</th>
-                                    <th className="border border-gray-300 p-3 text-left">Litigation</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                    <td className="border border-gray-300 p-3 font-bold">Resolution Time</td>
-                                    <td className="border border-gray-300 p-3 bg-green-50">6 months - 1 year</td>
-                                    <td className="border border-gray-300 p-3 bg-red-50">3-5 years or more</td>
-                                    </tr>
-                                    <tr>
-                                    <td className="border border-gray-300 p-3 font-bold">Legal Costs</td>
-                                    <td className="border border-gray-300 p-3 bg-green-50">Lower (Fixed Fees)</td>
-                                    <td className="border border-gray-300 p-3 bg-red-50">Expensive (Lawyer Fees, Court Costs)</td>
-                                    </tr>
-                                    <tr>
-                                    <td className="border border-gray-300 p-3 font-bold">Confidentiality</td>
-                                    <td className="border border-gray-300 p-3 bg-green-50">Private & Confidential</td>
-                                    <td className="border border-gray-300 p-3 bg-red-50">Public Legal Proceedings</td>
-                                    </tr>
-                                    <tr>
-                                    <td className="border border-gray-300 p-3 font-bold">Flexibility</td>
-                                    <td className="border border-gray-300 p-3 bg-green-50">Parties control the process</td>
-                                    <td className="border border-gray-300 p-3 bg-red-50">Court decides the process</td>
-                                    </tr>
-                                    <tr>
-                                    <td className="border border-gray-300 p-3 font-bold">Finality</td>
-                                    <td className="border border-gray-300 p-3 bg-green-50">Legally binding with limited appeal</td>
-                                    <td className="border border-gray-300 p-3 bg-red-50">Subject to multiple appeals</td>
-                                    </tr>
-                                </tbody>
-                                </table>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                        <span className="text-xl mr-3">⚖</span>
+                                        <div>
+                                            <h2 className="font-bold text-lg text-blue-900">Business & Commercial Disputes</h2>
+                                            <p className="text-gray-700 text-sm">Contract breaches, partnership disputes, and non-payment issues.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                        <span className="text-xl mr-3">🏗</span>
+                                        <div>
+                                            <h2 className="font-bold text-lg text-blue-900">Construction & Real Estate Disputes</h2>
+                                            <p className="text-gray-700 text-sm">Delayed possession, builder-buyer conflicts, and contractor claims.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                        <span className="text-xl mr-3">💰</span>
+                                        <div>
+                                            <h2 className="font-bold text-lg text-blue-900">Financial & Investment Disputes</h2>
+                                            <p className="text-gray-700 text-sm">Shareholder disputes, banking issues, and financial fraud.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                        <span className="text-xl mr-3">💼</span>
+                                        <div>
+                                            <h2 className="font-bold text-lg text-blue-900">Employment & Labor Disputes</h2>
+                                            <p className="text-gray-700 text-sm">Wrongful termination, employee grievances, and contractual employment issues.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                        <span className="text-xl mr-3">🏭</span>
+                                        <div>
+                                            <h2 className="font-bold text-lg text-blue-900">Manufacturing & Supply Chain Disputes</h2>
+                                            <p className="text-gray-700 text-sm">Defective products, delivery failures, and supplier conflicts.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 flex">
+                                        <span className="text-xl mr-3">📑</span>
+                                        <div>
+                                            <h2 className="font-bold text-lg text-blue-900">Intellectual Property (IP) & Trademark Disputes</h2>
+                                            <p className="text-gray-700 text-sm">Copyright, trademark, and patent-related conflicts.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
+
+                        
+                            {/* Cost Comparasion Table */}
+                            <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-2xl hover:shadow-lg transition-all duration-300">
+                                <h2 className="text-2xl font-bold text-center mb-4">Cost Comparison: Arbitration vs. Litigation</h2>
+                                <p className="text-center mb-6">Arbitration is <span className="font-bold">cheaper and more effective</span> than traditional court litigation. Here's why:</p>
+                                
+                                <div className="overflow-x-auto">
+                                    <table className="w-full border-collapse">
+                                    <thead>
+                                        <tr className="bg-gray-100">
+                                        <th className="border border-gray-300 p-3 text-left">Factor</th>
+                                        <th className="border border-gray-300 p-3 text-left">Arbitration</th>
+                                        <th className="border border-gray-300 p-3 text-left">Litigation</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <td className="border border-gray-300 p-3 font-bold">Resolution Time</td>
+                                        <td className="border border-gray-300 p-3 bg-green-50">6 months - 1 year</td>
+                                        <td className="border border-gray-300 p-3 bg-red-50">3-5 years or more</td>
+                                        </tr>
+                                        <tr>
+                                        <td className="border border-gray-300 p-3 font-bold">Legal Costs</td>
+                                        <td className="border border-gray-300 p-3 bg-green-50">Lower (Fixed Fees)</td>
+                                        <td className="border border-gray-300 p-3 bg-red-50">Expensive (Lawyer Fees, Court Costs)</td>
+                                        </tr>
+                                        <tr>
+                                        <td className="border border-gray-300 p-3 font-bold">Confidentiality</td>
+                                        <td className="border border-gray-300 p-3 bg-green-50">Private & Confidential</td>
+                                        <td className="border border-gray-300 p-3 bg-red-50">Public Legal Proceedings</td>
+                                        </tr>
+                                        <tr>
+                                        <td className="border border-gray-300 p-3 font-bold">Flexibility</td>
+                                        <td className="border border-gray-300 p-3 bg-green-50">Parties control the process</td>
+                                        <td className="border border-gray-300 p-3 bg-red-50">Court decides the process</td>
+                                        </tr>
+                                        <tr>
+                                        <td className="border border-gray-300 p-3 font-bold">Finality</td>
+                                        <td className="border border-gray-300 p-3 bg-green-50">Legally binding with limited appeal</td>
+                                        <td className="border border-gray-300 p-3 bg-red-50">Subject to multiple appeals</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+
                         </div>
                         
-
                     </div>
-                    
-                </div>
 
             </div>
                         
