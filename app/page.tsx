@@ -320,21 +320,17 @@ const LandingPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-900 text-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-            <div className="mb-8 md:mb-0 md:w-2/3">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started with Your Legal Journey?</h2>
-              <p className="text-xl text-gray-300">Our experts are available to guide you through every step of the process.</p>
-            </div>
-            <div className="md:w-1/3 text-left text-orange-500 font-bold text-5xl hover:text-white transition-colors cursor-pointer duration-200">
-              <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                Contact Us Today
-              </div>
-            </div>
+      <section id="cta" className="py-16 px-4 bg-gradient-to-r from-orange-500 to-emerald-600 text-white">
+          <div className="container mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Secure Your Business Future?</h2>
+            <p className="text-lg mb-8">Let our experts guide you through every step. Contact us today for personalized support.</p>
+            <Link href="/contact"> {/* Link to your contact page */}
+              <span className="bg-white hover:bg-gray-100 text-blue-900 font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out shadow-lg">
+                Contact Us
+              </span>
+            </Link>
           </div>
-        </div>
-      </section>
+        </section>
 
   
     </div>
