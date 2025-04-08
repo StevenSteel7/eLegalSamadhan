@@ -22,10 +22,10 @@ const page = () => {
        <div id="banner" className="bg-gradient-to-br from-blue-50 to-blue-100 pt-20">
         {/* Background Image */}
         <div 
-          className="absolute top-0 left-0 w-full h-[90vh] md:h-[62vh] z-0 opacity-20 pointer-events-none cursor-default"
+          className="absolute top-0 left-0 w-full h-[100vh] md:h-[62vh] z-0 opacity-20 pointer-events-none cursor-default"
           style={{
-            backgroundImage: 'url("/images/society.jpg")',
-            backgroundSize: 'cover',
+            backgroundImage: 'url("/images/import.png")',
+            backgroundSize: '',
             backgroundPosition: 'center'
           }}
         />

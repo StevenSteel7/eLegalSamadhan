@@ -21,7 +21,7 @@ const page = () => {
         <div 
           className="absolute top-0 left-0 w-full h-[90vh] md:h-[62vh] z-0 opacity-20 pointer-events-none cursor-default"
           style={{
-            backgroundImage: 'url("/images/society.jpg")',
+            backgroundImage: 'url("/images/society.png")',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
