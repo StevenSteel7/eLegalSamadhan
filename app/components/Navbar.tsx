@@ -74,9 +74,9 @@ const NavBar = () => {
                       <div className="p-4 w-md ">
                         <h3 className="font-bold text-lg mb-2 uppercase">Legal Samadhan for:</h3>
                         <ul className="space-y-2">
-                          <li><Link href="/comsumer-matters" className="dropdown-higlight">Consumer matters</Link></li>
-                          <li><Link href="/arbitration" className="dropdown-higlight">Arbitration Matters</Link></li>
-                          <li><Link href="/rera" className="dropdown-higlight">RERA Matters</Link></li>
+                          <li><Link href="/comsumer-Samadhan" className="dropdown-higlight">Consumer Samadhan</Link></li>
+                          <li><Link href="/arbitration" className="dropdown-higlight">Arbitration Samadhan</Link></li>
+                          <li><Link href="/rera" className="dropdown-higlight">RERA Samadhan</Link></li>
                      
                         </ul>
                       </div>
@@ -116,6 +116,7 @@ const NavBar = () => {
                       <ul className="space-y-2">
                         <li><Link href="/startup" className="dropdown-higlight">Startup (India)</Link></li>
                         <li><Link href="/msme-reg" className="dropdown-higlight">MSME Registeration</Link></li>
+                        <li><Link href="/rera-reg" className="dropdown-higlight">RERA Registeration</Link></li> 
                       </ul>
                     </div>
                     
@@ -129,6 +130,7 @@ const NavBar = () => {
                         <li><Link href="/trademark" className="dropdown-higlight">Patent Registration</Link></li>
                       </ul>
                     </div>
+                    
           
                   </div>
                 </div>
@@ -190,6 +192,7 @@ const NavBar = () => {
                   </div>
                 </div>
               </div> 
+              
 
                        
               <div className="relative group" id='More'>
@@ -267,14 +270,14 @@ const NavBar = () => {
                     : 'max-h-0 opacity-0'
                 }`}>
                   <div className="ml-4 mt-2 space-y-2 text-sm">
-                    <Link href="/comsumer-matters" className="block py-1 pl-2 border-l-2 border-orange-500">
-                      Consumer matters
+                    <Link href="/comsumer-Samadhan" className="block py-1 pl-2 border-l-2 border-orange-500">
+                      Consumer Samadhan
                     </Link>
                     <Link href="/arbitration" className="block py-1 pl-2 border-l-2 border-orange-500">
-                      Arbitration Matters
+                      Arbitration Samadhan
                     </Link>
                     <Link href="/rera" className="block py-1 pl-2 border-l-2 border-orange-500">
-                      RERA Matters
+                      RERA Samadhan
                     </Link>
                   </div>
                 </div>
@@ -365,6 +368,7 @@ const NavBar = () => {
                           <Link href="/msme-reg" className="block py-1 pl-2 border-l-2 border-orange-500">
                             MSME Registered Proprietorship
                           </Link>
+                          
                         </div>
                       </div>
                     </div>
@@ -399,8 +403,12 @@ const NavBar = () => {
                             Patent Registration
                           </Link>
                         </div>
+                        
                       </div>
                     </div>
+                    <Link href="/rera-reg" className="font-semibold">
+                            RERA Registration
+                    </Link>
                   </div>
                 </div>
               </div>
