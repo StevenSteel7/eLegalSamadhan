@@ -195,24 +195,13 @@ const NavBar = () => {
               
 
                        
-              <div className="relative group" id='More'>
-                <button className="px-3 py-2 flex items-center nav-link">
-                  More
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-                <div className="absolute left-0 mt-2 w-screen max-w-4xl bg-white shadow-lg rounded-md z-50 text-black hidden group-hover:block">
-                  <div className="grid grid-cols-3 gap-4 p-4">
-                    <p className="p-4">More dropdown content goes here</p>
-                  </div>
-                </div>
-              </div>
+              
 
               <div className=" nav-link ">  
                 <button className="flex items-center gap-2 ">
                   <MessageSquare className="  text-green-500" />
-                  <div className="font-bold">Share Feedback</div>
+                  <Link href="/contact" className="dropdown-higlight">Contact US</Link>
+                
                 </button>
               </div>
 

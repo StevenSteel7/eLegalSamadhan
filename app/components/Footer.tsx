@@ -26,15 +26,15 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-emerald-400" />
-                <span>+91 XXXXX XXXXX</span>
+                <span>+91 91160 51108</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-emerald-400" />
-                <span>contact@elegalsamadhan.com</span>
+                <span>elegalsamadhan@outlook.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-5 w-5 text-emerald-400" />
-                <span>Jaipur, Rajasthan, India</span>
+                <span>196 B first floor, near Ananta Hotel, opposite Motison's Jewellers, Tonk road, Jaipur, Rajasthan, India 302012</span>
               </div>
             </div>
           </div>
@@ -69,7 +69,7 @@ const Footer = () => {
               <li><Link href="/licenses/fssai" className="hover:text-emerald-400 transition-colors">FSSAI Registration</Link></li>
               <li><Link href="/licenses/iso" className="hover:text-emerald-400 transition-colors">ISO Registration</Link></li>
               <li><Link href="/trademark" className="hover:text-emerald-400 transition-colors">Trademark Registration</Link></li>
-              <li><Link href="/opc" className="hover:text-emerald-400 transition-colors">Copyright Registration</Link></li>
+              <li><Link href="/trademark" className="hover:text-emerald-400 transition-colors">Copyright Registration</Link></li>
             </ul>
           </div>
         </div>

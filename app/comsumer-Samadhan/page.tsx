@@ -304,7 +304,7 @@ const page = () => {
                                 <div className="w-14 h-14 border-2 border-blue-300 rounded-full flex items-center justify-center mb-3">
                                     <FileText className="w-8 h-8 text-yellow-500" />
                                 </div>
-                                <h3 className="text-lg font-semibold text-gray-800">Agreement/Contract Copy</h3>
+                                <h3 className="text-lg font-semibold text-gray-800">Agreement Copy</h3>
                                 <p className="text-gray-600 text-sm">For disputes in services like real estate or telecom.</p>
                             </div>
 
@@ -461,9 +461,7 @@ const page = () => {
             <p className="text-gray-600 mt-2">
                 Register your complaint with E-Legal Samadhan and seek justice.
             </p>
-            <button className="mt-4 px-6 py-3 bg-green-600 text-white text-lg rounded-lg hover:bg-green-700">
-                File Your Complaint
-            </button>
+          
             </div>
         
         </div>

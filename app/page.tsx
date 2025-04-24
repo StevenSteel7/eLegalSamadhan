@@ -237,7 +237,7 @@ const LandingPage = () => {
       <section id="services" className={`py-20 bg-gray-50 transition-all duration-1000 ${isVisible.services ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Premium Services</h2>
+            <h2 className="text-4xl font-bold mb-4">Some of our Premium Services</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive legal solutions for businesses and individuals</p>
           </div>
           
@@ -263,11 +263,6 @@ const LandingPage = () => {
             ))}
           </div>
           
-          <div className="text-center mt-12">
-            <Link href="/services" className="inline-block bg-blue-900 hover:bg-blue-800 text-white py-3 px-8 rounded-md font-semibold transition duration-300">
-              View All Services
-            </Link>
-          </div>
         </div>
       </section>
 

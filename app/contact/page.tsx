@@ -30,34 +30,65 @@ const ContactPage = () => {
     subject: '',
     message: ''
   });
-  const [submissionStatus, setSubmissionStatus] = useState<string | null>(null); // 'success', 'error', or null
+  // Use specific strings for status for better clarity
+  const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null); // Store specific error message
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+     // Reset status if user starts typing again after an error/success
+    if (submissionStatus === 'success' || submissionStatus === 'error') {
+        setSubmissionStatus('idle');
+        setErrorMessage(null);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmissionStatus('submitting'); // Optional: Indicate submission is in progress
+    setSubmissionStatus('submitting');
+    setErrorMessage(null); // Clear previous errors
 
-    // --- Replace this with your actual API call ---
-    console.log('Form Data Submitted:', formData);
-    // Example: Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    // Simulate success/error
-    const success = Math.random() > 0.2; // Simulate 80% success rate
-    if (success) {
-      setSubmissionStatus('success');
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' }); // Clear form
-    } else {
-      setSubmissionStatus('error');
+    try {
+        const response = await fetch('/api/send-contact-message', { // Use the correct API route
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        const result = await response.json(); // Try to parse JSON regardless of status code
+
+        if (response.ok) {
+            setSubmissionStatus('success');
+            setFormData({ name: '', email: '', phone: '', subject: '', message: '' }); // Clear form on success
+        } else {
+            // Use error message from API if available, otherwise use a generic one
+            setErrorMessage(result.error || 'An unexpected error occurred. Please try again.');
+            setSubmissionStatus('error');
+            console.error("Submission Error:", result);
+        }
+
+    } catch (error) {
+        console.error('Fetch Error:', error);
+        setErrorMessage('Could not connect to the server. Please check your internet connection and try again.');
+        setSubmissionStatus('error');
     }
-     // --- End of API call simulation ---
 
-    // Hide status message after a few seconds
-    setTimeout(() => setSubmissionStatus(null), 5000);
+    // // Optional: Hide status message after a few seconds (only for success/error)
+    // if (submissionStatus === 'success' || submissionStatus === 'error') {
+    //   const timer = setTimeout(() => {
+    //     setSubmissionStatus('idle');
+    //     setErrorMessage(null);
+    //   }, 5000);
+    //   // Optional: Cleanup timer if component unmounts or user interacts again
+    //   // return () => clearTimeout(timer); // Needs useEffect if you want this cleanup
+    // }
+     // Keep the success/error message until user interacts again (typing)
   };
+
+  const isLoading = submissionStatus === 'submitting';
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -82,29 +113,32 @@ const ContactPage = () => {
             <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-orange-500">
               <h2 className="text-2xl font-semibold text-blue-900 mb-6">Send Us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                {/* --- Input fields remain the same --- */}
+                 <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label> {/* Added asterisk */}
                   <input
                     type="text"
                     name="name"
                     id="name"
-                    required
+                    required // Keep required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition duration-150 ease-in-out"
+                    disabled={isLoading} // Disable when submitting
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition duration-150 ease-in-out disabled:bg-gray-100"
                     placeholder="Your Name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address *</label> {/* Added asterisk */}
                   <input
                     type="email"
                     name="email"
                     id="email"
-                    required
+                    required // Keep required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition duration-150 ease-in-out"
+                    disabled={isLoading}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition duration-150 ease-in-out disabled:bg-gray-100"
                     placeholder="you@example.com"
                   />
                 </div>
@@ -116,43 +150,49 @@ const ContactPage = () => {
                     id="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition duration-150 ease-in-out"
+                    disabled={isLoading}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition duration-150 ease-in-out disabled:bg-gray-100"
                     placeholder="+91 12345 67890"
                   />
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject *</label> {/* Added asterisk */}
                   <input
                     type="text"
                     name="subject"
                     id="subject"
-                    required
+                    required // Keep required
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition duration-150 ease-in-out"
+                    disabled={isLoading}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition duration-150 ease-in-out disabled:bg-gray-100"
                     placeholder="e.g., Company Registration Inquiry"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message *</label> {/* Added asterisk */}
                   <textarea
                     name="message"
                     id="message"
-                    required
+                    required // Keep required
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition duration-150 ease-in-out"
+                    disabled={isLoading}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition duration-150 ease-in-out disabled:bg-gray-100"
                     placeholder="How can we assist you?"
                   ></textarea>
                 </div>
+                {/* --- End of input fields --- */}
                 <div>
                   <button
                     type="submit"
-                    disabled={submissionStatus === 'submitting'}
-                    className={`w-full flex justify-center items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-md transition duration-300 ease-in-out shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 ${submissionStatus === 'submitting' ? 'opacity-70 cursor-not-allowed' : ''}`}
+                    disabled={isLoading} // Disable button when loading
+                    className={`w-full flex justify-center items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-md transition duration-300 ease-in-out shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 ${
+                      isLoading ? 'opacity-70 cursor-not-allowed' : ''
+                    }`}
                   >
-                    {submissionStatus === 'submitting' ? (
+                    {isLoading ? (
                        <>
                         <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -174,65 +214,71 @@ const ContactPage = () => {
                 )}
                 {submissionStatus === 'error' && (
                    <p className="text-center text-sm text-red-600 font-medium bg-red-50 p-3 rounded-md">
-                    Something went wrong. Please try again later or contact us directly.
+                    {/* Display specific error message from state */}
+                    {errorMessage || 'Something went wrong. Please try again later or contact us directly.'}
                   </p>
                 )}
               </form>
             </div>
 
-            {/* Contact Information */}
+            {/* Contact Information (Remains the same) */}
             <div className="space-y-8">
+              {/* ... Contact Details card ... */}
               <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-emerald-600">
-                <h2 className="text-2xl font-semibold text-blue-900 mb-6">Contact Details</h2>
-                <div className="space-y-5">
-                  <div className="flex items-start gap-4">
-                    <Mail className="w-6 h-6 text-emerald-600 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="text-lg font-medium text-gray-800">Email Us</h3>
-                      <a href="mailto:support@elegalsamadhan.com" className="text-blue-600 hover:text-orange-500 transition duration-150 ease-in-out">
-                        support@elegalsamadhan.com
-                      </a>
-                      <p className="text-sm text-gray-500 mt-1">We aim to reply within 24 hours.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <Phone className="w-6 h-6 text-emerald-600 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="text-lg font-medium text-gray-800">Call Us</h3>
-                      <a href="tel:+911234567890" className="text-blue-600 hover:text-orange-500 transition duration-150 ease-in-out">
-                        +91 123 456 7890
-                      </a>
-                       <p className="text-sm text-gray-500 mt-1">Mon - Fri, 10:00 AM - 6:00 PM IST</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <MapPin className="w-6 h-6 text-emerald-600 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="text-lg font-medium text-gray-800">Our Office</h3>
-                      <p className="text-gray-700">
-                        123 Legal Lane, Business District,<br />
-                        New Delhi, 110001, India
-                      </p>
-                       <p className="text-sm text-gray-500 mt-1">Appointments recommended.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                 <h2 className="text-2xl font-semibold text-blue-900 mb-6">Contact Details</h2>
+                 <div className="space-y-5">
+                   {/* Email */}
+                   <div className="flex items-start gap-4">
+                     <Mail className="w-6 h-6 text-emerald-600 mt-1 flex-shrink-0" />
+                     <div>
+                       <h3 className="text-lg font-medium text-gray-800">Email Us</h3>
+                       <a href="mailto:elegalsamadhan@outlook.com" className="text-blue-600 hover:text-orange-500 transition duration-150 ease-in-out">
+                          elegalsamadhan@outlook.com
+                       </a>
+                       <p className="text-sm text-gray-500 mt-1">We aim to reply within 24 hours.</p>
+                     </div>
+                   </div>
+                   {/* Phone */}
+                   <div className="flex items-start gap-4">
+                     <Phone className="w-6 h-6 text-emerald-600 mt-1 flex-shrink-0" />
+                     <div>
+                       <h3 className="text-lg font-medium text-gray-800">Call Us</h3>
+                       <a href="tel:+91 9116051108" className="text-blue-600 hover:text-orange-500 transition duration-150 ease-in-out">
+                         +91 9116051108
+                       </a>
+                        <p className="text-sm text-gray-500 mt-1">Mon - Fri, 10:00 AM - 6:00 PM IST</p>
+                     </div>
+                   </div>
+                   {/* Address */}
+                   <div className="flex items-start gap-4">
+                     <MapPin className="w-6 h-6 text-emerald-600 mt-1 flex-shrink-0" />
+                     <div>
+                       <h3 className="text-lg font-medium text-gray-800">Our Office</h3>
+                       <p className="text-gray-700">
+                         196 B first floor, near Ananta Hotel, opposite Motison's Jewellers, Tonk road, Jaipur<br />
+                         Rajasthan, India  302012
+                       </p>
+                        <p className="text-sm text-gray-500 mt-1">Appointments recommended.</p>
+                     </div>
+                   </div>
+                 </div>
+               </div>
 
-                        {/* Optional: Map */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-blue-900">
-             {/* Google Maps Embed Code */}
-             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.5070524346365!2d75.80440417517804!3d26.85562686254205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db675f594300b%3A0x16a3a8393db6f913!2sGaurav%20Tower!5e0!3m2!1sen!2sin!4v1743211998675!5m2!1sen!2sin" // <-- This src will be the one you copied
-                width="100%" // Keep or adjust as needed
-                height="300" // Keep or adjust as needed
-                style={{ border:0 }}
-                allowFullScreen={false} // Keep as copied
-                loading="lazy" // Keep as copied
-                referrerPolicy="no-referrer-when-downgrade" // Keep as copied
-                title="E-Legal Samadhan Office Location" // Add a descriptive title
-             ></iframe>
-          </div>
+              {/* Map (Remains the same) */}
+               <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-blue-900">
+                 {/* Google Maps Embed Code */}
+                 <iframe
+                 
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3558.4156369736816!2d75.80202477543867!3d26.89030117666057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDUzJzI1LjEiTiA3NcKwNDgnMTYuNiJF!5e0!3m2!1sen!2sin!4v1745396893953!5m2!1sen!2sin" // <-- Replace with your ACTUAL map embed src if different
+                    width="100%"
+                    height="300"
+                    style={{ border:0 }}
+                    allowFullScreen={false}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="E-Legal Samadhan Office Location"
+                 ></iframe>
+              </div>
             </div>
 
           </div>
