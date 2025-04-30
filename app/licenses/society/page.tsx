@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { Building2, Camera, CheckSquare, ClipboardList, DollarSign, FileText, Gavel, Home, IdCard, MapPin, ShieldCheck, UserCheck, Users, Video } from 'lucide-react';
+import CallbackForm from '@/app/components/callBackForm';
 
 const page = () => {
   const [formData, setFormData] = useState({
@@ -16,109 +17,70 @@ const page = () => {
 
   return (
     <div>
-      <div id="banner" className="bg-gradient-to-br from-blue-50 to-blue-100 pt-20">
-        {/* Background Image */}
-        <div 
-          className="absolute top-0 left-0 w-full h-[90vh] md:h-[62vh] z-0 opacity-20 pointer-events-none cursor-default"
-          style={{
-            backgroundImage: 'url("/images/society.png")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
+     <div id="banner" className="relative bg-gradient-to-br from-blue-50 to-blue-100 pt-20 overflow-hidden">
+      {/* Background Image */}
+      <div
+        // 2. Changed height from fixed vh units to `h-full`
+        className="absolute top-0 left-0 w-full h-full z-0 opacity-20 pointer-events-none cursor-default"
+        style={{
+          backgroundImage: 'url("/images/society.png")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          // 3. Added no-repeat for robustness
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
 
-        <div className="container mx-auto px-4 py-7 relative z-10 cursor-default">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Left Column - Content */}
-            <div className="space-y-6">
-              <div className="flex items-center text-sm text-blue-800 font-semibold">
-                <Building2 className="w-4 h-4 mr-2" />
-                ESTABLISH YOUR SOCIETY WITH LEGAL COMPLIANCE
-              </div>
-              
-              <h1 className="text-3xl md:text-5xl font-bold text-indigo-900 leading-tight flex items-center gap-3 flex-wrap">
-                Society Registration Services
-              </h1>
-              
-              <p className="text-lg text-gray-700">
-                Get professional assistance for registering your society in compliance with the Societies Registration Act, 1860 and Rajasthan Societies Registration Act, 1958.
-              </p>
-
-              <h2 className="text-2xl font-bold text-gray-800">
-                Benefits of Society Registration
-              </h2>
-
-              <ul className="space-y-3">
-                {[
-                  { icon: <ShieldCheck className="w-5 h-5 text-green-600" />, text: "Legal Recognition as a separate entity" },
-                  { icon: <DollarSign className="w-5 h-5 text-green-600" />, text: "Tax Exemptions under Income Tax Act" },
-                  { icon: <UserCheck className="w-5 h-5 text-green-600" />, text: "Enhanced Public Trust and Credibility" },
-                  { icon: <Building2 className="w-5 h-5 text-green-600" />, text: "Access to Government Grants and Funding" },
-                  { icon: <Home className="w-5 h-5 text-green-600" />, text: "Ability to own property in society's name" },
-                  { icon: <ClipboardList className="w-5 h-5 text-green-600" />, text: "Perpetual Existence regardless of member changes" }
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="mr-2 mt-1">{item.icon}</span>
-                    <span className="text-gray-700">{item.text}</span>
-                  </li>
-                ))}
-              </ul>
+      {/* Container for content, positioned above the background */}
+      <div className="container mx-auto px-4 py-7 relative z-10 cursor-default">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          {/* Left Column - Content */}
+          <div className="space-y-6">
+            <div className="flex items-center text-sm text-blue-800 font-semibold">
+              <Building2 className="w-4 h-4 mr-2" />
+              ESTABLISH YOUR SOCIETY WITH LEGAL COMPLIANCE
             </div>
 
-            {/* Right Column - Form */}
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Get Expert Assistance</h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
-                    placeholder="Your name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
-                    placeholder="Your email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
-                    placeholder="Your phone number"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    required
-                  />
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-                >
-                  Request Consultation
-                </button>
-              </form>
-            </div>
+            <h1 className="text-3xl md:text-5xl font-bold text-indigo-900 leading-tight flex items-center gap-3 flex-wrap">
+              Society Registration Services
+            </h1>
+
+            <p className="text-lg text-gray-700">
+              Get professional assistance for registering your society in compliance with the Societies Registration Act, 1860 and Rajasthan Societies Registration Act, 1958.
+            </p>
+
+            <h2 className="text-2xl font-bold text-gray-800">
+              Benefits of Society Registration
+            </h2>
+
+            <ul className="space-y-3">
+              {[
+                { icon: <ShieldCheck className="w-5 h-5 text-green-600" />, text: "Legal Recognition as a separate entity" },
+                { icon: <DollarSign className="w-5 h-5 text-green-600" />, text: "Tax Exemptions under Income Tax Act" },
+                { icon: <UserCheck className="w-5 h-5 text-green-600" />, text: "Enhanced Public Trust and Credibility" },
+                { icon: <Building2 className="w-5 h-5 text-green-600" />, text: "Access to Government Grants and Funding" },
+                { icon: <Home className="w-5 h-5 text-green-600" />, text: "Ability to own property in society's name" },
+                { icon: <ClipboardList className="w-5 h-5 text-green-600" />, text: "Perpetual Existence regardless of member changes" }
+              ].map((item, index) => (
+                <li key={index} className="flex items-start">
+                  {/* 4. Added flex-shrink-0 to the icon span */}
+                  <span className="mr-2 mt-1 flex-shrink-0">{item.icon}</span>
+                  <span className="text-gray-700">{item.text}</span>
+                </li>
+              ))}
+            </ul>
           </div>
+
+          {/* Right Column - Form */}
+          <CallbackForm
+                                title="Need Help with Society Registration?"
+                                formSource="Society Registration Services"
+                                buttonText="Request Callback for Society Registration"
+                                />
+              
         </div>
       </div>
+    </div>
 
       <div className="bg-gray-50 py-16">
 

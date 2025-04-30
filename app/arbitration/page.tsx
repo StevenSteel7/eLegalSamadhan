@@ -8,6 +8,7 @@ import {
     ShieldCheck,
     Video,
   } from "lucide-react";
+import CallbackForm from '../components/callBackForm';
   
 
 const page = () => {
@@ -159,51 +160,11 @@ const page = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                                 {/* Form Section */}
-                                <div id="Form Section" className="bg-white p-6 shadow-lg rounded-2xl max-w-2xl w-full">
-                                <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                                    Need Help with Our Arbitration Services?
-                                </h2>
-                                <p className="text-gray-600 mb-4">Fill up the below-mentioned form</p>
-
-                                <form>
-                                    <div className="mb-4">
-                                    <label className="block text-gray-700 font-medium mb-1">Name *</label>
-                                    <input type="text" placeholder="Your Name" className="w-full border rounded px-3 py-2" />
-                                    </div>
-
-                                    <div className="mb-4">
-                                    <label className="block text-gray-700 font-medium mb-1">Email *</label>
-                                    <input type="email" placeholder="Your Email Address" className="w-full border rounded px-3 py-2" />
-                                    </div>
-
-                                    <div className="mb-4">
-                                    <label className="block text-gray-700 font-medium mb-1">Mobile *</label>
-                                    <input type="text" placeholder="Your Phone Number (Without 0 or +91)" className="w-full border rounded px-3 py-2" />
-                                    </div>
-
-                                    <div className="mb-4">
-                                    <label className="block text-gray-700 font-medium mb-1">State *</label>
-                                    <select className="w-full border rounded px-3 py-2">
-                                        <option>Select State</option>
-                                        <option>Maharashtra</option>
-                                        <option>Karnataka</option>
-                                        <option>Tamil Nadu</option>
-                                        <option>Delhi</option>
-                                    </select>
-                                    </div>
-
-                                    <div className="flex items-start mb-4">
-                                    <input type="checkbox" id="terms" className="mr-2" />
-                                    <label htmlFor="terms" className="text-gray-600 text-sm">
-                                        I have read & agreed to the company's Terms and Conditions, disclaimer, and refund policy.
-                                    </label>
-                                    </div>
-
-                                    <button className="w-full bg-green-600 text-white py-2 rounded text-lg font-semibold hover:bg-green-700">
-                                    Request for Call Back
-                                    </button>
-                                </form>
-                                </div>
+                                <CallbackForm
+                                title="Need Help with Arbitration?"
+                                formSource="For Arbitration Services"
+                                buttonText="Request Callback for Arbitration"
+                                />
 
                             {/* Dispute Resolution Process */}
                             <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-4xl mx-auto">

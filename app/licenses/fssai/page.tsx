@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Building2, ClipboardList, DollarSign, Gavel, ShieldCheck, UserCheck, Video } from 'lucide-react';
 import fssaiLogo from '../../../public/images/fssai-logo.png'
+import CallbackForm from '@/app/components/callBackForm';
 
 const page = () => {
   
@@ -21,127 +22,71 @@ const page = () => {
 
 
 
-    <div id="banner" className="bg-gradient-to-br from-blue-50 to-blue-100 pt-20">
-        {/* Background Image */}
-        <div 
-            className="absolute top-0 left-0 w-full h-[90vh] md:h-[62vh] z-0 opacity-20 pointer-events-none cursor-default"
-            style={{
-                backgroundImage: 'url("/images/fssai.jpg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-            }}
-        />
+    <div id="banner" className="relative bg-gradient-to-br from-blue-50 to-blue-100 pt-20 overflow-hidden">
+      {/* Background Image */}
+      <div
+        // 2. Changed height from fixed vh units to `h-full`
+        className="absolute top-0 left-0 w-full h-full z-0 opacity-20 pointer-events-none cursor-default"
+        style={{
+          backgroundImage: 'url("/images/fssai.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          // 3. Added no-repeat for robustness
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
 
-        <div className="container mx-auto px-4 py-7 relative z-10 cursor-default">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-                {/* Left Column - Content */}
-                <div className="space-y-6">
-                    <div className="flex items-center text-sm text-blue-800 font-semibold">
-                        <Building2 className="w-4 h-4 mr-2" />
-                        BEGIN WITH LEGAL REGISTRATION OF YOUR FSSAI LICENSE
-                    </div>
-                    
-            
-
-                    <h1 className="text-3xl md:text-5xl font-bold text-indigo-900 leading-tight flex items-center gap-3 flex-wrap">
-                    <img
-                        src={fssaiLogo.src}
-                        alt="FSSAI"
-                        className="h-14 md:h-16 rounded-2xl bg-white p-1 shadow-md"
-                    />
-                    License Registration
-                    </h1>
-
-
-                    
-                    <p className="text-lg text-gray-700">
-                        Get your FSSAI license with seamless, trusted & hassle-free services at competitive rates.
-                    </p>
-
-                    <h2 className="text-2xl font-bold text-gray-800">
-                        Get your FSSAI License!
-                    </h2>
-
-                    <ul className="space-y-3">
-                        {[
-                            'Quick and Hassle-Free Process',
-                            'Get License Certificate',
-                            'No Hidden Fee',
-                            'Expert Assistance for Lifetime'
-                        ].map((item, index) => (
-                            <li key={index} className="flex items-center text-gray-700">
-                                <span className="w-2 h-2 bg-black rounded-full mr-3" />
-                                {item}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-                {/* Right Column - Form */}
-                <div className="bg-white p-8 rounded-xl shadow-xl">
-                    <div className="mb-6">
-                        <h3 className="text-2xl font-bold text-black transition-all duration-400 hover:text-emerald-400">
-                            Need Help with FSSAI License?
-                        </h3>
-                        <p className="text-gray-600">Enter your details in the form and we will call you back.</p>
-                    </div>
-
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                        <div>
-                            <label className="block text-gray-700 mb-2">
-                                Name <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                                placeholder="Name"
-                                value={formData.name}
-                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                required
-                                id="fullName"
-                            />
-                        </div>
-
-                        <div>
-                            <label className="block text-gray-700 mb-2">
-                                Email <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="email"
-                                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                                placeholder="Email Address"
-                                value={formData.email}
-                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                required
-                                id="emailAddress"
-                            />
-                        </div>
-
-                        <div>
-                            <label className="block text-gray-700 mb-2">
-                                Phone/Mobile <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="tel"
-                                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                                placeholder="Mobile Number"
-                                value={formData.phone}
-                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                required
-                                id="phoneNumber"
-                            />
-                        </div>
-
-                        <button
-                            type="submit"
-                            className="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700 transition duration-300"
-                        >
-                            Submit Form
-                        </button>
-                    </form>
-                </div>
+      {/* Container for content, positioned above the background */}
+      <div className="container mx-auto px-4 py-7 relative z-10 cursor-default">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          {/* Left Column - Content */}
+          <div className="space-y-6">
+            <div className="flex items-center text-sm text-blue-800 font-semibold">
+              <Building2 className="w-4 h-4 mr-2" />
+              BEGIN WITH LEGAL REGISTRATION OF YOUR FSSAI LICENSE
             </div>
+
+            <h1 className="text-3xl md:text-5xl font-bold text-indigo-900 leading-tight flex items-center gap-3 flex-wrap">
+              <img
+                src={fssaiLogo.src} // Use your imported logo variable
+                alt="FSSAI"
+                className="h-14 md:h-16 rounded-2xl bg-white p-1 shadow-md"
+              />
+              License Registration
+            </h1>
+
+            <p className="text-lg text-gray-700">
+              Get your FSSAI license with seamless, trusted & hassle-free services at competitive rates.
+            </p>
+
+            <h2 className="text-2xl font-bold text-gray-800">
+              Get your FSSAI License!
+            </h2>
+
+            <ul className="space-y-3">
+              {[
+                'Quick and Hassle-Free Process',
+                'Get License Certificate',
+                'No Hidden Fee',
+                'Expert Assistance for Lifetime'
+              ].map((item, index) => (
+                <li key={index} className="flex items-center text-gray-700">
+                  <span className="w-2 h-2 bg-black rounded-full mr-3 flex-shrink-0" /> {/* Added flex-shrink-0 */}
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right Column - Form */}
+          <CallbackForm
+                                title="Need Help with FSSAI Registration?"
+                                formSource="For FSSAI Registration Services"
+                                buttonText="Request Callback for FSSAI Registration"
+                                />
+            
         </div>
+      </div>
     </div>
 
       {/* Headline */}

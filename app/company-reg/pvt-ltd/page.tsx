@@ -1,16 +1,8 @@
 'use client';
 import React, { useState } from 'react';
-import { Star, Building2, FileBarChart, FileCheck, RefreshCw, BookOpen, Leaf, Handshake } from 'lucide-react';
-import {
-    ClipboardList,
-    Clock,
-    DollarSign,
-    Gavel,
-    UserCheck,
-    ShieldCheck,
-    Video,
-  } from "lucide-react";
-import { h3 } from 'framer-motion/client';
+import { Building2 } from 'lucide-react';
+import CallbackForm from '@/app/components/callBackForm';
+
 
 const App = () => {
   const [formData, setFormData] = useState({
@@ -26,121 +18,69 @@ const App = () => {
 
   return (
     
-  <div className=" bg-gradient-to-br from-blue-50 to-blue-100 pt-20">
-    {/* Background Image */}
-    <div 
-      className="absolute top-0 left-0 w-full h-[66.67vh] z-0 opacity-20 pointer-events-none cursor-default"
-    style={{
-      backgroundImage: 'url("/images/company.jpg")',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center'
-    }}
-  />
-
+  <div className=" bg-gradient-to-br from-blue-50 to-blue-100 ">
     
-    <div className="container mx-auto px-4 py-12 relative z-10 cursor-default">
-      <div className="grid md:grid-cols-2 gap-8 items-center">
-        {/* Left Column - Content */}
-        <div className="space-y-6">
-          <div className="flex items-center text-sm text-blue-800 font-semibold">
-            <Building2 className="w-4 h-4 mr-2" />
-            BEGIN WITH LEGAL REGISTRATION OF YOUR COMPANY
+    <div className="relative bg-gradient-to-br from-blue-50 to-blue-100  overflow-hidden">
+      {/* Background Image */}
+      <div
+        // 2. Changed height from vh units to `h-full`
+        className="absolute top-0 left-0 w-full h-full z-0 opacity-20 pointer-events-none cursor-default"
+        style={{
+          backgroundImage: 'url("/images/company.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          // 3. Added no-repeat
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+
+      <div className="container mx-auto px-4 py-12 relative z-10 cursor-default">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          {/* Left Column - Content */}
+          <div className="space-y-6">
+            <div className="flex items-center text-sm text-blue-800 font-semibold">
+              <Building2 className="w-4 h-4 mr-2" />
+              BEGIN WITH LEGAL REGISTRATION OF YOUR COMPANY
+            </div>
+
+            <h1 className="text-4xl md:text-5xl font-bold text-indigo-900 leading-tight">
+              Pvt. Ltd. Company Registration {/* Added Registration for clarity */}
+            </h1>
+
+            <p className="text-lg text-gray-700">
+              Every Start-Up deserves seamless, trusted & hassle-free Legal Services along with StartUp
+              mentorship, in a very cost-effective manner.
+            </p>
+
+            <h2 className="text-2xl font-bold text-gray-800">
+              Get your Company registered!
+            </h2>
+
+            <ul className="space-y-3">
+              {[
+                'Lowest Price Guarantee',
+                'Quick and Hassle-Free Process',
+                'Get Registration Certificate', // 6. Fixed typo
+                'No Hidden Fee',
+                'Expert Assistance for Lifetime'
+              ].map((item, index) => (
+                <li key={index} className="flex items-center text-gray-700">
+                  {/* 4. Added flex-shrink-0 */}
+                  <span className="w-2 h-2 bg-black rounded-full mr-3 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
-          
-          <h1 className="text-4xl md:text-5xl font-bold text-indigo-900 leading-tight">
-            Pvt. Ltd. Company
-          </h1>
-          
-          <p className="text-lg text-gray-700">
-            Every Start-Up deserves seamless, trusted & hassle-free Legal Services along with StartUp
-            mentorship, in a very cost-effective manner.
-          </p>
 
-          <h2 className="text-2xl font-bold text-gray-800">
-            Get your Company registered!
-          </h2>
-
-          <ul className="space-y-3">
-            {[
-              'Lowest Price Guarantee',
-              'Quick and Hassle-Free Process',
-              'Get registraion Certificate',
-              'No Hidden Fee',
-              'Expert Assistance for Lifetime'
-            ].map((item, index) => (
-              <li key={index} className="flex items-center text-gray-700">
-                <span className="w-2 h-2 bg-black rounded-full mr-3" />
-                {item}
-              </li>
-            ))}
-          </ul>
-
-        
-        </div>
-
-        {/* Right Column - Form */}
-        <div className="bg-white p-8 rounded-xl shadow-xl">
-          <div className="mb-6">
-              <h3 className="text-2xl font-bold text-black transition-all duration-400 hover:text-emerald-400">
-              Need Help with Pvt. Ltd. Company Registration?
-              </h3>
-            <p className="text-gray-600">Enter your details in the form and we will call you back.</p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-gray-700 mb-2">
-                Name <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                placeholder="Name"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                required
-              />
-            </div>
-
-            <div>
-              <label className="block text-gray-700 mb-2">
-                Email <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="email"
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                placeholder="Email Address"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                required
-              />
-            </div>
-
-            <div>
-              <label className="block text-gray-700 mb-2">
-                Phone/Mobile <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="tel"
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                placeholder="Mobile Number"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                required
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700 transition duration-300"
-            >
-              Submit Form
-            </button>
-          </form>
+          {/* Right Column - Form */}
+          <CallbackForm
+            title="Need Help with Pvt. Ltd. Registration?"
+            formSource="Pvt. Ltd. Registration"
+            buttonText="Request Callback  "/>
         </div>
       </div>
     </div>
-
 
 
     

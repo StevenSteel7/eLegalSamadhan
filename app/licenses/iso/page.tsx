@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Building2, ClipboardList, DollarSign, Gavel, ShieldCheck, UserCheck, Video } from 'lucide-react';
 import fssaiLogo from '../../../public/images/fssai-logo.png'
+import CallbackForm from '@/app/components/callBackForm';
 
 const page = () => {
   
@@ -20,120 +21,69 @@ const page = () => {
     <div>
 
 
+    <div id="banner" className="relative bg-gradient-to-br from-blue-50 to-blue-100 pt-20 overflow-hidden">
+      {/* Background Image */}
+      <div
+        // 2. Changed height from fixed vh units to `h-full`
+        className="absolute top-0 left-0 w-full h-full z-0 opacity-20 pointer-events-none cursor-default"
+        style={{
+          // 4. Assuming you might want a different background for ISO? Updated path just in case.
+          backgroundImage: 'url("/images/fssai.jpg")', // Or keep '/images/fssai.jpg' if intended
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          // 3. Added no-repeat for robustness
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
 
-      <div id="banner" className="bg-gradient-to-br from-blue-50 to-blue-100 pt-20">
-          {/* Background Image */}
-          <div 
-              className="absolute top-0 left-0 w-full h-[90vh] md:h-[62vh] z-0 opacity-20 pointer-events-none cursor-default"
-              style={{
-                  backgroundImage: 'url("/images/fssai.jpg")',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-              }}
-          />
+      {/* Container for content, positioned above the background */}
+      <div className="container mx-auto px-4 py-7 relative z-10 cursor-default">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          {/* Left Column - Content */}
+          <div className="space-y-6">
+            <div className="flex items-center text-sm text-blue-800 font-semibold">
+              <Building2 className="w-4 h-4 mr-2" />
+              ENHANCE YOUR BUSINESS WITH ISO CERTIFICATION
+            </div>
 
-          <div className="container mx-auto px-4 py-7 relative z-10 cursor-default">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                  {/* Left Column - Content */}
-                  <div className="space-y-6">
-                      <div className="flex items-center text-sm text-blue-800 font-semibold">
-                          <Building2 className="w-4 h-4 mr-2" />
-                          ENHANCE YOUR BUSINESS WITH ISO CERTIFICATION
-                      </div>
-                      
-                      <h1 className="text-3xl md:text-5xl font-bold text-indigo-900 leading-tight flex items-center gap-3 flex-wrap">
-                          ISO Certification Services
-                      </h1>
-                      
-                      <p className="text-lg text-gray-700">
-                          Get internationally recognized ISO certification for your business with our professional and efficient certification services.
-                      </p>
+            <h1 className="text-3xl md:text-5xl font-bold text-indigo-900 leading-tight flex items-center gap-3 flex-wrap">
+              ISO Certification Services
+            </h1>
 
-                      <h2 className="text-2xl font-bold text-gray-800">
-                          Benefits of ISO Certification
-                      </h2>
+            <p className="text-lg text-gray-700">
+              Get internationally recognized ISO certification for your business with our professional and efficient certification services.
+            </p>
 
-                      <ul className="space-y-3">
-                          {[
-                              'Enhanced Business Credibility',
-                              'Improved Process Efficiency',
-                              'Global Recognition',
-                              'Continuous Expert Support'
-                          ].map((item, index) => (
-                              <li key={index} className="flex items-center text-gray-700">
-                                  <span className="w-2 h-2 bg-black rounded-full mr-3" />
-                                  {item}
-                              </li>
-                          ))}
-                      </ul>
-                  </div>
+            <h2 className="text-2xl font-bold text-gray-800">
+              Benefits of ISO Certification
+            </h2>
 
-                  {/* Right Column - Form */}
-                  <div className="bg-white p-8 rounded-xl shadow-xl">
-                      <div className="mb-6">
-                          <h3 className="text-2xl font-bold text-black transition-all duration-400 hover:text-emerald-400">
-                              Get ISO Certification Support
-                          </h3>
-                          <p className="text-gray-600">Fill in your details and our ISO experts will contact you shortly.</p>
-                      </div>
-
-                      <form onSubmit={handleSubmit} className="space-y-4">
-                          <div>
-                              <label className="block text-gray-700 mb-2">
-                                  Name <span className="text-red-500">*</span>
-                              </label>
-                              <input
-                                  type="text"
-                                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                                  placeholder="Name"
-                                  value={formData.name}
-                                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                  required
-                                  id="fullName"
-                              />
-                          </div>
-
-                          <div>
-                              <label className="block text-gray-700 mb-2">
-                                  Email <span className="text-red-500">*</span>
-                              </label>
-                              <input
-                                  type="email"
-                                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                                  placeholder="Email Address"
-                                  value={formData.email}
-                                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                  required
-                                  id="emailAddress"
-                              />
-                          </div>
-
-                          <div>
-                              <label className="block text-gray-700 mb-2">
-                                  Phone/Mobile <span className="text-red-500">*</span>
-                              </label>
-                              <input
-                                  type="tel"
-                                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                                  placeholder="Mobile Number"
-                                  value={formData.phone}
-                                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                  required
-                                  id="phoneNumber"
-                              />
-                          </div>
-
-                          <button
-                              type="submit"
-                              className="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700 transition duration-300"
-                          >
-                              Submit Form
-                          </button>
-                      </form>
-                  </div>
-              </div>
+            <ul className="space-y-3">
+              {[
+                'Enhanced Business Credibility',
+                'Improved Process Efficiency',
+                'Global Recognition',
+                'Continuous Expert Support'
+              ].map((item, index) => (
+                <li key={index} className="flex items-center text-gray-700">
+                  {/* 5. Added flex-shrink-0 to the bullet point span */}
+                  <span className="w-2 h-2 bg-black rounded-full mr-3 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
+
+          {/* Right Column - Form */}
+          <CallbackForm
+            title="Need Help with ISO Registration?"
+            formSource="For ISO Registration Services"
+            buttonText="Request Callback for ISO Registration"
+            />
+              
+        </div>
       </div>
+    </div>
 
       {/* Headline */}
       <div className="w-full bg-slate-100 py-10">

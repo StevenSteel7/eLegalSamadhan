@@ -1,32 +1,33 @@
 import {
   Banknote,
-  Building, // Changed from BarChart for Building Plan
-  ClipboardList, // Kept for Project Layout/Form filling
-  Clock, // Kept for Time-Saving/Delays
-  FileCheck, // Kept for Compliance/Approval
-  FileText, // Kept for Title Deed/Documents
-  Handshake, // Kept for Agreement of Sale/Trust
-  IdCard, // Kept for PAN/Aadhaar
-  ListOrdered, // Kept for Previous Project Details/Process Steps
-  Map, // Added for Site Plan
-  ShieldCheck, // Kept for Benefits/Legal Compliance
-  User, // Added for Developer/Agent Identification
-  AlertTriangle, // Added for Penalties/Warnings
-  Ban, // Added for Restrictions
-  Gavel, // Added for Legal Actions/Disputes
-  TrendingDown, // Added for Loss of Credibility
-  SearchCheck, // Added for Verification
-  FileUp, // Added for Submission
-  BadgeCheck, // Added for Issuance/Approval
-  LandPlot, // Added for Land Ownership
-  FileSignature, // Added for Agreements
-  History, // Added for Previous Projects
-  Users, // Added for Who Needs RERA
-  CheckSquare, // Added for Compliance Checks
-  Globe, // Added for Pan-India Support
+  Building, 
+  ClipboardList, 
+  Clock, 
+  FileCheck,
+  FileText, 
+  Handshake, 
+  IdCard, 
+  ListOrdered, 
+  Map, 
+  ShieldCheck, 
+  User, 
+  AlertTriangle, 
+  Ban, 
+  Gavel, 
+  TrendingDown, 
+  SearchCheck, 
+  FileUp, 
+  BadgeCheck, 
+  LandPlot, 
+  FileSignature, 
+  History, 
+  Users, 
+  CheckSquare, 
+  Globe, 
   BadgeDollarSign, // Added for Fees
 } from "lucide-react";
 import React from "react";
+import CallbackForm from "../components/callBackForm";
 
 // Note: The import from framer-motion/client is not used in the provided MSME code.
 // If framer-motion animations are intended, they need to be implemented.
@@ -71,105 +72,12 @@ const ReraRegistrationPage = () => {
           {/* Content Section - Form & Benefits */}
           <div className=" grid md:grid-cols-2 gap-8 justify-items-center ">
             {/* Left Side - Form Section */}
-            <div id="Form Section" className="bg-white p-6 shadow-lg rounded-2xl w-full">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">
-                Need Help with RERA Registration?
-              </h2>
-              <p className="text-gray-600 mb-4">
-                Fill up the form below for expert assistance.
-              </p>
+            <CallbackForm
+                                title="Need Help with RERA Registration?"
+                                formSource="For RERA Registration Services"
+                                buttonText="Request Callback for RERA Registration"
+                                />
 
-              <form>
-                {/* Form fields remain the same as they are generic */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium mb-1">
-                    Name *
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="w-full border rounded px-3 py-2"
-                    required
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium mb-1">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="Your Email Address"
-                    className="w-full border rounded px-3 py-2"
-                    required
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium mb-1">
-                    Mobile *
-                  </label>
-                  <input
-                    type="tel" // Changed type to tel for mobile
-                    placeholder="Your Phone Number (10 Digits)"
-                    pattern="[0-9]{10}" // Basic pattern validation
-                    className="w-full border rounded px-3 py-2"
-                    required
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium mb-1">
-                    State *
-                  </label>
-                  <select className="w-full border rounded px-3 py-2" required>
-                    <option value="">Select State</option>
-                    {/* Add more states as needed */}
-                    <option>Andhra Pradesh</option>
-                    <option>Arunachal Pradesh</option>
-                    <option>Assam</option>
-                    <option>Bihar</option>
-                    <option>Chhattisgarh</option>
-                    <option>Delhi</option>
-                    <option>Goa</option>
-                    <option>Gujarat</option>
-                    <option>Haryana</option>
-                    <option>Himachal Pradesh</option>
-                    <option>Jharkhand</option>
-                    <option>Karnataka</option>
-                    <option>Kerala</option>
-                    <option>Madhya Pradesh</option>
-                    <option>Maharashtra</option>
-                    <option>Manipur</option>
-                    <option>Meghalaya</option>
-                    <option>Mizoram</option>
-                    <option>Nagaland</option>
-                    <option>Odisha</option>
-                    <option>Punjab</option>
-                    <option>Rajasthan</option>
-                    <option>Sikkim</option>
-                    <option>Tamil Nadu</option>
-                    <option>Telangana</option>
-                    <option>Tripura</option>
-                    <option>Uttar Pradesh</option>
-                    <option>Uttarakhand</option>
-                    <option>West Bengal</option>
-                  </select>
-                </div>
-
-                <div className="flex items-start mb-4">
-                  <input type="checkbox" id="terms" className="mr-2 mt-1" required />
-                  <label htmlFor="terms" className="text-gray-600 text-sm">
-                    I have read & agreed to the company's Terms and Conditions,
-                    disclaimer, and refund policy.
-                  </label>
-                </div>
-
-                <button className="w-full bg-blue-600 text-white py-2 rounded text-lg font-semibold hover:bg-blue-700 transition duration-300"> {/* Changed color */}
-                  Request for Call Back
-                </button>
-              </form>
-            </div>
 
             {/* Right Side - Benefits of RERA Registration */}
             <div id="rera-benefits" className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 w-full">

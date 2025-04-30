@@ -1,4 +1,18 @@
-import React from "react";
+'use client';
+import React, { useState } from 'react';
+
+const stateOptions = [
+    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
+    "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka",
+    "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram",
+    "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana",
+    "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal",
+    "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu",
+    "Lakshadweep", "Delhi (National Capital Territory)", "Puducherry", "Ladakh", "Jammu and Kashmir"
+  ];
+  
+
+
 import {
   ClipboardList,
   Clock,
@@ -26,8 +40,105 @@ import {
   Mail,
   Clipboard,
 } from "lucide-react";
+import CallbackForm from '../components/callBackForm';
+
+
+
+
+
+
+
+
+
+
+
+
 
 const page = () => {
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    mobile: '', // Using 'mobile' in form state, will map to 'phone' for API
+    state: ''
+  });
+  const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (submissionStatus !== 'idle') {
+      setSubmissionStatus('idle');
+      setStatusMessage(null);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmissionStatus('submitting');
+    setStatusMessage('Submitting your request...');
+
+    // Simple frontend validation (add more as needed)
+    if (!formData.name || !formData.email || !formData.mobile || !formData.state) {
+        setStatusMessage('Please fill in all required fields.');
+        setSubmissionStatus('error');
+        return;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+        setStatusMessage('Please enter a valid email address.');
+        setSubmissionStatus('error');
+        return;
+    }
+    if (!/^[6-9]\d{9}$/.test(formData.mobile)) {
+        setStatusMessage('Please enter a valid 10-digit Indian mobile number.');
+        setSubmissionStatus('error');
+        return;
+    }
+
+
+    try {
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.mobile, // Map 'mobile' to 'phone' as expected by the backend
+        state: formData.state,
+        formSource: 'Public Limited Company Registration'
+      };
+
+      const response = await fetch('/api/request-callback', { // Use the new API route
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmissionStatus('success');
+        setStatusMessage(result.message || 'Request submitted successfully!');
+        setFormData({ name: '', email: '', mobile: '', state: '' }); // Clear form
+      } else {
+        setSubmissionStatus('error');
+        setStatusMessage(result.error || 'An unexpected error occurred. Please try again.');
+        console.error("Submission Error:", result);
+      }
+    } catch (error) {
+      console.error('Fetch Error:', error);
+      setSubmissionStatus('error');
+      setStatusMessage('Could not connect to the server. Please check your connection.');
+    }
+  };
+
+  const isLoading = submissionStatus === 'submitting';
+
+
+
+
+
+
   return (
     <div>
       
@@ -73,53 +184,14 @@ const page = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                             {/* Form Section */}
-                            <div id="Form Section" className="bg-white p-6 shadow-lg rounded-2xl max-w-2xl w-full">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                                Need Help with Public Limited Company Registration?
-                            </h2>
-                            <p className="text-gray-600 mb-4">Fill up the below-mentioned form</p>
-
-                            <form>
-                                <div className="mb-4">
-                                <label className="block text-gray-700 font-medium mb-1">Name *</label>
-                                <input type="text" placeholder="Your Name" className="w-full border rounded px-3 py-2" />
-                                </div>
-
-                                <div className="mb-4">
-                                <label className="block text-gray-700 font-medium mb-1">Email *</label>
-                                <input type="email" placeholder="Your Email Address" className="w-full border rounded px-3 py-2" />
-                                </div>
-
-                                <div className="mb-4">
-                                <label className="block text-gray-700 font-medium mb-1">Mobile *</label>
-                                <input type="text" placeholder="Your Phone Number (Without 0 or +91)" className="w-full border rounded px-3 py-2" />
-                                </div>
-
-                                <div className="mb-4">
-                                <label className="block text-gray-700 font-medium mb-1">State *</label>
-                                <select className="w-full border rounded px-3 py-2">
-                                    <option>Select State</option>
-                                    <option>Maharashtra</option>
-                                    <option>Karnataka</option>
-                                    <option>Tamil Nadu</option>
-                                    <option>Delhi</option>
-                                </select>
-                                </div>
-
-                                <div className="flex items-start mb-4">
-                                <input type="checkbox" id="terms" className="mr-2" />
-                                <label htmlFor="terms" className="text-gray-600 text-sm">
-                                    I have read & agreed to the company's Terms and Conditions, disclaimer, and refund policy.
-                                </label>
-                                </div>
-
-                                <button className="w-full bg-green-600 text-white py-2 rounded text-lg font-semibold hover:bg-green-700">
-                                Request for Call Back
-                                </button>
-                            </form>
-                            </div>
-
-                        {/* Dispute Resolution Process */}
+                            <CallbackForm
+                                title="Need Help with a Consumer Complaint?"
+                                formSource="Consumer Complaint Callback"
+                                buttonText="Request Callback for Complaint"
+                            />
+    
+           
+                            {/* Dispute Resolution Process */}
                             <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-4xl mx-auto">
                                 {/* Card Header */}
                                 <h1 className="text-2xl pb-6 font-bold text-gray-800 text-center mb-4">Our Dispute Resolution Process</h1>
