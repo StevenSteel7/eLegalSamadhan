@@ -1,8 +1,5 @@
-# ---- Base ----
-# Use an official Node.js runtime as a parent image
-# Choose a version compatible with your project (e.g., 18-alpine, 20-alpine)
-# Alpine versions are smaller
 FROM node:18-alpine AS base
+
 WORKDIR /app
 
 # ---- Dependencies ----
@@ -18,13 +15,12 @@ RUN npm ci
 # ---- Builder ----
 # Rebuild the source code only when needed
 FROM base AS builder
+ARG RESEND_API_KEY_BUILD
+ENV RESEND_API_KEY=$RESEND_API_KEY_BUILD
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-# Add any build-time environment variables here if needed
-# ENV NEXT_PUBLIC_API_URL=...
-# Build the Next.js app (choose one)
-# RUN yarn build
+
 RUN npm run build
 # RUN pnpm build
 
@@ -34,6 +30,7 @@ FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
+
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
