@@ -1,5 +1,4 @@
 import {
-    ArrowRight,
   ClipboardList,
   Diamond,
   Headphones,
@@ -8,6 +7,7 @@ import {
   Rocket,
   Scale,
 } from "lucide-react";
+
 import React from "react";
 
 const TheProcess = () => {

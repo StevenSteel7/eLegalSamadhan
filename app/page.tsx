@@ -1,12 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Hero from '@/app/components/Hero';
-import Footer from '@/app/components/Footer';
 import { Phone, Users, Lock, CheckCircle, ArrowRight, Star, BookOpen, Award, Shield } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
-
 
 
 const stateOptions = [
@@ -18,6 +14,46 @@ const stateOptions = [
   "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu",
   "Lakshadweep", "Delhi (National Capital Territory)", "Puducherry", "Ladakh", "Jammu and Kashmir"
 ];
+
+
+// ALL for the testimonials
+function classNames(...classes: (string | false | null | undefined)[]): string {
+  return classes.filter(Boolean).join(' ');
+}
+
+const isVisible = { testimonials: true };
+
+
+const testimonials = [
+  {
+    content: "E-Legal Samadhan helped me register my private company with exceptional efficiency. Their team guided me through every step and made the process seamless.",
+    name: "Vikram Rao", // Changed Name
+    position: "CEO, TechStart India",
+    avatarUrl: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" // Example Indian Male Professional
+  },
+  {
+    content: "The trademark registration process was incredibly smooth thanks to E-Legal Samadhan. They handled all the paperwork and follow-ups professionally.",
+    name: "Ananya Sharma", // Changed Name
+    position: "Founder, Design Hub",
+    avatarUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" // Example Indian Female Professional
+  },
+   {
+    content: "Navigating the complexities of GST registration was daunting, but E-Legal Samadhan made it straightforward and stress-free. Highly recommended!",
+    name: "Rohan Mehta", // Changed Name
+    position: "Owner, Creative Goods Co.",
+    avatarUrl: "https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" // Example Indian Male
+  },
+  {
+    content: "When I needed legal assistance for my startup, E-Legal Samadhan provided comprehensive support that helped me navigate complex regulatory requirements.",
+    name: "Sunita Iyer", // Changed Name
+    position: "Entrepreneur",
+    avatarUrl: "https://www.svgrepo.com/show/382099/female-avatar-girl-face-woman-user-2\.svg" // Example Indian Female
+  }
+  // Add more testimonials if needed
+];
+
+const showScrollbar = false;
+//--- Testimonials helpers end  ---//
 
 
 
@@ -107,10 +143,6 @@ const LandingPage = () => {
 
       const isLoading = submissionStatus === 'submitting';
 
-      
-
-
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -145,7 +177,7 @@ const LandingPage = () => {
     <div className="relative">
       {/* Hero Section with Enhanced Background */}
 
-      <div className="relative bg-blue-900 overflow-hidden">
+      <div className="relative bg-blue-900 overflow-hidden pt-10 md:pt-1">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')] bg-repeat opacity-100"></div>
         </div>
@@ -166,14 +198,7 @@ const LandingPage = () => {
                   Explore Services <ArrowRight size={16} />
                 </Link>
               </div>
-              <div className="mt-10 flex items-center gap-4">
-                <div className="flex space-x-4">
-                  {[1, 2, 3, 4].map((item) => (
-                    <div key={item} className="w-10 h-10 rounded-full bg-gray-300 border-2 border-white"></div>
-                  ))}
-                </div>
-                <p className="text-white"><span className="text-emerald-400 font-bold">500+</span> Satisfied Clients</p>
-              </div>
+          
             </div>
 
              {/* Form section */}       
@@ -370,19 +395,19 @@ const LandingPage = () => {
                 <p className="text-gray-600">Book a free consultation with our legal experts</p>
               </div>
               
-              <div className="bg-white p-6 rounded-lg text-center">
+              <div className="bg-white p-6 rounded-lg text-center joom">
                 <div className="w-16 h-16 rounded-full bg-blue-900 text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
                 <h3 className="text-xl font-semibold mb-2">Documentation</h3>
                 <p className="text-gray-600">Submit required documents securely online</p>
               </div>
               
-              <div className="bg-white p-6 rounded-lg text-center">
+              <div className="bg-white p-6 rounded-lg text-center joom">
                 <div className="w-16 h-16 rounded-full bg-blue-900 text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
                 <h3 className="text-xl font-semibold mb-2">Processing</h3>
                 <p className="text-gray-600">Our team handles your application process</p>
               </div>
               
-              <div className="bg-white p-6 rounded-lg text-center">
+              <div className="bg-white p-6 rounded-lg text-center joom">
                 <div className="w-16 h-16 rounded-full bg-blue-900 text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
                 <h3 className="text-xl font-semibold mb-2">Completion</h3>
                 <p className="text-gray-600">Receive your documents and support</p>
@@ -426,41 +451,58 @@ const LandingPage = () => {
       </section>
 
       {/* Testimonials Section with Animation */}
-      <section id="testimonials" className={`py-20 bg-white transition-all duration-1000 ${isVisible.testimonials ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <section
+        id="testimonials"
+        // Ensure isVisible.testimonials correctly reflects the visibility state
+        className={`py-20 bg-white transition-all duration-1000 ${
+          isVisible && isVisible.testimonials ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container mx-auto px-4">
+          {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">What Our Clients Say</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Hear from businesses and individuals who have transformed their legal experience with us</p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Hear from businesses and individuals who have transformed their legal experience with us
+            </p>
           </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                content: "E-Legal Samadhan helped me register my private company with exceptional efficiency. Their team guided me through every step and made the process seamless.",
-                name: "Rahul Sharma",
-                position: "CEO, TechStart India"
-              },
-              {
-                content: "The trademark registration process was incredibly smooth thanks to E-Legal Samadhan. They handled all the paperwork and follow-ups professionally.",
-                name: "Priya Malhotra",
-                position: "Founder, Design Hub"
-              },
-              {
-                content: "When I needed legal assistance for my startup, E-Legal Samadhan provided comprehensive support that helped me navigate complex regulatory requirements.",
-                name: "Arjun Singh",
-                position: "Entrepreneur"
-              }
-            ].map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 p-8 rounded-lg shadow-md relative">
-                <div className="absolute top-0 left-10 transform -translate-y-1/2">
-                  <div className="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center">
-                    <Star className="h-6 w-6 text-white" />
-                  </div>
-                </div>
-                <div className="mt-4">
-                  <p className="text-gray-600 italic mb-6">&ldquo;{testimonial.content}&rdquo;</p>
+
+          {/* Horizontally Scrolling Container */}
+          <div
+            className={classNames(
+              "flex overflow-x-auto space-x-8 pb-8", // Flex layout, scroll, spacing, padding
+              "scroll-snap-type-x mandatory",        // Optional: scroll snapping
+              // Optional: scrollbar hiding (may need plugin/CSS)
+              !showScrollbar && 'scrollbar-hide',
+              !showScrollbar && '[&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]' // More explicit hiding
+            )}
+          >
+            {/* Map through testimonials data */}
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className={classNames(
+                  "bg-gray-50 p-8 rounded-lg shadow-md relative", // Card styling
+                  "w-80 md:w-96",      // Fixed card width (adjust as needed)
+                  "flex-shrink-0",     // Prevent shrinking
+                  "scroll-snap-align-center" // Optional: center align on snap
+                )}
+              >
+               
+
+                {/* Card Content */}
+                <div className="mt-4"> {/* Spacing below star */}
+                  <p className="text-gray-600 italic mb-6 min-h-[100px]"> {/* Testimonial text with min-height */}
+                    “{testimonial.content}”
+                  </p>
                   <div className="flex items-center">
-                    <div className="mr-4 w-12 h-12 bg-gray-300 rounded-full"></div>
+                    {/* Avatar Image */}
+                    <img
+                      src={testimonial.avatarUrl}
+                      alt={`Avatar of ${testimonial.name}`}
+                      className="mr-4 w-12 h-12 rounded-full object-cover border-2 border-gray-200" // Avatar styling
+                    />
+                    {/* Name and Position */}
                     <div>
                       <p className="font-semibold">{testimonial.name}</p>
                       <p className="text-gray-500 text-sm">{testimonial.position}</p>
@@ -468,9 +510,10 @@ const LandingPage = () => {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
+            ))} {/* End map */}
+          </div> {/* End Scrolling Container */}
+
+        </div> {/* End Container */}
       </section>
 
       {/* CTA Section */}

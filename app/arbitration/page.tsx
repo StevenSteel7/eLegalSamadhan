@@ -354,9 +354,7 @@ const page = () => {
                 <p className="text-gray-600 mt-2">
                     Register your complaint with E-Legal Samadhan and seek justice.
                 </p>
-                <button className="mt-4 px-6 py-3 bg-green-600 text-white text-lg rounded-lg hover:bg-green-700">
-                    File Your Complaint
-                </button>
+          
             </div>
         
         </div>

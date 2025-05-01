@@ -12,11 +12,12 @@ const Footer = () => (
       <p className="text-sm mb-4 md:mb-0">
         © {new Date().getFullYear()} E-Legal Samadhan. All Rights Reserved.
       </p>
-      <div className="flex justify-center space-x-4">
+      {/* <div className="flex justify-center space-x-4">
         <Link href="/privacy-policy" className="text-sm hover:text-orange-400 transition duration-300">Privacy Policy</Link>
         <Link href="/terms-of-service" className="text-sm hover:text-emerald-400 transition duration-300">Terms of Service</Link>
-        {/* Add social media links if needed */}
-      </div>
+    
+      </div> */
+      }
     </div>
   </footer>
 );
@@ -76,16 +77,6 @@ const ContactPage = () => {
         setSubmissionStatus('error');
     }
 
-    // // Optional: Hide status message after a few seconds (only for success/error)
-    // if (submissionStatus === 'success' || submissionStatus === 'error') {
-    //   const timer = setTimeout(() => {
-    //     setSubmissionStatus('idle');
-    //     setErrorMessage(null);
-    //   }, 5000);
-    //   // Optional: Cleanup timer if component unmounts or user interacts again
-    //   // return () => clearTimeout(timer); // Needs useEffect if you want this cleanup
-    // }
-     // Keep the success/error message until user interacts again (typing)
   };
 
   const isLoading = submissionStatus === 'submitting';
@@ -96,8 +87,8 @@ const ContactPage = () => {
       <NavBar />
 
       {/* Main Content Area - Added padding-top */}
-      <main className="flex-grow pt-16 lg:pt-16 bg-gradient-to-br from-orange-50 via-white to-green-50">
-        <div className="container mx-auto py-16 px-4">
+      <main className="flex-grow lg:pt-10 bg-gradient-to-br from-orange-50 via-white to-green-50">
+        <div className="container mx-auto  px-4">
           {/* Page Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-3">Get In Touch</h1>
@@ -222,7 +213,7 @@ const ContactPage = () => {
             </div>
 
             {/* Contact Information (Remains the same) */}
-            <div className="space-y-8">
+            <div className="space-y-8 pb-10">
               {/* ... Contact Details card ... */}
               <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-emerald-600">
                  <h2 className="text-2xl font-semibold text-blue-900 mb-6">Contact Details</h2>
@@ -265,7 +256,7 @@ const ContactPage = () => {
                </div>
 
               {/* Map (Remains the same) */}
-               <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-blue-900">
+               <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4  border-blue-900">
                  {/* Google Maps Embed Code */}
                  <iframe
                  
