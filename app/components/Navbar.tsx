@@ -13,12 +13,7 @@ const NavBar = () => {
       if (prev.includes(menuName)) {
         return prev.filter(item => item !== menuName);
       } else {
-        // Optional: Close other main menus when opening a new one
-        // const otherMainMenus = ['legalSamadhan', 'registration', 'licenses', 'more'];
-        // const filteredPrev = prev.filter(item => !otherMainMenus.includes(item));
-        // return [...filteredPrev, menuName];
 
-        // Current behavior: allow multiple menus open
          return [...prev, menuName];
       }
     });
@@ -134,8 +129,8 @@ const NavBar = () => {
                       <h3 className="font-bold text-base mb-2 uppercase text-blue-800">IP Rights</h3>
                       <ul className="space-y-1 text-sm">
                         <li><Link href="/trademark" className="dropdown-higlight block p-1 rounded">Trademark Registration</Link></li>
-                        <li><Link href="/copyright" className="dropdown-higlight block p-1 rounded">Copyright Registration</Link></li> {/* Corrected href */}
-                        <li><Link href="/patent" className="dropdown-higlight block p-1 rounded">Patent Registration</Link></li> {/* Corrected href */}
+                        <li><Link href="/trademark" className="dropdown-higlight block p-1 rounded">Copyright Registration</Link></li> {/* Corrected href */}
+                        <li><Link href="/trademark" className="dropdown-higlight block p-1 rounded">Patent Registration</Link></li> {/* Corrected href */}
                       </ul>
                     </div>
                   </div>
