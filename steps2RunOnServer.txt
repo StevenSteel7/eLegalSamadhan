@@ -1,0 +1,44 @@
+Steps:
+1)	Make changes Push to git 
+2)	Git clone on server
+On VPS:
+Inside the LegalEdge dir RUN:
+docker build \
+  --build-arg RESEND_API_KEY_BUILD='re_HojJeuWz_NvZKwCUQviuDkJuV4sQ4kBdc' \
+  -t stevensteel7/elegalsamadhan:vps-build .
+
+Then :
+
+We push the env vars with the run command
+docker run -d \
+  -p 3000:3000 \
+  --name elegalsamadhan-app \
+  --restart unless-stopped \
+  -e RESEND_API_KEY='re_HojJeuWz_NvZKwCUQviuDkJuV4sQ4kBdc' \
+  -e EMAIL_SENDER='onboarding@resend.dev' \
+  -e CONTACT_FORM_RECIPIENT='elegalsamadhan@outlook.com' \
+  -e NEXT_PUBLIC_API_URL='http://localhost:3000/api' \
+  -e NODE_ENV=production \
+  -e PORT=3000 \
+  -e HOSTNAME='0.0.0.0' \
+  stevensteel7/elegalsamadhan:vps-build
+
+
+
+
+
+
+
+
+Setting up Oracle server was very tricky, 
+Set the ngnix server 
+after adding ingress rules for tcp port 80, restart oracle vm , also start and restart firewall as well 
+Check if vps is listening with: 
+Test-NetConnection -ComputerName 140.238.225.109 -Port 80
+
+Need to add this to dockerfile
+ARG RESEND_API_KEY_BUILD
+# Promote it to ENV so Next.js can access it
+ENV RESEND_API_KEY=$RESEND_API_KEY_BUILD
+
+
