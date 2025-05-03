@@ -285,145 +285,163 @@ const page = () => {
         </div>
       </div>
     
-      <div className='grid grid-cols-2 gap-8 p-12 rounded-2xl'>
-        {/* Applicable Laws */}
-        <div className="py-16 bg-white rounded-2xl shadow-md">
-            <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Applicable Laws for IEC Registration</h2>
-                <div className="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
-                </div>
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 p-4 sm:p-6 md:p-8 lg:p-12 rounded-2xl'>
 
-                <div className="grid md:grid-cols-2 gap-6 mt-12">
-                <div className="p-6 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 mr-3 text-blue-500">
-                        <Gavel className="w-full h-full" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-blue-900">Foreign Trade Act</h3>
-                    </div>
-                    <p className="text-gray-700 text-sm">Foreign Trade (Development & Regulation) Act, 1992.</p>
-                </div>
+            {/* Applicable Laws Section */}
+            {/* Adjust vertical padding for mobile */}
+            <div className="py-8 md:py-16 bg-white rounded-2xl shadow-md">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-6xl mx-auto">
+                        {/* Adjust title size and margin for mobile */}
+                        <div className="text-center mb-8 md:mb-12">
+                            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Applicable Laws for IEC Registration</h2>
+                            <div className="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+                        </div>
 
-                <div className="p-6 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 mr-3 text-blue-500">
-                        <DollarSign className="w-full h-full" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-blue-900">FEMA</h3>
-                    </div>
-                    <p className="text-gray-700 text-sm">Foreign Exchange Management Act (FEMA), 1999.</p>
-                </div>
+                        {/* Inner Grid: Stacks on small, 2 columns on medium+. Adjust gap/margin. */}
+                        <div className="grid md:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12">
+                            {/* Law Item: Adjust padding for mobile */}
+                            <div className="p-4 md:p-6 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                <div className="flex items-center mb-4">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 mr-3 text-blue-500 flex-shrink-0">
+                                        <Gavel className="w-full h-full" />
+                                    </div>
+                                    <h3 className="text-base md:text-lg font-semibold text-blue-900">Foreign Trade Act</h3>
+                                </div>
+                                <p className="text-gray-700 text-sm">Foreign Trade (Development & Regulation) Act, 1992.</p>
+                            </div>
 
-                <div className="p-6 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 mr-3 text-blue-500">
-                        <FileText className="w-full h-full" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-blue-900">Customs Act</h3>
-                    </div>
-                    <p className="text-gray-700 text-sm">Customs Act, 1962 (For import/export duty compliance).</p>
-                </div>
+                            {/* Law Item: Adjust padding for mobile */}
+                            <div className="p-4 md:p-6 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                <div className="flex items-center mb-4">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 mr-3 text-blue-500 flex-shrink-0">
+                                        <DollarSign className="w-full h-full" />
+                                    </div>
+                                    <h3 className="text-base md:text-lg font-semibold text-blue-900">FEMA</h3>
+                                </div>
+                                <p className="text-gray-700 text-sm">Foreign Exchange Management Act (FEMA), 1999.</p>
+                            </div>
 
-                <div className="p-6 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 mr-3 text-blue-500">
-                        <Globe className="w-full h-full" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-blue-900">DGFT Guidelines</h3>
-                    </div>
-                    <p className="text-gray-700 text-sm">Directorate General of Foreign Trade (DGFT) Guidelines.</p>
-                </div>
+                            {/* Law Item: Adjust padding for mobile */}
+                            <div className="p-4 md:p-6 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                <div className="flex items-center mb-4">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 mr-3 text-blue-500 flex-shrink-0">
+                                        <FileText className="w-full h-full" />
+                                    </div>
+                                    <h3 className="text-base md:text-lg font-semibold text-blue-900">Customs Act</h3>
+                                </div>
+                                <p className="text-gray-700 text-sm">Customs Act, 1962 (For import/export duty compliance).</p>
+                            </div>
 
-                <div className="p-6 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 mr-3 text-blue-500">
-                        <DollarSign className="w-full h-full" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-blue-900">GST Laws</h3>
-                    </div>
-                    <p className="text-gray-700 text-sm">GST Laws for taxation on imports and exports.</p>
-                </div>
+                            {/* Law Item: Adjust padding for mobile */}
+                            <div className="p-4 md:p-6 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                <div className="flex items-center mb-4">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 mr-3 text-blue-500 flex-shrink-0">
+                                        <Globe className="w-full h-full" />
+                                    </div>
+                                    <h3 className="text-base md:text-lg font-semibold text-blue-900">DGFT Guidelines</h3>
+                                </div>
+                                <p className="text-gray-700 text-sm">Directorate General of Foreign Trade (DGFT) Guidelines.</p>
+                            </div>
 
-                <div className="p-6 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 mr-3 text-blue-500">
-                        <Building2 className="w-full h-full" />
+                            {/* Law Item: Adjust padding for mobile */}
+                            <div className="p-4 md:p-6 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                <div className="flex items-center mb-4">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 mr-3 text-blue-500 flex-shrink-0">
+                                        <DollarSign className="w-full h-full" />
+                                    </div>
+                                    <h3 className="text-base md:text-lg font-semibold text-blue-900">GST Laws</h3>
+                                </div>
+                                <p className="text-gray-700 text-sm">GST Laws for taxation on imports and exports.</p>
+                            </div>
+
+                            {/* Law Item: Adjust padding for mobile */}
+                            <div className="p-4 md:p-6 bg-blue-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                <div className="flex items-center mb-4">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 mr-3 text-blue-500 flex-shrink-0">
+                                        <Building2 className="w-full h-full" />
+                                    </div>
+                                    <h3 className="text-base md:text-lg font-semibold text-blue-900">Rajasthan State Policies</h3>
+                                </div>
+                                <p className="text-gray-700 text-sm">Rajasthan State Industrial Policies for trade and export promotion.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 className="text-lg font-semibold text-blue-900">Rajasthan State Policies</h3>
-                    </div>
-                    <p className="text-gray-700 text-sm">Rajasthan State Industrial Policies for trade and export promotion.</p>
-                </div>
                 </div>
             </div>
+
+            {/* Consequences Section */}
+            {/* Adjust vertical padding for mobile */}
+            <div className="py-8 md:py-16 bg-white rounded-2xl shadow-md">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-6xl mx-auto">
+                        {/* Adjust title size and margin for mobile */}
+                        <div className="text-center mb-8 md:mb-12">
+                            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Consequences of Not Having IEC Registration</h2>
+                            <div className="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+                        </div>
+
+                        {/* Inner Grid: Stacks on small, 2 columns on medium+. Adjust gap/margin. */}
+                        <div className="grid md:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12">
+                            {/* Consequence Item: Adjust padding for mobile */}
+                            <div className="p-4 md:p-5 bg-red-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                <div className="flex items-center mb-2">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 mr-3 text-red-500 flex-shrink-0">
+                                        <Ban className="w-full h-full" />
+                                    </div>
+                                    <h2 className="text-base md:text-lg font-bold text-red-900">Prohibition from Import/Export</h2>
+                                </div>
+                                <p className="text-gray-700 text-sm">No entity can engage in international trade without IEC.</p>
+                            </div>
+
+                            {/* Consequence Item: Adjust padding for mobile */}
+                            <div className="p-4 md:p-5 bg-red-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                <div className="flex items-center mb-2">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 mr-3 text-red-500 flex-shrink-0">
+                                        <DollarSign className="w-full h-full" />
+                                    </div>
+                                    <h2 className="text-base md:text-lg font-bold text-red-900">Loss of Government Incentives</h2>
+                                </div>
+                                <p className="text-gray-700 text-sm">Ineligibility for export subsidies and benefits.</p>
+                            </div>
+
+                            {/* Consequence Item: Adjust padding for mobile */}
+                            <div className="p-4 md:p-5 bg-red-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                <div className="flex items-center mb-2">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 mr-3 text-red-500 flex-shrink-0">
+                                        <AlertTriangle className="w-full h-full" />
+                                    </div>
+                                    <h2 className="text-base md:text-lg font-bold text-red-900">Higher Compliance Risk</h2>
+                                </div>
+                                <p className="text-gray-700 text-sm">Importers/exporters may face customs and tax-related issues.</p>
+                            </div>
+
+                            {/* Consequence Item: Adjust padding for mobile */}
+                            <div className="p-4 md:p-5 bg-red-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                <div className="flex items-center mb-2">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 mr-3 text-red-500 flex-shrink-0">
+                                        <Globe className="w-full h-full" />
+                                    </div>
+                                    <h2 className="text-base md:text-lg font-bold text-red-900">Trade Restrictions</h2>
+                                </div>
+                                <p className="text-gray-700 text-sm">Difficulty in establishing trade relations with foreign clients.</p>
+                            </div>
+
+                            {/* Consequence Item: Adjust padding for mobile */}
+                            <div className="p-4 md:p-5 bg-red-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
+                                <div className="flex items-center mb-2">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 mr-3 text-red-500 flex-shrink-0">
+                                        <FileX className="w-full h-full" />
+                                    </div>
+                                    <h2 className="text-base md:text-lg font-bold text-red-900">Fines and Penalties</h2>
+                                </div>
+                                <p className="text-gray-700 text-sm">Operating without IEC may result in financial penalties under FEMA regulations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        {/* Consequences of Not Having IEC */}
-        <div className="py-16 bg-white rounded-2xl shadow-md">
-            <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Consequences of Not Having IEC Registration</h2>
-                <div className="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6 mt-12">
-                <div className="p-5 bg-red-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-center mb-2">
-                    <div className="w-10 h-10 mr-3 text-red-500">
-                        <Ban className="w-full h-full" />
-                    </div>
-                    <h2 className="text-lg font-bold text-red-900">Prohibition from Import/Export</h2>
-                    </div>
-                    <p className="text-gray-700 text-sm">No entity can engage in international trade without IEC.</p>
-                </div>
-
-                <div className="p-5 bg-red-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-center mb-2">
-                    <div className="w-10 h-10 mr-3 text-red-500">
-                        <DollarSign className="w-full h-full" />
-                    </div>
-                    <h2 className="text-lg font-bold text-red-900">Loss of Government Incentives</h2>
-                    </div>
-                    <p className="text-gray-700 text-sm">Ineligibility for export subsidies and benefits.</p>
-                </div>
-
-                <div className="p-5 bg-red-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-center mb-2">
-                    <div className="w-10 h-10 mr-3 text-red-500">
-                        <AlertTriangle className="w-full h-full" />
-                    </div>
-                    <h2 className="text-lg font-bold text-red-900">Higher Compliance Risk</h2>
-                    </div>
-                    <p className="text-gray-700 text-sm">Importers/exporters may face customs and tax-related issues.</p>
-                </div>
-
-                <div className="p-5 bg-red-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-center mb-2">
-                    <div className="w-10 h-10 mr-3 text-red-500">
-                        <Globe className="w-full h-full" />
-                    </div>
-                    <h2 className="text-lg font-bold text-red-900">Trade Restrictions</h2>
-                    </div>
-                    <p className="text-gray-700 text-sm">Difficulty in establishing trade relations with foreign clients.</p>
-                </div>
-
-                <div className="p-5 bg-red-50 shadow-md rounded-lg hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-center mb-2">
-                    <div className="w-10 h-10 mr-3 text-red-500">
-                        <FileX className="w-full h-full" />
-                    </div>
-                    <h2 className="text-lg font-bold text-red-900">Fines and Penalties</h2>
-                    </div>
-                    <p className="text-gray-700 text-sm">Operating without IEC may result in financial penalties under FEMA regulations.</p>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
-      </div>
 
       {/* Conclusion */}
       <div className="py-16 bg-white">

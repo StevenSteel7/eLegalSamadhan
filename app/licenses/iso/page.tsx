@@ -230,84 +230,110 @@ const page = () => {
 
       <div className='bg-slate-100'>
           <div className='max-w-7xl mx-auto px-4 py-12'>
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid  gap-8">
                   
                 
 
                   {/* Consequences of Not Registering Under iSO */}
-                  <div className="bg-white p-8 rounded-2xl shadow-lg md:w-7xl  ">
-                      {/* Title Section */}
-                      <div className="flex justify-center pb-4">
-                          <h1 className="text-2xl font-bold text-red-800 text-center">
-                              Consequences of Not Having ISO Certification
-                          </h1>
-                      </div>
+                  <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg md:w-7xl mx-auto max-w-full">
+        {/* Title Section */}
+        <div className="flex justify-center pb-4">
+            {/* Smaller text on mobile (text-xl), larger on medium+ (md:text-2xl) */}
+            <h1 className="text-xl md:text-2xl font-bold text-red-800 text-center">
+                Consequences of Not Having ISO Certification
+            </h1>
+        </div>
 
-                      <p className="text-gray-700 mb-6 text-center">
-                          While ISO certification is not mandatory, businesses in certain sectors may face penalties under specific laws if they fail to meet industry quality and safety standards.
-                      </p>
+        {/* Slightly reduced bottom margin on mobile */}
+        <p className="text-gray-700 mb-4 md:mb-6 text-center">
+            While ISO certification is not mandatory, businesses in certain sectors may face penalties under specific laws if they fail to meet industry quality and safety standards.
+        </p>
 
-                      {/* Industry Sectors Grid */}
-                      <div className="grid sm:grid-cols-2 gap-6 text-gray-700 mb-8 ">
-                          <div className="p-5 bg-red-50 shadow-md rounded-lg joom">
-                              <div className="flex items-center mb-2">
-                                  <div className="w-10 h-10 mr-3 text-red-500">
-                                      <ClipboardList className="w-full h-full" />
-                                  </div>
-                                  <h2 className="text-lg font-bold text-red-900">Food & Beverage Industry</h2>
-                              </div>
-                              <p className="text-gray-700 text-sm">Fines up to ₹5 lakh for quality violations under FSSAI regulations.</p>
-                          </div>
+        {/* Industry Sectors Grid */}
+        {/* grid-cols-1 is default (mobile), sm:grid-cols-2 activates on small screens and up */}
+        {/* Slightly reduced gap on mobile (gap-4), larger gap on small screens+ (sm:gap-6) */}
+        {/* Adjusted bottom margin */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 text-gray-700 mb-6 md:mb-8">
+            {/* Using p-4 for slightly less padding inside cards on mobile, sm:p-5 for larger */}
+            <div className="p-4 sm:p-5 bg-red-50 shadow-md rounded-lg joom">
+                <div className="flex items-center mb-2">
+                    {/* Icon size w-8 h-8 on mobile, w-10 h-10 on sm+ */}
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 mr-3 text-red-500 shrink-0"> {/* Added shrink-0 */}
+                        <ClipboardList className="w-full h-full" />
+                    </div>
+                    {/* Text size lg is probably okay for both, keeping it */}
+                    <h2 className="text-lg font-bold text-red-900">Food & Beverage Industry</h2>
+                </div>
+                {/* Text size sm is okay */}
+                <p className="text-gray-700 text-sm">Fines up to ₹5 lakh for quality violations under FSSAI regulations.</p>
+            </div>
 
-                          <div className="p-5 bg-red-50 shadow-md rounded-lg joom">
-                              <div className="flex items-center mb-2">
-                                  <div className="w-10 h-10 mr-3 text-red-500">
-                                      <ShieldCheck className="w-full h-full" />
-                                  </div>
-                                  <h2 className="text-lg font-bold text-red-900">Pharmaceuticals & Healthcare</h2>
-                              </div>
-                              <p className="text-gray-700 text-sm">Cancellation of manufacturing license if standards are not met.</p>
-                          </div>
+            <div className="p-4 sm:p-5 bg-red-50 shadow-md rounded-lg joom">
+                <div className="flex items-center mb-2">
+                     <div className="w-8 h-8 sm:w-10 sm:h-10 mr-3 text-red-500 shrink-0">
+                        <ShieldCheck className="w-full h-full" />
+                    </div>
+                    <h2 className="text-lg font-bold text-red-900">Pharmaceuticals & Healthcare</h2>
+                </div>
+                <p className="text-gray-700 text-sm">Cancellation of manufacturing license if standards are not met.</p>
+            </div>
 
-                          <div className="p-5 bg-red-50 shadow-md rounded-lg joom">
-                              <div className="flex items-center mb-2">
-                                  <div className="w-10 h-10 mr-3 text-red-500">
-                                      <Gavel className="w-full h-full" />
-                                  </div>
-                                  <h2 className="text-lg font-bold text-red-900">Government Contracts</h2>
-                              </div>
-                              <p className="text-gray-700 text-sm">Disqualification from tenders and contracts.</p>
-                          </div>
+            <div className="p-4 sm:p-5 bg-red-50 shadow-md rounded-lg joom">
+                <div className="flex items-center mb-2">
+                     <div className="w-8 h-8 sm:w-10 sm:h-10 mr-3 text-red-500 shrink-0">
+                        <Gavel className="w-full h-full" />
+                    </div>
+                    <h2 className="text-lg font-bold text-red-900">Government Contracts</h2>
+                </div>
+                <p className="text-gray-700 text-sm">Disqualification from tenders and contracts.</p>
+            </div>
 
-                          <div className="p-5 bg-red-50 shadow-md rounded-lg joom">
-                              <div className="flex items-center mb-2">
-                                  <div className="w-10 h-10 mr-3 text-red-500">
-                                      <DollarSign className="w-full h-full" />
-                                  </div>
-                                  <h2 className="text-lg font-bold text-red-900">Export-Oriented Businesses</h2>
-                              </div>
-                              <p className="text-gray-700 text-sm">Restrictions on exports due to non-compliance with global standards.</p>
-                          </div>
+            <div className="p-4 sm:p-5 bg-red-50 shadow-md rounded-lg joom">
+                <div className="flex items-center mb-2">
+                     <div className="w-8 h-8 sm:w-10 sm:h-10 mr-3 text-red-500 shrink-0">
+                        <DollarSign className="w-full h-full" />
+                    </div>
+                    <h2 className="text-lg font-bold text-red-900">Export-Oriented Businesses</h2>
+                </div>
+                <p className="text-gray-700 text-sm">Restrictions on exports due to non-compliance with global standards.</p>
+            </div>
 
-                          <div className="p-5 bg-red-50 shadow-md rounded-lg  col-span-2  hover:shadow-lg joom">
-                              <div className="flex items-center mb-2">
-                                  <div className="w-10 h-10 mr-3 text-red-500">
-                                      <Building2 className="w-full h-full" />
-                                  </div>
-                                  <h2 className="text-lg font-bold text-red-900">Construction & Engineering</h2>
-                              </div>
-                              <p className="text-gray-700 text-sm">Heavy penalties for non-compliance with safety and quality standards.</p>
-                          </div>
-                      </div>
+            {/* col-span-1 is default (mobile), sm:col-span-2 makes it span full width on sm+ */}
+            <div className="p-4 sm:p-5 bg-red-50 shadow-md rounded-lg sm:col-span-2 hover:shadow-lg joom">
+                <div className="flex items-center mb-2">
+                     <div className="w-8 h-8 sm:w-10 sm:h-10 mr-3 text-red-500 shrink-0">
+                        <Building2 className="w-full h-full" />
+                    </div>
+                    <h2 className="text-lg font-bold text-red-900">Construction & Engineering</h2>
+                </div>
+                <p className="text-gray-700 text-sm">Heavy penalties for non-compliance with safety and quality standards.</p>
+            </div>
+        </div>
 
-                      {/* Additional Information */}
-                      <div className="mt-6 p-6 bg-red-50 rounded-lg">
-                          <h3 className="text-xl font-bold text-red-900 mb-4">Important Note</h3>
-                          <p className="text-gray-700 cursor-default">
-                              While ISO certification itself is voluntary, many industry-specific regulations require businesses to maintain quality and safety standards that align with ISO guidelines. Failure to meet these standards can result in serious legal and financial consequences.
-                          </p>
-                      </div>
-                  </div>
+        {/* Additional Information */}
+        {/* Responsive padding */}
+        <div className="mt-6 p-4 sm:p-6 bg-red-50 rounded-lg">
+            {/* Responsive text size */}
+            <h3 className="text-lg md:text-xl font-bold text-red-900 mb-3 md:mb-4">Important Note</h3>
+            <p className="text-gray-700 cursor-default">
+                While ISO certification itself is voluntary, many industry-specific regulations require businesses to maintain quality and safety standards that align with ISO guidelines. Failure to meet these standards can result in serious legal and financial consequences.
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  
               </div>
           </div>
       </div>

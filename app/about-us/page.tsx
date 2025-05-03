@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import Footer from '@/app/components/Footer'; // Assuming Footer is in this path
-import { Phone, Users, Lock, CheckCircle, ArrowRight, Star, BookOpen, Award, Shield, Briefcase, Lightbulb, Target, Navigation, Zap, Building, User, Rocket, FileText } from 'lucide-react'; // Added relevant icons
+import { BookOpen, Briefcase, Lightbulb, Navigation, Zap, Building, User, Rocket, FileText } from 'lucide-react'; // Added relevant icons
 import Link from 'next/link';
 import Image from 'next/image'; // If you want to add images
 

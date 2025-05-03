@@ -409,11 +409,6 @@ const page = () => {
             <p className="text-lg text-gray-700 mb-8">
               Society registration is crucial for organizations involved in social, cultural, religious, or scientific activities. In Rajasthan, compliance with the Rajasthan Societies Registration Act, 1958, is necessary for legal recognition and effective functioning. A registered society enjoys legal protection, financial benefits, and public trust, making it easier to achieve its objectives.
             </p>
-            <div className="mt-8">
-              <a href="#" className="inline-block bg-blue-600 text-white py-3 px-8 rounded-md hover:bg-blue-700 transition-colors text-lg font-semibold">
-                Contact Us Today
-              </a>
-            </div>
           </div>
         </div>
       </div>

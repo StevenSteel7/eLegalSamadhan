@@ -129,8 +129,8 @@ const NavBar = () => {
                       <h3 className="font-bold text-base mb-2 uppercase text-blue-800">IP Rights</h3>
                       <ul className="space-y-1 text-sm">
                         <li><Link href="/trademark" className="dropdown-higlight block p-1 rounded">Trademark Registration</Link></li>
-                        <li><Link href="/trademark" className="dropdown-higlight block p-1 rounded">Copyright Registration</Link></li> {/* Corrected href */}
-                        <li><Link href="/trademark" className="dropdown-higlight block p-1 rounded">Patent Registration</Link></li> {/* Corrected href */}
+                        <li><Link href="/trademark" className="dropdown-higlight block p-1 rounded">Copyright Registration</Link></li>
+                        <li><Link href="/trademark" className="dropdown-higlight block p-1 rounded">Patent Registration</Link></li>
                       </ul>
                     </div>
                   </div>
@@ -334,8 +334,8 @@ const NavBar = () => {
                       }`}>
                         <div className="ml-2 mt-1 space-y-1">
                           <Link href="/trademark" onClick={handleMobileLinkClick} className="block py-1 pl-2 border-l-2 border-orange-500 hover:bg-blue-800 rounded-r">Trademark Registration</Link>
-                          <Link href="/copyright" onClick={handleMobileLinkClick} className="block py-1 pl-2 border-l-2 border-orange-500 hover:bg-blue-800 rounded-r">Copyright Registration</Link> {/* Corrected href */}
-                          <Link href="/patent" onClick={handleMobileLinkClick} className="block py-1 pl-2 border-l-2 border-orange-500 hover:bg-blue-800 rounded-r">Patent Registration</Link> {/* Corrected href */}
+                          <Link href="/trademark" onClick={handleMobileLinkClick} className="block py-1 pl-2 border-l-2 border-orange-500 hover:bg-blue-800 rounded-r">Copyright Registration</Link> {/* Corrected href */}
+                          <Link href="/trademark" onClick={handleMobileLinkClick} className="block py-1 pl-2 border-l-2 border-orange-500 hover:bg-blue-800 rounded-r">Patent Registration</Link> {/* Corrected href */}
                         </div>
                       </div>
                     </div>
