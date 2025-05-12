@@ -151,7 +151,7 @@ const page = () => {
             <section className="relative z-10 flex flex-col justify-center items-center text-white  min-h-[50vh] px-4">
             <div className="max-w-7xl mx-auto text-center">
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
-                E-Legal Samadhan | Justice is Served!
+                eLegal Samadhan | Justice is Served!
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-200 mb-8 drop-shadow-md">
                 Resolve Consumer Disputes effortlessly with our Expert Legal
@@ -531,7 +531,7 @@ const page = () => {
                 Get Legal Help Today!
             </h2>
             <p className="text-gray-600 mt-2">
-                Register your complaint with E-Legal Samadhan and seek justice.
+                Register your complaint with eLegal Samadhan and seek justice.
             </p>
           
             </div>

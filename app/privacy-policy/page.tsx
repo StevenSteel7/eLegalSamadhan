@@ -38,7 +38,7 @@ const PrivacyPolicyPage = () => {
               <div>
                 <h2 className="text-xl md:text-2xl font-bold text-orange-800 mb-3">Disclaimer</h2>
                 <p className="text-gray-700 mb-4 leading-relaxed">
-                  This website is privately owned and operated by E-Legal Samadhan, and is <strong className="font-semibold">not affiliated with, endorsed by, or connected to any government agency or department.</strong> We do not claim to represent any government authority.
+                  This website is privately owned and operated by eLegal Samadhan, and is <strong className="font-semibold">not affiliated with, endorsed by, or connected to any government agency or department.</strong> We do not claim to represent any government authority.
                 </p>
                 <p className="text-gray-700 mb-4 leading-relaxed">
                   The forms available on this website are not intended for official government registration but are solely used to collect information from clients to better understand their requirements and business needs.
@@ -56,7 +56,7 @@ const PrivacyPolicyPage = () => {
             <section>
               <h3 className="text-2xl font-semibold text-blue-900 mb-3">1. Introduction</h3>
               <p>
-                This Privacy Policy explains how E-Legal Samadhan collects, uses, and shares personal information when you visit and interact with our website. By using this website, you agree to the terms of this Privacy Policy.
+                This Privacy Policy explains how eLegal Samadhan collects, uses, and shares personal information when you visit and interact with our website. By using this website, you agree to the terms of this Privacy Policy.
               </p>
             </section>
 

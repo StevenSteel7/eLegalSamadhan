@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "E-Legal Samadhan",
+  title: "eLegal Samadhan",
   description: "One stop solution for all your legal needs",
 };
 

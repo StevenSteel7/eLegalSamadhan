@@ -235,7 +235,7 @@ const page = () => {
                             <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-4xl mx-auto">
                                 {/* Card Header */}
                                 <h1 className="text-2xl pb-6 font-bold text-gray-800 text-center mb-4">
-                                    Types of Disputes Handled by E-Legal Samadhan Arbitration
+                                    Types of Disputes Handled by eLegal Samadhan Arbitration
                                 </h1>
 
                             
@@ -352,7 +352,7 @@ const page = () => {
                     Get Legal Help Today!
                 </h2>
                 <p className="text-gray-600 mt-2">
-                    Register your complaint with E-Legal Samadhan and seek justice.
+                    Register your complaint with eLegal Samadhan and seek justice.
                 </p>
           
             </div>

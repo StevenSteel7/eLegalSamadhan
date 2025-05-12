@@ -469,7 +469,7 @@ const page = () => {
                 Get Legal Help Today!
             </h2>
             <p className="text-gray-600 mt-2">
-                Register your complaint with E-Legal Samadhan and seek justice.
+                Register your complaint with eLegal Samadhan and seek justice.
             </p>
             </div>
         

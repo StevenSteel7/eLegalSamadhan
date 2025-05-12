@@ -20,7 +20,7 @@ const Footer = () => {
               </svg>
               {/* Brand Name */}
               <div>
-                <span className="font-bold text-2xl text-orange-500">E-</span>
+                <span className="font-bold text-2xl text-orange-500">e</span>
                 <span className="font-bold text-2xl text-emerald-400">Legal Samadhan</span>
               </div>
             </div>
@@ -90,7 +90,7 @@ const Footer = () => {
 
             {/* Copyright Notice */}
             <div className="text-sm text-gray-300 text-center md:text-left"> {/* Added alignment */}
-              © {new Date().getFullYear()} E-Legal Samadhan. All rights reserved.
+              © {new Date().getFullYear()} eLegal Samadhan. All rights reserved.
             </div>
 
             {/* Legal & Social Links Section */}

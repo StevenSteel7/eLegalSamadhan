@@ -47,7 +47,7 @@ const ReraRegistrationPage = () => {
         <section className="relative z-10 flex flex-col justify-center items-center text-white min-h-[50vh] px-4">
           <div className="max-w-7xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
-              RERA Registration Services | E-Legal Samadhan
+              RERA Registration Services | eLegal Samadhan
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 mb-8 drop-shadow-md">
               Ensure Hassle-Free Compliance for Your Real Estate Projects
@@ -62,10 +62,10 @@ const ReraRegistrationPage = () => {
           {/* Headline & What is RERA Section */}
           <div id="Headline & Subheading" className="text-center mb-10">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-              E-Legal Samadhan: Hassle-Free RERA Registration Services
+              eLegal Samadhan: Hassle-Free RERA Registration Services
             </h1>
             <p className="text-gray-600 mt-4 max-w-4xl mx-auto">
-              The Real Estate (Regulation & Development) Act, 2016 (RERA) mandates that all builders, developers, and real estate agents register their projects with the respective State RERA Authority before advertising, selling, or booking any property. At E-Legal Samadhan, we offer a seamless RERA registration process, ensuring compliance with all legal requirements and preventing delays in project approvals.
+              The Real Estate (Regulation & Development) Act, 2016 (RERA) mandates that all builders, developers, and real estate agents register their projects with the respective State RERA Authority before advertising, selling, or booking any property. At eLegal Samadhan, we offer a seamless RERA registration process, ensuring compliance with all legal requirements and preventing delays in project approvals.
             </p>
           </div>
 
@@ -234,7 +234,7 @@ const ReraRegistrationPage = () => {
             <div className="flex justify-center items-center space-x-3 mb-4">
                 <ListOrdered className="w-8 h-8 text-teal-600"/>
                 <h2 className="text-2xl font-bold text-center text-gray-800">
-                RERA Registration Process with E-Legal Samadhan
+                RERA Registration Process with eLegal Samadhan
                 </h2>
             </div>
             <div className="w-16 h-1 bg-teal-500 mx-auto mb-8"></div> {/* Changed color */}
@@ -378,12 +378,12 @@ const ReraRegistrationPage = () => {
             </div>
           </div>
 
-           {/* Why Choose E-Legal Samadhan Section */}
+           {/* Why Choose eLegal Samadhan Section */}
            <div id="Why Choose Us" className="mt-12 p-8 mx-auto bg-blue-50 rounded-2xl shadow-md"> {/* Changed background */}
             <div className="flex justify-center items-center space-x-3 mb-4">
               <CheckSquare className="w-8 h-8 text-blue-600"/>
               <h2 className="text-2xl font-bold text-center text-gray-800">
-                Why Choose E-Legal Samadhan?
+                Why Choose eLegal Samadhan?
               </h2>
             </div>
             <div className="w-16 h-1 bg-blue-500 mx-auto mb-8"></div> {/* Changed color */}
@@ -420,10 +420,10 @@ const ReraRegistrationPage = () => {
           {/* Conclusion Section */}
           <div id="Conclusion" className="mt-12 text-center max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
              <p className="text-gray-700 mb-4">
-               RERA registration is a legal necessity for real estate developers, builders, and agents. E-Legal Samadhan simplifies the process, ensuring a smooth and legally compliant registration experience. With our expertise, you can avoid legal troubles, gain buyer trust, and focus on successful project completion.
+               RERA registration is a legal necessity for real estate developers, builders, and agents. eLegal Samadhan simplifies the process, ensuring a smooth and legally compliant registration experience. With our expertise, you can avoid legal troubles, gain buyer trust, and focus on successful project completion.
              </p>
              <h3 className="text-xl font-semibold text-blue-700">
-                ⚖️ Register Your Real Estate Project with E-Legal Samadhan Today! 🚀
+                ⚖️ Register Your Real Estate Project with eLegal Samadhan Today! 🚀
              </h3>
           </div>
 

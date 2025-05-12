@@ -26,25 +26,25 @@ const isVisible = { testimonials: true };
 
 const testimonials = [
   {
-    content: "E-Legal Samadhan helped me register my private company with exceptional efficiency. Their team guided me through every step and made the process seamless.",
+    content: "eLegal Samadhan helped me register my private company with exceptional efficiency. Their team guided me through every step and made the process seamless.",
     name: "Vikram Rao", // Changed Name
     position: "CEO, TechStart India",
     avatarUrl: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" // Example Indian Male Professional
   },
   {
-    content: "The trademark registration process was incredibly smooth thanks to E-Legal Samadhan. They handled all the paperwork and follow-ups professionally.",
+    content: "The trademark registration process was incredibly smooth thanks to eLegal Samadhan. They handled all the paperwork and follow-ups professionally.",
     name: "Ananya Sharma", // Changed Name
     position: "Founder, Design Hub",
     avatarUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" // Example Indian Female Professional
   },
    {
-    content: "Navigating the complexities of GST registration was daunting, but E-Legal Samadhan made it straightforward and stress-free. Highly recommended!",
+    content: "Navigating the complexities of GST registration was daunting, but eLegal Samadhan made it straightforward and stress-free. Highly recommended!",
     name: "Rohan Mehta", // Changed Name
     position: "Owner, Creative Goods Co.",
     avatarUrl: "https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" // Example Indian Male
   },
   {
-    content: "When I needed legal assistance for my startup, E-Legal Samadhan provided comprehensive support that helped me navigate complex regulatory requirements.",
+    content: "When I needed legal assistance for my startup, eLegal Samadhan provided comprehensive support that helped me navigate complex regulatory requirements.",
     name: "Sunita Iyer", // Changed Name
     position: "Entrepreneur",
     avatarUrl: "https://www.svgrepo.com/show/382099/female-avatar-girl-face-woman-user-2\.svg" // Example Indian Female
@@ -353,7 +353,7 @@ const LandingPage = () => {
       <section id="features" className={`py-20 bg-gray-50 transition-all duration-1000 ${isVisible.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Why Choose <span className="text-orange-500">E-Legal</span> <span className="text-emerald-500">Samadhan</span>?</h2>
+            <h2 className="text-4xl font-bold mb-4">Why Choose <span className="text-orange-500">eLegal</span> <span className="text-emerald-500">Samadhan</span>?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">We provide comprehensive legal solutions tailored to your specific needs with transparency and professionalism.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-10">

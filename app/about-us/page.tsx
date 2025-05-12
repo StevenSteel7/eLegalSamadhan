@@ -37,7 +37,7 @@ const AboutUsPage = () => {
                  Simplifying Legal Matters Across India
                </h2>
                <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                 E-Legal Samadhan is a dedicated legal service platform committed to simplifying complex legal processes for individuals and businesses alike. We strive to make legal assistance accessible and understandable for everyone.
+                 eLegal Samadhan is a dedicated legal service platform committed to simplifying complex legal processes for individuals and businesses alike. We strive to make legal assistance accessible and understandable for everyone.
                </p>
                <p className="text-lg text-gray-700 mb-4 leading-relaxed">
                  We are proud to be a registered Micro, Small, and Medium Enterprise (MSME) under the Government of India, holding MSME Registration Number:
@@ -55,7 +55,7 @@ const AboutUsPage = () => {
                {/* Or use an Image component: */}
                {/* <Image
                  src="/images/about-illustration.svg" // Replace with your image path
-                 alt="E-Legal Samadhan Illustration"
+                 alt="eLegal Samadhan Illustration"
                  width={400}
                  height={400}
                  className="mx-auto rounded-lg shadow-md"
@@ -164,7 +164,7 @@ const AboutUsPage = () => {
           <div className="container mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Simplify Your Legal Needs?</h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto">
-              Whether you're starting a business, need legal advice, or require compliance support, E-Legal Samadhan is here to help.
+              Whether you're starting a business, need legal advice, or require compliance support, eLegal Samadhan is here to help.
             </p>
             <Link href="/contact">
               <span className="bg-white hover:bg-gray-100 text-blue-900 font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out shadow-lg inline-block"> {/* Added inline-block */}

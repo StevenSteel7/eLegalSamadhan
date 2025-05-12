@@ -10,7 +10,7 @@ const Footer = () => (
   <footer className="bg-blue-900 text-white py-8 px-4">
     <div className="container mx-auto text-center md:flex md:justify-between items-center">
       <p className="text-sm mb-4 md:mb-0">
-        © {new Date().getFullYear()} E-Legal Samadhan. All Rights Reserved.
+        © {new Date().getFullYear()} eLegal Samadhan. All Rights Reserved.
       </p>
       {/* <div className="flex justify-center space-x-4">
         <Link href="/privacy-policy" className="text-sm hover:text-orange-400 transition duration-300">Privacy Policy</Link>
@@ -267,7 +267,7 @@ const ContactPage = () => {
                     allowFullScreen={false}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="E-Legal Samadhan Office Location"
+                    title="eLegal Samadhan Office Location"
                  ></iframe>
               </div>
             </div>
