@@ -1,28 +1,35 @@
 // prisma/seed.ts
-
 import { PrismaClient } from '@prisma/client';
+import { hashPassword } from '../lib/password'; // Adjust path if needed
 
 const prisma = new PrismaClient();
 
 async function main() {
-  const judgements = [];
+  const adminEmail = process.env.ADMIN_EMAIL || 'admin@vikram.com';
+  const adminPassword = process.env.ADMIN_PASSWORD || 'password123'; // Use a strong password in reality
 
-  for (let i = 1; i <= 50; i++) {
-    judgements.push({
-      title: `Sample Judgement ${i}`,
-      caseNumber: `CASE-${2024}-${i.toString().padStart(3, '0')}`,
-      court: i % 2 === 0 ? "Supreme Court of India" : "High Court of Delhi",
-      date: `2024-05-${(i % 28 + 1).toString().padStart(2, '0')}`, // Day 01 to 28
-      summary: `This is a summary for sample judgement ${i}.`,
-      fullContent: `This is the full content of the sample judgement number ${i}.`,
-    });
-  }
-
-  await prisma.judgement.createMany({
-    data: judgements,
+  const existingAdmin = await prisma.user.findUnique({
+    where: { email: adminEmail },
   });
 
-  console.log('✅ 50 sample judgements seeded successfully!');
+  if (!existingAdmin) {
+    const hashedPassword = await hashPassword(adminPassword);
+    await prisma.user.create({
+      data: {
+        email: adminEmail,
+        name: 'Admin User',
+        password: hashedPassword,
+        role: 'admin',
+        emailVerified: new Date(), // Mark as verified for simplicity
+      },
+    });
+    console.log(`Admin user ${adminEmail} created.`);
+  } else {
+    console.log(`Admin user ${adminEmail} already exists.`);
+  }
+
+  // You can also seed some Judgement data here if you like
+  // ...
 }
 
 main()
