@@ -90,6 +90,10 @@ const NavBar = () => {
                   </div>
               </div>
 
+              <Link href="/judgements" className="px-3 py-2 nav-link dropdown-higlight hover:text-orange-500 transition-colors">
+                Judgements
+              </Link>
+
               {/* Registration & Rights Dropdown */}
               <div className="relative group" id='Company Registration'>
                 <button className="px-3 py-2 flex items-center nav-link hover:text-orange-500 transition-colors"> {/* Added hover effect */}
@@ -136,6 +140,7 @@ const NavBar = () => {
                   </div>
                 </div>
               </div>
+
 
               {/* Licenses Dropdown */}
               <div className="relative group" id='Licenses'>

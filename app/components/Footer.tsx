@@ -48,7 +48,7 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4 text-orange-500">Legal Services</h3>
             <ul className="space-y-2">
               <li><Link href="/msme-reg" className="hover:text-emerald-400 transition-colors">MSME Registration</Link></li>
-              <li><Link href="/comsumer-matters" className="hover:text-emerald-400 transition-colors">Consumer Matters</Link></li>
+              <li><Link href="/comsumer-Samadhan" className="hover:text-emerald-400 transition-colors">Consumer Matters</Link></li>
               <li><Link href="/arbitration" className="hover:text-emerald-400 transition-colors">Arbitration Matters</Link></li>
               <li><Link href="/rera" className="hover:text-emerald-400 transition-colors">RERA Matters</Link></li>
               {/* Add more links as needed */}

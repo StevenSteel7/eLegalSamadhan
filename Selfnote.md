@@ -75,3 +75,35 @@ The standard and reliable solution involves using a **Transactional Email Servic
 *   **Security:** Protects sensitive credentials (API keys) by keeping them exclusively on the server-side.
 *   **Reliability:** Leverages the robust infrastructure and deliverability expertise of dedicated email services.
 *   **Separation of Concerns:** The frontend focuses on user interface and interaction, while the backend (API route) handles business logic and secure external communications.
+
+
+
+
+
+
+
+docker build `
+  --build-arg RESEND_API_KEY_BUILD='re_HojJeuWz_NvZKwCUQviuDkJuV4sQ4kBdc' `
+  -t stevensteel7/elegalsamadhan:vps-build .
+
+
+
+
+
+
+
+
+
+
+docker run -d `
+  -p 3000:3000 `
+  --name elegalsamadhan-app `
+  --restart unless-stopped `
+  -e RESEND_API_KEY='re_HojJeuWz_NvZKwCUQviuDkJuV4sQ4kBdc' `
+  -e EMAIL_SENDER='onboarding@resend.dev' `
+  -e CONTACT_FORM_RECIPIENT='elegalsamadhan@outlook.com' `
+  -e NEXT_PUBLIC_API_URL='http://localhost:3000/api' `
+  -e NODE_ENV=production `
+  -e PORT=3000 `
+  -e HOSTNAME='0.0.0.0' `
+  stevensteel7/elegalsamadhan:vps-build
