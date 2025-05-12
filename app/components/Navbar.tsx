@@ -195,7 +195,7 @@ const NavBar = () => {
                 <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
               </svg>
               <Link href="/" onClick={handleMobileLinkClick}> {/* Close menu on logo click */}
-                <span className="font-bold text-lg text-orange-500">E-</span> {/* Adjusted size */}
+                <span className="font-bold text-lg text-orange-500">e</span> {/* Adjusted size */}
                 <span className="font-bold text-lg text-emerald-400">Legal Samadhan</span> {/* Adjusted size and text */}
               </Link>
             </div>

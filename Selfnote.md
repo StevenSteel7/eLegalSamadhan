@@ -94,16 +94,3 @@ docker build `
 
 
 
-
-docker run -d `
-  -p 3000:3000 `
-  --name elegalsamadhan-app `
-  --restart unless-stopped `
-  -e RESEND_API_KEY='re_HojJeuWz_NvZKwCUQviuDkJuV4sQ4kBdc' `
-  -e EMAIL_SENDER='onboarding@resend.dev' `
-  -e CONTACT_FORM_RECIPIENT='elegalsamadhan@outlook.com' `
-  -e NEXT_PUBLIC_API_URL='http://localhost:3000/api' `
-  -e NODE_ENV=production `
-  -e PORT=3000 `
-  -e HOSTNAME='0.0.0.0' `
-  stevensteel7/elegalsamadhan:vps-build

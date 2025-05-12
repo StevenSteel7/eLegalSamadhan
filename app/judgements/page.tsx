@@ -14,6 +14,8 @@ interface Judgement {
   date: string;
   summary?: string | null; // Summary is optional
   fullContent: string; // Keep fullContent for client-side search if needed, but better to search on backend
+  createdAt: string; // 👈 Add this (ISO date string)
+
 }
 
 const ITEMS_PER_PAGE = 9;
@@ -26,27 +28,31 @@ const JudgementsPage = () => {
   const [error, setError] = useState<string | null>(null);
 
   // Fetch data from the API
-  useEffect(() => {
-    const fetchJudgements = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const response = await fetch('/api/judgements'); // Fetch from your API
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data: Judgement[] = await response.json();
-        setAllJudgements(data);
-      } catch (e: any) {
-        console.error("Failed to fetch judgements:", e);
-        setError(`Failed to load judgements. ${e.message}`);
-      } finally {
-        setIsLoading(false);
+ useEffect(() => {
+  const fetchJudgements = async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await fetch('/api/judgements');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    };
+      const data: Judgement[] = await response.json();
 
-    fetchJudgements();
-  }, []); // Empty dependency array means fetch only once on mount
+      // 👇 Sort the judgements by createdAt (Newest first)
+      const sortedData = data.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+
+      setAllJudgements(sortedData);
+    } catch (e: any) {
+      console.error("Failed to fetch judgements:", e);
+      setError(`Failed to load judgements. ${e.message}`);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  fetchJudgements();
+}, []);
 
   // Filter judgements based on search query (client-side)
   const filteredJudgements = useMemo(() => {
@@ -163,7 +169,7 @@ const JudgementsPage = () => {
                            </p>
                            <p className="text-gray-700 text-sm mb-4 flex-shrink-0">
                                <span className="font-medium">Court:</span> {judgement.court} <br/>
-                               <span className="font-medium">Date:</span> {judgement.date}
+                               <span className="font-medium">Date of Judgement:</span> {judgement.date}
                            </p>
                            {/* Display summary */}
                            <p className="text-gray-600 mb-4 flex-grow">

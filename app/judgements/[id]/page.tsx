@@ -1,110 +1,98 @@
-// app/judgements/[id]/page.tsx
-import React from 'react';
-import { BookOpen, ChevronLeft } from 'lucide-react';
+import { notFound } from 'next/navigation';
+import prisma from '@/lib/prisma';
 import Link from 'next/link';
-import prisma from '@/lib/prisma'; // Adjust import path
-import { notFound } from 'next/navigation'; // To handle 404
+import { ChevronLeft, FileText, Calendar, Building2 } from 'lucide-react';
 
-// Define the type based on your Prisma schema
-interface Judgement {
-  id: number;
-  title: string;
-  caseNumber: string;
-  court: string;
-  date: string;
-  summary?: string | null;
-  fullContent: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-// Define the props
-interface JudgementDetailPageProps {
-  params: {
-    id: string; // The dynamic segment [id]
-  };
-}
-
-// Fetch data on the server
-async function getJudgement(id: number): Promise<Judgement | null> {
+// Fetch the data
+async function getJudgement(id: number) {
   try {
-    const judgement = await prisma.judgement.findUnique({
-      where: { id: id },
+    return await prisma.judgement.findUnique({
+      where: { id },
     });
-    // Prisma returns null if not found
-    return judgement;
   } catch (error) {
     console.error(`Error fetching judgement ${id} from DB:`, error);
-    return null; // Or throw an error
+    return null;
   }
 }
 
-// This is a Server Component
-const JudgementDetailPage: React.FC<JudgementDetailPageProps> = async ({ params }) => {
+// This is a SERVER COMPONENT
+export default async function JudgementDetailPage({ params }: { params: { id: string } }) {
   const judgementId = parseInt(params.id, 10);
 
   if (isNaN(judgementId)) {
-     notFound(); // Use Next.js notFound helper for invalid IDs
+    notFound();
   }
 
-  // Fetch the judgement data
   const judgement = await getJudgement(judgementId);
 
-  // Handle case where judgement is not found
   if (!judgement) {
-    notFound(); // Use Next.js notFound helper for 404
+    notFound();
   }
 
-  // Render the full judgement content
   return (
-    <div className="relative bg-gray-50 py-16 md:py-20 min-h-screen">
-      <div className="container mx-auto px-4 max-w-3xl"> {/* Limit max width for readability */}
-
-        {/* Back Button */}
-         <Link href="/judgements" className="inline-flex items-center text-blue-900 hover:underline mb-8">
-             <ChevronLeft size={18} className="mr-1" /> Back to Judgements List
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+      <div className="container mx-auto px-4 py-8 lg:py-16 max-w-7xl">
+        {/* Navigation */}
+        <Link 
+          href="/judgements" 
+          className="inline-flex items-center text-blue-800 hover:text-blue-600 transition-colors duration-300 mb-6 lg:mb-10"
+        >
+          <ChevronLeft size={20} className="mr-2" /> 
+          Back to Judgements List
         </Link>
 
-        <div className="bg-white p-6 md:p-8 rounded-lg shadow-md border-t-4 border-blue-700">
-            <h1 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">{judgement.title}</h1>
+        {/* Judgement Details */}
+        <div className="bg-white rounded-2xl shadow-xl border-t-4 border-blue-700 p-6 md:p-8 lg:p-10 max-w-4xl mx-auto">
+          {/* Title */}
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-900 mb-6 leading-tight">
+            {judgement.title}
+          </h1>
 
-             <p className="text-gray-700 text-sm mb-2">
-                <span className="font-medium">Case No:</span> {judgement.caseNumber}
-            </p>
-            <p className="text-gray-700 text-sm mb-4">
-                <span className="font-medium">Court:</span> {judgement.court} <br/>
-                {/* Format date if needed, storing as string is okay for simple display */}
-                <span className="font-medium">Date:</span> {judgement.date}
-            </p>
-
-            <hr className="my-6 border-gray-200" /> {/* Separator */}
-
-            <div className="prose prose-sm sm:prose lg:prose-lg max-w-none text-gray-800"> {/* Using Tailwind Typography */}
-                {/* Display the full content */}
-                <p className="whitespace-pre-wrap">{judgement.fullContent}</p>
+          {/* Metadata */}
+          <div className="grid md:grid-cols-3 gap-4 mb-8 bg-blue-50 p-5 rounded-lg">
+            <div className="flex items-center space-x-3">
+              <FileText className="text-blue-600 shrink-0" size={24} />
+              <div>
+                <p className="text-sm text-gray-600 font-medium">Case Number</p>
+                <p className="text-lg font-semibold text-blue-900">
+                  {judgement.caseNumber}
+                </p>
+              </div>
             </div>
 
-        </div>
+            <div className="flex items-center space-x-3">
+              <Building2 className="text-blue-600 shrink-0" size={24} />
+              <div>
+                <p className="text-sm text-gray-600 font-medium">Court</p>
+                <p className="text-lg font-semibold text-blue-900">
+                  {judgement.court}
+                </p>
+              </div>
+            </div>
 
+            <div className="flex items-center space-x-3">
+              <Calendar className="text-blue-600 shrink-0" size={24} />
+              <div>
+                <p className="text-sm text-gray-600 font-medium">Date of Judgement</p>
+                <p className="text-lg font-semibold text-blue-900">
+                  {new Date(judgement.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="prose prose-lg max-w-none text-gray-800 space-y-4">
+            <p className="whitespace-pre-wrap leading-relaxed">
+              {judgement.fullContent}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
-};
-
-export default JudgementDetailPage;
-
-// Optional: Generate static params for pre-rendering popular judgements
-// This is only necessary if you want to use generateStaticParams
-// and have a small, known set of popular IDs you want to build at build time.
-// Otherwise, leave this out for dynamic rendering.
-/*
-export async function generateStaticParams() {
-   const judgements = await prisma.judgement.findMany({
-     select: { id: true },
-     take: 10, // Example: pre-render first 10
-   });
-   return judgements.map((judgement) => ({
-     id: judgement.id.toString(),
-   }));
 }
-*/

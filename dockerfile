@@ -2,12 +2,18 @@ FROM node:18-alpine AS base
 
 WORKDIR /app
 
+
 # ---- Dependencies ----
 # Install dependencies based on the preferred package manager
 FROM base AS deps
 # Copy package.json and lock file
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 # Install dependencies (choose one)
+
+
+COPY prisma ./prisma  
+
+
 # RUN yarn install --frozen-lockfile
 RUN npm ci
 # RUN pnpm install --frozen-lockfile

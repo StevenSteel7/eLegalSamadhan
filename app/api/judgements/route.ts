@@ -1,57 +1,58 @@
 // app/api/judgements/route.ts
 import { NextResponse } from 'next/server';
-import prisma from '@/lib/prisma'; // Adjust the import path if necessary
+import prisma from '@/lib/prisma'; // Assuming prisma client is properly set up
 
-// GET /api/judgements - List all judgements (or filtered/paginated)
+// GET /api/judgements - List all judgements (sorted by createdAt DESC)
 export async function GET(request: Request) {
   try {
-    // You can add pagination/filtering logic here later based on query params
     const judgements = await prisma.judgement.findMany({
       orderBy: {
-        date: 'desc', // Example: order by date
+        createdAt: 'desc', // 🔥 Core change: Order by system insertion date
       },
-      // Select specific fields for list view to improve performance
       select: {
         id: true,
         title: true,
         caseNumber: true,
         court: true,
         date: true,
-        summary: true, // Include summary for list
-        // Don't select fullContent here unless needed for search logic
+        summary: true,
+        fullContent: true,  // ⬅️ Optional: Include if your frontend might use fullContent in detail pages or search.
+        createdAt: true,    // ⬅️ Important: Include createdAt so frontend can access
       },
     });
-    return NextResponse.json(judgements);
+
+    return NextResponse.json(judgements, { status: 200 });
   } catch (error) {
-    console.error("Error fetching judgements:", error);
+    console.error('Error fetching judgements:', error);
     return NextResponse.json({ error: 'Failed to fetch judgements' }, { status: 500 });
   }
 }
 
-// POST /api/judgements - Create a new judgement (for admin panel)
+// POST /api/judgements - Create a new judgement (admin side)
 export async function POST(request: Request) {
   try {
- 
     const body = await request.json();
 
-    // Basic validation (you'd want more robust validation)
-    if (!body.title || !body.caseNumber || !body.court || !body.date || !body.fullContent) {
-       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    // Basic input validation
+    const { title, caseNumber, court, date, fullContent, summary } = body;
+    if (!title || !caseNumber || !court || !date || !fullContent) {
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
     const newJudgement = await prisma.judgement.create({
       data: {
-        title: body.title,
-        caseNumber: body.caseNumber,
-        court: body.court,
-        date: body.date, // Assuming date is sent as string
-        summary: body.summary || body.fullContent.substring(0, 150) + '...', // Auto-generate summary if not provided
-        fullContent: body.fullContent,
+        title,
+        caseNumber,
+        court,
+        date, // Date is user-provided (filing date, etc.)
+        fullContent,
+        summary: summary || fullContent.substring(0, 150) + '...', // Auto-generate summary fallback
       },
     });
+
     return NextResponse.json(newJudgement, { status: 201 }); // 201 Created
   } catch (error) {
-     console.error("Error creating judgement:", error);
-     return NextResponse.json({ error: 'Failed to create judgement' }, { status: 500 });
+    console.error('Error creating judgement:', error);
+    return NextResponse.json({ error: 'Failed to create judgement' }, { status: 500 });
   }
 }
