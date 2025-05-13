@@ -80,17 +80,3 @@ The standard and reliable solution involves using a **Transactional Email Servic
 
 
 
-
-
-docker build `
-  --build-arg RESEND_API_KEY_BUILD='re_HojJeuWz_NvZKwCUQviuDkJuV4sQ4kBdc' `
-  -t stevensteel7/elegalsamadhan:vps-build .
-
-
-
-
-
-
-
-
-

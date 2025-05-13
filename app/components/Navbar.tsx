@@ -249,6 +249,12 @@ const NavBar = () => {
                 </div>
               </div>
 
+              <div className="border-b border-blue-800 pb-1">
+                   <Link href="/judgements" onClick={handleMobileLinkClick} className="block py-2 w-full text-left hover:bg-blue-800 rounded"> 
+                     Judgements
+                   </Link>
+               </div>
+
               {/* Registration & Rights */}
               <div className="border-b border-blue-800 pb-1">
                 <button

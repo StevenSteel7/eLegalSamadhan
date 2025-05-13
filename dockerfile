@@ -1,70 +1,47 @@
-FROM node:18-alpine AS base
-
-WORKDIR /app
-
-# ---- Dependencies ----
-# Install dependencies based on the preferred package manager
-FROM base AS deps
-# Copy package.json and lock file
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
-# Install dependencies (choose one)
 
 
-COPY prisma ./prisma  
-
-
-# RUN yarn install --frozen-lockfile
 RUN npm ci
-# RUN pnpm install --frozen-lockfile
 
 # ---- Builder ----
-# Rebuild the source code only when needed
 FROM base AS builder
 ARG RESEND_API_KEY_BUILD
 ENV RESEND_API_KEY=$RESEND_API_KEY_BUILD
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
+COPY --from=deps /app/prisma ./prisma
 COPY . .
 
 RUN npm run build
-# RUN pnpm build
 
 # ---- Runner ----
-# Production image, copy only the artifacts we need from the builder stage
 FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
 
-# Uncomment the following line in case you want to disable telemetry during runtime.
-# ENV NEXT_TELEMETRY_DISABLED 1
+# Create a directory for Prisma data and ensure it exists
+RUN mkdir -p /app/prisma/data && chmod 777 /app/prisma/data
 
-# Set user and group for security (optional but recommended)
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
-USER nextjs
+# Copy Prisma from builder
+COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 
-# --- Option 1: If NOT using `output: 'standalone'` ---
-# Copy necessary files from the builder stage
-# COPY --from=builder /app/public ./public
-# COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
-# COPY --from=builder /app/node_modules ./node_modules
-# COPY --from=builder /app/package.json ./package.json
+# Copy the startup script
+COPY --from=builder /app/startup.sh ./startup.sh
+RUN chmod +x ./startup.sh
 
-# --- Option 2: If using `output: 'standalone'` in next.config.js (Recommended) ---
-# Copy the standalone output
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-# Copy the static assets (if needed, often served by standalone server)
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-# Copy public assets (if you have them)
-COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+# Copy standalone output
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public
 
-# Expose the port the app runs on (default is 3000)
+# Expose the port
 EXPOSE 3000
 
-# Set the correct host (0.0.0.0 is important inside Docker)
+# Set the environment variables
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-# Command to run the app (uses the server.js in the standalone output)
-CMD ["node", "server.js"]
+# Important: Run as root to ensure we can create the database file
+# The startup script will handle database initialization
+ENTRYPOINT ["./startup.sh"]
