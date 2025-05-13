@@ -1,6 +1,6 @@
-// prisma/seed.ts
+// prisma/seed.js
 import { PrismaClient } from '@prisma/client';
-import { hashPassword } from '../lib/password'; // Adjust path if needed
+import { hashPassword } from '../lib/password.js'; // Adjust path if needed
 
 const prisma = new PrismaClient();
 
