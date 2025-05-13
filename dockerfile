@@ -2,7 +2,6 @@ FROM node:18-alpine AS base
 
 WORKDIR /app
 
-
 # ---- Dependencies ----
 # Install dependencies based on the preferred package manager
 FROM base AS deps

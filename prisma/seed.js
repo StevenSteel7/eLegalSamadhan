@@ -1,7 +1,7 @@
 // prisma/seed.js
-import { PrismaClient } from '@prisma/client';
-import { hashPassword } from '../lib/password.js'; // Adjust path if needed
-
+const { PrismaClient } = require('@prisma/client');
+const bcrypt = require('bcryptjs');
+const { hashPassword } = require('../lib/password.js'); // Adjust the path as necessary
 const prisma = new PrismaClient();
 
 async function main() {
